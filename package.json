@@ -16,5 +16,8 @@
     "typescript": "^2.7.2",
     "webpack": "^3.11.0",
     "yargs": "^11.0.0"
+  },
+  "dependencies": {
+    "moment": "^2.20.1"
   }
 }
