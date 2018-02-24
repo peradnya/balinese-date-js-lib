@@ -10,6 +10,19 @@ export class Dasawara {
     public static readonly DEWA = new Dasawara(8, 9, 'Dewa');
     public static readonly RAKSASA = new Dasawara(9, 1, 'Raksasa');
 
+    public static readonly lookup = [
+        Dasawara.PANDITA,
+        Dasawara.PATI,
+        Dasawara.SUKA,
+        Dasawara.DUKA,
+        Dasawara.SRI,
+        Dasawara.MANUH,
+        Dasawara.MANUSA,
+        Dasawara.RAJA,
+        Dasawara.DEWA,
+        Dasawara.RAKSASA,
+    ];
+
     private constructor(
         public readonly id: number,
         public readonly urip: number,

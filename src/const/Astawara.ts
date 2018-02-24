@@ -8,6 +8,17 @@ export class Astawara {
     public static readonly KALA = new Astawara(6, 1, 'Kala');
     public static readonly UMA = new Astawara(7, 4, 'Uma');
 
+    public static readonly lookup = [
+        Astawara.SRI,
+        Astawara.INDRA,
+        Astawara.GURU,
+        Astawara.YAMA,
+        Astawara.LUDRA,
+        Astawara.BRAHMA,
+        Astawara.KALA,
+        Astawara.UMA,
+    ];
+
     private constructor(
         public readonly id: number,
         public readonly urip: number,

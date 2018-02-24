@@ -6,5 +6,14 @@ export class Jejapan {
     public static readonly WONG = new Jejapan(4, 'Wong');
     public static readonly PAKSI = new Jejapan(5, 'Paksi');
 
+    public static readonly lookup = [
+        Jejapan.MINA,
+        Jejapan.TARU,
+        Jejapan.SATO,
+        Jejapan.PATRA,
+        Jejapan.WONG,
+        Jejapan.PAKSI,
+    ];
+
     private constructor(public readonly id: number, public readonly name: string) { }
 }

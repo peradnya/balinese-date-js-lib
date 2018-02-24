@@ -4,6 +4,13 @@ export class Caturwara {
     public static readonly JAYA = new Caturwara(2, 1, 'Jaya');
     public static readonly MENALA = new Caturwara(3, 8, 'Menala');
 
+    public static readonly lookup = [
+        Caturwara.SRI,
+        Caturwara.LABA,
+        Caturwara.JAYA,
+        Caturwara.MENALA,
+    ];
+
     private constructor(
         public readonly id: number,
         public readonly urip: number,

@@ -7,10 +7,20 @@ export class Saptawara {
     public static readonly SUKRA = new Saptawara(5, 6, 7, 1, 'Sukra');
     public static readonly SANISCARA = new Saptawara(6, 9, 8, 2, 'Saniscara');
 
+    public static readonly lookup = [
+        Saptawara.REDITE,
+        Saptawara.SOMA,
+        Saptawara.ANGGARA,
+        Saptawara.BUDA,
+        Saptawara.WRESPATI,
+        Saptawara.SUKRA,
+        Saptawara.SANISCARA,
+    ];
+
     private constructor(
         public readonly id: number,
         public readonly urip: number,
         public readonly kertaaji: number,
-        public readonly rakam: number,
+        public readonly kupih: number,
         public readonly name: string) { }
 }

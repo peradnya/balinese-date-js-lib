@@ -35,5 +35,43 @@ export class Lintang {
     public static readonly UDANG = new Lintang(33, 'Udang');
     public static readonly BEGOONG = new Lintang(34, 'Begoong');
 
+    public static readonly lookup = [
+        Lintang.GAJAH,
+        Lintang.KIRIMAN,
+        Lintang.PERAHU_SARAT,
+        Lintang.TIWA_TIWA,
+        Lintang.SANGKA_TIKEL,
+        Lintang.BUBU_BOLONG,
+        Lintang.SUNGENGE,
+        Lintang.ULUKU,
+        Lintang.PEDATI,
+        Lintang.KUDA,
+        Lintang.GAJAH_MINA,
+        Lintang.BADE,
+        Lintang.MANGELUT,
+        Lintang.PAGELANGAN,
+        Lintang.KALA_SUNGSANG,
+        Lintang.KUKUS,
+        Lintang.ASU,
+        Lintang.KARTIKA,
+        Lintang.NAGA,
+        Lintang.ANGSA_ANGREM,
+        Lintang.PANAH,
+        Lintang.PATREM,
+        Lintang.LEMBU,
+        Lintang.DEPAT,
+        Lintang.TANGIS,
+        Lintang.SALAH_UKUR,
+        Lintang.PERAHU_PEGAT,
+        Lintang.PUWUH_ATARUNG,
+        Lintang.LAWEAN,
+        Lintang.KELAPA,
+        Lintang.YUYU,
+        Lintang.LUMBUNG,
+        Lintang.KUMBA,
+        Lintang.UDANG,
+        Lintang.BEGOONG,
+    ];
+
     private constructor(public readonly id: number, public readonly name: string) { }
 }

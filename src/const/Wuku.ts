@@ -30,6 +30,39 @@ export class Wuku {
     public static readonly DUKUT        = new Wuku(28, 5, 'Dukut');
     public static readonly WATUGUNUNG   = new Wuku(29, 8, 'Watugunung');
 
+    public static readonly lookup = [
+        Wuku.SINTA,
+        Wuku.LANDEP,
+        Wuku.UKIR,
+        Wuku.KULANTIR,
+        Wuku.TOLU,
+        Wuku.GUMBREG,
+        Wuku.WARIGA,
+        Wuku.WARIGADEAN,
+        Wuku.JULUNGWANGI,
+        Wuku.SUNGSANG,
+        Wuku.DUNGULAN,
+        Wuku.KUNINGAN,
+        Wuku.LANGKIR,
+        Wuku.MEDANGSIA,
+        Wuku.PUJUD,
+        Wuku.PAHANG,
+        Wuku.KRULUT,
+        Wuku.MERAKIH,
+        Wuku.TAMBIR,
+        Wuku.MEDANGKUNGAN,
+        Wuku.MATAL,
+        Wuku.UYE,
+        Wuku.MENAIL,
+        Wuku.PRANGBAKAT,
+        Wuku.BALA,
+        Wuku.UGU,
+        Wuku.WAYANG,
+        Wuku.KLAWU,
+        Wuku.DUKUT,
+        Wuku.WATUGUNUNG,
+    ];
+
     private constructor(
         public readonly id: number,
         public readonly urip: number,

@@ -5,5 +5,13 @@ export class PewatekanMadya {
     public static readonly BUTA = new PewatekanMadya(3, 'Buta');
     public static readonly SUKU = new PewatekanMadya(4, 'Suku');
 
+    public static readonly lookup = [
+        PewatekanMadya.WONG,
+        PewatekanMadya.GAJAH,
+        PewatekanMadya.WATU,
+        PewatekanMadya.BUTA,
+        PewatekanMadya.SUKU,
+    ];
+
     private constructor(public readonly id: number, public readonly name: string) { }
 }

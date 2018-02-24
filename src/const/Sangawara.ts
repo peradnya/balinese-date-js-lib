@@ -9,6 +9,18 @@ export class Sangawara {
     public static readonly TULUS = new Sangawara(7, 6, 'Tulus');
     public static readonly DADI = new Sangawara(8, 8, 'Dadi');
 
+    public static readonly lookup = [
+        Sangawara.DANGU,
+        Sangawara.JANGUR,
+        Sangawara.GIGIS,
+        Sangawara.NOHAN,
+        Sangawara.OGAN,
+        Sangawara.ERANGAN,
+        Sangawara.URUNGAN,
+        Sangawara.TULUS,
+        Sangawara.DADI,
+    ];
+
     private constructor(
         public readonly id: number,
         public readonly urip: number,

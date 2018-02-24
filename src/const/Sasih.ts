@@ -23,6 +23,29 @@ export class Sasih {
     public static readonly NAMPIH_KARO = new Sasih(18, 'Nampih Karo');
     public static readonly NAMPIH_SADHA = new Sasih(19, 'Nampih Sadha');
 
+    public static readonly lookup = [
+        Sasih.KASA,
+        Sasih.KARO,
+        Sasih.KATIGA,
+        Sasih.KAPAT,
+        Sasih.KALIMA,
+        Sasih.KANEM,
+        Sasih.KAPITU,
+        Sasih.KAWOLU,
+        Sasih.KASANGA,
+        Sasih.KADASA,
+        Sasih.DESTHA,
+        Sasih.SADHA,
+        Sasih.MALA_DESTHA,
+        Sasih.MALA_SADHA,
+        Sasih.NAMPIH_DESTHA,
+        Sasih.NAMPIH_KATIGA,
+        Sasih.NAMPIH_KASA,
+        Sasih.NAMPIH_KADASA,
+        Sasih.NAMPIH_KARO,
+        Sasih.NAMPIH_SADHA,
+    ];
+
     private constructor(public readonly id: number, public readonly name: string) { }
 
 }

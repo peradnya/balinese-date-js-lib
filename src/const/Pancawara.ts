@@ -5,6 +5,14 @@ export class Pancawara {
     public static readonly KLIWON = new Pancawara(3, 8, 1, 'Kliwon');
     public static readonly UMANIS = new Pancawara(4, 5, 2, 'Umanis');
 
+    public static readonly lookup = [
+        Pancawara.PAING,
+        Pancawara.PON,
+        Pancawara.WAGE,
+        Pancawara.KLIWON,
+        Pancawara.UMANIS,
+    ];
+
     private constructor(
         public readonly id: number,
         public readonly urip: number,

@@ -6,6 +6,15 @@ export class Sadwara {
     public static readonly WAS = new Sadwara(4, 9, 'Was');
     public static readonly MAULU = new Sadwara(5, 3, 'Maulu');
 
+    public static readonly lookup = [
+        Sadwara.TUNGLEH,
+        Sadwara.ARYANG,
+        Sadwara.URUKUNG,
+        Sadwara.PANIRON,
+        Sadwara.WAS,
+        Sadwara.MAULU,
+    ];
+
     private constructor(
         public readonly id: number,
         public readonly urip: number,

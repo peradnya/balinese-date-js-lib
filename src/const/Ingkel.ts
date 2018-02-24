@@ -6,5 +6,14 @@ export class Ingkel {
     public static readonly TARU = new Ingkel(4, 'Taru');
     public static readonly BUKU = new Ingkel(5, 'Buku');
 
+    public static readonly lookup = [
+        Ingkel.WONG,
+        Ingkel.SATO,
+        Ingkel.MINA,
+        Ingkel.MANUK,
+        Ingkel.TARU,
+        Ingkel.BUKU,
+    ];
+
     private constructor(public readonly id: number, public readonly name: string) { }
 }

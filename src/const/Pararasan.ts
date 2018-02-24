@@ -10,5 +10,18 @@ export class Pararasan {
     public static readonly LAKU_API = new Pararasan(8, 'Laku Api');
     public static readonly LAKU_ANGIN = new Pararasan(9, 'Laku Angin');
 
+    public static readonly lookup = [
+        Pararasan.LAKU_PANDITA_SAKTI,
+        Pararasan.ARAS_TUDING,
+        Pararasan.ARAS_KEMBANG,
+        Pararasan.LAKU_BINTANG,
+        Pararasan.LAKU_BULAN,
+        Pararasan.LAKU_SURYA,
+        Pararasan.LAKU_AIR,
+        Pararasan.LAKU_BUMI,
+        Pararasan.LAKU_API,
+        Pararasan.LAKU_ANGIN,
+    ];
+
     private constructor(public readonly id: number, public readonly name: string) { }
 }
