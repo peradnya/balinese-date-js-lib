@@ -1,65 +1,8 @@
 import * as BalineseDateConst from "./const";
 
 export class BalineseDatePawukon {
-    private readonly urip: number;
 
-    private readonly wuku: Readonly<BalineseDateConst.Wuku>;
-
-    private readonly ekawara: Readonly<BalineseDateConst.Ekawara>;
-    private readonly dwiwara: Readonly<BalineseDateConst.Dwiwara>;
-    private readonly triwara: Readonly<BalineseDateConst.Triwara>;
-    private readonly caturwara: Readonly<BalineseDateConst.Caturwara>;
-    private readonly pancawara: Readonly<BalineseDateConst.Pancawara>;
-    private readonly sadwara: Readonly<BalineseDateConst.Sadwara>;
-    private readonly saptawara: Readonly<BalineseDateConst.Saptawara>;
-    private readonly astawara: Readonly<BalineseDateConst.Astawara>;
-    private readonly sangawara: Readonly<BalineseDateConst.Sangawara>;
-    private readonly dasawara: Readonly<BalineseDateConst.Dasawara>;
-
-    private readonly ingkel: Readonly<BalineseDateConst.Ingkel>;
-    private readonly jejapan: Readonly<BalineseDateConst.Jejapan>;
-    private readonly watekAlit: Readonly<BalineseDateConst.PewatekanAlit>;
-    private readonly watekMadya: Readonly<BalineseDateConst.PewatekanMadya>;
-    private readonly lintang: Readonly<BalineseDateConst.Lintang>;
-    private readonly pancasuda: Readonly<BalineseDateConst.Pancasuda>;
-    private readonly pararasan: Readonly<BalineseDateConst.Pararasan>;
-    private readonly rakam: Readonly<BalineseDateConst.Rakam>;
-
-    public constructor(private readonly pawukonDayInYear: number) {
-        if (pawukonDayInYear >= BalineseDateConst.DAYS_IN_YEAR_PAWUKON ||
-            pawukonDayInYear < 0) {
-            throw Error("Invalid day in year value. Value need in between 0 - 209.");
-        }
-
-        this.wuku = BalineseDateConst.Wuku.values[pawukonDayInYear / 7];
-
-        this.triwara = BalineseDateConst.Triwara.values[pawukonDayInYear % 3];
-        this.pancawara = BalineseDateConst.Pancawara.values[pawukonDayInYear % 5];
-        this.sadwara = BalineseDateConst.Sadwara.values[pawukonDayInYear % 6];
-        this.saptawara = BalineseDateConst.Saptawara.values[pawukonDayInYear % 7];
-
-        this.urip = this.pancawara.urip + this.saptawara.urip;
-        this.ekawara = BalineseDateConst.Ekawara.values[this.urip % 2];
-        this.dwiwara = BalineseDateConst.Dwiwara.values[this.urip % 2];
-        this.dasawara = BalineseDateConst.Dasawara.values[this.urip % 10];
-
-        this.caturwara = BalineseDateConst.Caturwara.values[this.calcCaturwaraIdx(pawukonDayInYear)];
-        this.astawara = BalineseDateConst.Astawara.values[this.calcAstawaraIdx(pawukonDayInYear)];
-        this.sangawara = BalineseDateConst.Sangawara.values[this.calcSangawaraIdx(pawukonDayInYear)];
-
-        this.ingkel = BalineseDateConst.Ingkel.values[this.wuku.id % 6];
-        this.jejapan = BalineseDateConst.Jejapan.values[pawukonDayInYear % 6];
-        this.lintang = BalineseDateConst.Lintang.values[pawukonDayInYear % 35];
-
-        this.watekAlit = BalineseDateConst.PewatekanAlit.values[this.urip % 4];
-        this.watekMadya = BalineseDateConst.PewatekanMadya.values[this.urip % 5];
-        this.pararasan = BalineseDateConst.Pararasan.values[this.urip % 10];
-
-        this.pancasuda = BalineseDateConst.Pancasuda.values[(this.saptawara.kertaaji + this.pancawara.urip) % 7];
-        this.rakam = BalineseDateConst.Rakam.values[(this.saptawara.kupih + this.pancawara.kupih) % 6];
-    }
-
-    private calcCaturwaraIdx(pawukonDayInYear: number): number {
+    private static calcCaturwaraIdx(pawukonDayInYear: number): number {
         let idx = 0;
         if (pawukonDayInYear <= 70) {
             idx = pawukonDayInYear % 4;
@@ -72,7 +15,7 @@ export class BalineseDatePawukon {
         return idx;
     }
 
-    private calcAstawaraIdx(pawukonDayInYear: number): number {
+    private static calcAstawaraIdx(pawukonDayInYear: number): number {
         let idx = 0;
         if (pawukonDayInYear <= 70) {
             idx = pawukonDayInYear % 8;
@@ -85,7 +28,7 @@ export class BalineseDatePawukon {
         return idx;
     }
 
-    private calcSangawaraIdx(pawukonDayInYear: number): number {
+    private static calcSangawaraIdx(pawukonDayInYear: number): number {
         let idx = 0;
         if (pawukonDayInYear <= 3) {
             idx = BalineseDateConst.Sangawara.DANGU.id;
@@ -95,4 +38,86 @@ export class BalineseDatePawukon {
 
         return idx;
     }
+
+    private readonly nUrip: number;
+
+    private readonly oWuku: Readonly<BalineseDateConst.Wuku>;
+
+    private readonly oEkawara: Readonly<BalineseDateConst.Ekawara>;
+    private readonly oDwiwara: Readonly<BalineseDateConst.Dwiwara>;
+    private readonly oTriwara: Readonly<BalineseDateConst.Triwara>;
+    private readonly oCaturwara: Readonly<BalineseDateConst.Caturwara>;
+    private readonly oPancawara: Readonly<BalineseDateConst.Pancawara>;
+    private readonly oSadwara: Readonly<BalineseDateConst.Sadwara>;
+    private readonly oSaptawara: Readonly<BalineseDateConst.Saptawara>;
+    private readonly oAstawara: Readonly<BalineseDateConst.Astawara>;
+    private readonly oSangawara: Readonly<BalineseDateConst.Sangawara>;
+    private readonly oDasawara: Readonly<BalineseDateConst.Dasawara>;
+
+    private readonly oIngkel: Readonly<BalineseDateConst.Ingkel>;
+    private readonly oJejapan: Readonly<BalineseDateConst.Jejapan>;
+    private readonly oWatekAlit: Readonly<BalineseDateConst.PewatekanAlit>;
+    private readonly oWatekMadya: Readonly<BalineseDateConst.PewatekanMadya>;
+    private readonly oLintang: Readonly<BalineseDateConst.Lintang>;
+    private readonly oPancasuda: Readonly<BalineseDateConst.Pancasuda>;
+    private readonly oPararasan: Readonly<BalineseDateConst.Pararasan>;
+    private readonly oRakam: Readonly<BalineseDateConst.Rakam>;
+
+    public constructor(private readonly nPawukonDayInYear: number) {
+        if (nPawukonDayInYear >= BalineseDateConst.DAYS_IN_YEAR_PAWUKON ||
+            nPawukonDayInYear < 0) {
+            throw Error("Invalid day in year value. Value need in between 0 - 209.");
+        }
+
+        this.oWuku = BalineseDateConst.Wuku.values[nPawukonDayInYear / 7];
+
+        this.oTriwara = BalineseDateConst.Triwara.values[nPawukonDayInYear % 3];
+        this.oPancawara = BalineseDateConst.Pancawara.values[nPawukonDayInYear % 5];
+        this.oSadwara = BalineseDateConst.Sadwara.values[nPawukonDayInYear % 6];
+        this.oSaptawara = BalineseDateConst.Saptawara.values[nPawukonDayInYear % 7];
+
+        this.nUrip = this.oPancawara.urip + this.oSaptawara.urip;
+        this.oEkawara = BalineseDateConst.Ekawara.values[this.nUrip % 2];
+        this.oDwiwara = BalineseDateConst.Dwiwara.values[this.nUrip % 2];
+        this.oDasawara = BalineseDateConst.Dasawara.values[this.nUrip % 10];
+
+        this.oCaturwara = BalineseDateConst.Caturwara.values[BalineseDatePawukon.calcCaturwaraIdx(nPawukonDayInYear)];
+        this.oAstawara = BalineseDateConst.Astawara.values[BalineseDatePawukon.calcAstawaraIdx(nPawukonDayInYear)];
+        this.oSangawara = BalineseDateConst.Sangawara.values[BalineseDatePawukon.calcSangawaraIdx(nPawukonDayInYear)];
+
+        this.oIngkel = BalineseDateConst.Ingkel.values[this.oWuku.id % 6];
+        this.oJejapan = BalineseDateConst.Jejapan.values[nPawukonDayInYear % 6];
+        this.oLintang = BalineseDateConst.Lintang.values[nPawukonDayInYear % 35];
+
+        this.oWatekAlit = BalineseDateConst.PewatekanAlit.values[this.nUrip % 4];
+        this.oWatekMadya = BalineseDateConst.PewatekanMadya.values[this.nUrip % 5];
+        this.oPararasan = BalineseDateConst.Pararasan.values[this.nUrip % 10];
+
+        this.oPancasuda = BalineseDateConst.Pancasuda.values[(this.oSaptawara.kertaaji + this.oPancawara.urip) % 7];
+        this.oRakam = BalineseDateConst.Rakam.values[(this.oSaptawara.kupih + this.oPancawara.kupih) % 6];
+    }
+
+    public get urip(): number { return this.nUrip; }
+    public get wuku(): Readonly<BalineseDateConst.Wuku> { return this.oWuku; }
+
+    public get ekawara(): Readonly<BalineseDateConst.Ekawara> { return this.oEkawara; }
+    public get dwiwara(): Readonly<BalineseDateConst.Dwiwara> { return this.oDwiwara; }
+    public get triwara(): Readonly<BalineseDateConst.Triwara> { return this.oTriwara; }
+    public get caturwara(): Readonly<BalineseDateConst.Caturwara> { return this.oCaturwara; }
+    public get pancawara(): Readonly<BalineseDateConst.Pancawara> { return this.oPancawara; }
+    public get sadwara(): Readonly<BalineseDateConst.Sadwara> { return this.oSadwara; }
+    public get saptawara(): Readonly<BalineseDateConst.Saptawara> { return this.oSaptawara; }
+    public get astawara(): Readonly<BalineseDateConst.Astawara> { return this.oAstawara; }
+    public get sangawara(): Readonly<BalineseDateConst.Sangawara> { return this.oSangawara; }
+    public get dasawara(): Readonly<BalineseDateConst.Dasawara> { return this.oDasawara; }
+
+    public get ingkel(): Readonly<BalineseDateConst.Ingkel> { return this.oIngkel; }
+    public get jejapan(): Readonly<BalineseDateConst.Jejapan> { return this.oJejapan; }
+    public get watekAlit(): Readonly<BalineseDateConst.PewatekanAlit> { return this.oWatekAlit; }
+    public get watekMadya(): Readonly<BalineseDateConst.PewatekanMadya> { return this.oWatekMadya; }
+    public get lintang(): Readonly<BalineseDateConst.Lintang> { return this.oLintang; }
+    public get pancasuda(): Readonly<BalineseDateConst.Pancasuda> { return this.oPancasuda; }
+    public get pararasan(): Readonly<BalineseDateConst.Pararasan> { return this.oPararasan; }
+    public get rakam(): Readonly<BalineseDateConst.Rakam> { return this.oRakam; }
+
 }
