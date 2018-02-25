@@ -1,51 +1,61 @@
 export class Sasih {
-    // Standard
-    public static readonly KASA = new Sasih(0, 'Kasa');
-    public static readonly KARO = new Sasih(1, 'Karo');
-    public static readonly KATIGA = new Sasih(2, 'Katiga');
-    public static readonly KAPAT = new Sasih(3, 'Kapat');
-    public static readonly KALIMA = new Sasih(4, 'Kalima');
-    public static readonly KANEM = new Sasih(5, 'Kanem');
-    public static readonly KAPITU = new Sasih(6, 'Kapitu');
-    public static readonly KAWOLU = new Sasih(7, 'Kawolu');
-    public static readonly KASANGA = new Sasih(8, 'Kasanga');
-    public static readonly KADASA = new Sasih(9, 'Kadasa');
-    public static readonly DESTHA = new Sasih(10, 'Destha');
-    public static readonly SADHA = new Sasih(11, 'Sadha');
+    private static readonly aValues = Object.freeze([
+        Object.freeze(new Sasih(0, "Kasa")),
+        Object.freeze(new Sasih(1, "Karo")),
+        Object.freeze(new Sasih(2, "Katiga")),
+        Object.freeze(new Sasih(3, "Kapat")),
+        Object.freeze(new Sasih(4, "Kalima")),
+        Object.freeze(new Sasih(5, "Kanem")),
+        Object.freeze(new Sasih(6, "Kapitu")),
+        Object.freeze(new Sasih(7, "Kawolu")),
+        Object.freeze(new Sasih(8, "Kasanga")),
+        Object.freeze(new Sasih(9, "Kadasa")),
+        Object.freeze(new Sasih(10, "Destha")),
+        Object.freeze(new Sasih(11, "Sadha")),
+        Object.freeze(new Sasih(12, "Mala Destha")),
+        Object.freeze(new Sasih(13, "Mala Sadha")),
+        Object.freeze(new Sasih(14, "Nampih Destha")),
+        Object.freeze(new Sasih(15, "Nampih Katiga")),
+        Object.freeze(new Sasih(16, "Nampih Kasa")),
+        Object.freeze(new Sasih(17, "Nampih Kadasa")),
+        Object.freeze(new Sasih(18, "Nampih Karo")),
+        Object.freeze(new Sasih(19, "Nampih Sadha")),
+    ]);
 
-    // Nampih/Mala Sasih
-    public static readonly MALA_DESTHA = new Sasih(12, 'Mala Destha');
-    public static readonly MALA_SADHA = new Sasih(13, 'Mala Sadha');
-    public static readonly NAMPIH_DESTHA = new Sasih(14, 'Nampih Destha');
-    public static readonly NAMPIH_KATIGA = new Sasih(15, 'Nampih Katiga');
-    public static readonly NAMPIH_KASA = new Sasih(16, 'Nampih Kasa');
-    public static readonly NAMPIH_KADASA = new Sasih(17, 'Nampih Kadasa');
-    public static readonly NAMPIH_KARO = new Sasih(18, 'Nampih Karo');
-    public static readonly NAMPIH_SADHA = new Sasih(19, 'Nampih Sadha');
+    public static get KASA(): Readonly<Sasih> { return Sasih.aValues[0]; }
+    public static get KARO(): Readonly<Sasih> { return Sasih.aValues[1]; }
+    public static get KATIGA(): Readonly<Sasih> { return Sasih.aValues[2]; }
+    public static get KAPAT(): Readonly<Sasih> { return Sasih.aValues[3]; }
+    public static get KALIMA(): Readonly<Sasih> { return Sasih.aValues[4]; }
+    public static get KANEM(): Readonly<Sasih> { return Sasih.aValues[5]; }
+    public static get KAPITU(): Readonly<Sasih> { return Sasih.aValues[6]; }
+    public static get KAWOLU(): Readonly<Sasih> { return Sasih.aValues[7]; }
+    public static get KASANGA(): Readonly<Sasih> { return Sasih.aValues[8]; }
+    public static get KADASA(): Readonly<Sasih> { return Sasih.aValues[9]; }
+    public static get DESTHA(): Readonly<Sasih> { return Sasih.aValues[10]; }
+    public static get SADHA(): Readonly<Sasih> { return Sasih.aValues[11]; }
+    public static get MALA_DESTHA(): Readonly<Sasih> { return Sasih.aValues[12]; }
+    public static get MALA_SADHA(): Readonly<Sasih> { return Sasih.aValues[13]; }
+    public static get NAMPIH_DESTHA(): Readonly<Sasih> { return Sasih.aValues[14]; }
+    public static get NAMPIH_KATIGA(): Readonly<Sasih> { return Sasih.aValues[15]; }
+    public static get NAMPIH_KASA(): Readonly<Sasih> { return Sasih.aValues[16]; }
+    public static get NAMPIH_KADASA(): Readonly<Sasih> { return Sasih.aValues[17]; }
+    public static get NAMPIH_KARO(): Readonly<Sasih> { return Sasih.aValues[18]; }
+    public static get NAMPIH_SADHA(): Readonly<Sasih> { return Sasih.aValues[19]; }
 
-    public static readonly lookup = [
-        Sasih.KASA,
-        Sasih.KARO,
-        Sasih.KATIGA,
-        Sasih.KAPAT,
-        Sasih.KALIMA,
-        Sasih.KANEM,
-        Sasih.KAPITU,
-        Sasih.KAWOLU,
-        Sasih.KASANGA,
-        Sasih.KADASA,
-        Sasih.DESTHA,
-        Sasih.SADHA,
-        Sasih.MALA_DESTHA,
-        Sasih.MALA_SADHA,
-        Sasih.NAMPIH_DESTHA,
-        Sasih.NAMPIH_KATIGA,
-        Sasih.NAMPIH_KASA,
-        Sasih.NAMPIH_KADASA,
-        Sasih.NAMPIH_KARO,
-        Sasih.NAMPIH_SADHA,
-    ];
+    private constructor(
+        private readonly nId: number,
+        private readonly sName: string) { }
 
-    private constructor(public readonly id: number, public readonly name: string) { }
+    public get id(): number {
+        return this.nId;
+    }
 
+    public get name(): string {
+        return this.sName;
+    }
+
+    public static get values(): ReadonlyArray<Readonly<Sasih>> {
+        return Sasih.aValues;
+    }
 }

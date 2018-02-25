@@ -1,19 +1,33 @@
 export class Jejapan {
-    public static readonly MINA = new Jejapan(0, 'Mina');
-    public static readonly TARU = new Jejapan(1, 'Taru');
-    public static readonly SATO = new Jejapan(2, 'Sato');
-    public static readonly PATRA = new Jejapan(3, 'Patra');
-    public static readonly WONG = new Jejapan(4, 'Wong');
-    public static readonly PAKSI = new Jejapan(5, 'Paksi');
+    private static readonly aValues = Object.freeze([
+        Object.freeze(new Jejapan(0, "Mina")),
+        Object.freeze(new Jejapan(1, "Taru")),
+        Object.freeze(new Jejapan(2, "Sato")),
+        Object.freeze(new Jejapan(3, "Patra")),
+        Object.freeze(new Jejapan(4, "Wong")),
+        Object.freeze(new Jejapan(5, "Paksi")),
+    ]);
 
-    public static readonly lookup = [
-        Jejapan.MINA,
-        Jejapan.TARU,
-        Jejapan.SATO,
-        Jejapan.PATRA,
-        Jejapan.WONG,
-        Jejapan.PAKSI,
-    ];
+    public static get MINA(): Readonly<Jejapan> { return Jejapan.aValues[0]; }
+    public static get TARU(): Readonly<Jejapan> { return Jejapan.aValues[1]; }
+    public static get SATO(): Readonly<Jejapan> { return Jejapan.aValues[2]; }
+    public static get PATRA(): Readonly<Jejapan> { return Jejapan.aValues[3]; }
+    public static get WONG(): Readonly<Jejapan> { return Jejapan.aValues[4]; }
+    public static get PAKSI(): Readonly<Jejapan> { return Jejapan.aValues[5]; }
 
-    private constructor(public readonly id: number, public readonly name: string) { }
+    private constructor(
+        private readonly nId: number,
+        private readonly sName: string) { }
+
+    public get id(): number {
+        return this.nId;
+    }
+
+    public get name(): string {
+        return this.sName;
+    }
+
+    public static get values(): ReadonlyArray<Readonly<Jejapan>> {
+        return Jejapan.aValues;
+    }
 }

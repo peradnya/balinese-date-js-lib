@@ -1,19 +1,33 @@
 export class Rakam {
-    public static readonly NUJU_PATI = new Rakam(0, 'Nuju Pati');
-    public static readonly KALA_TINANTANG = new Rakam(1, 'Kala Tinantang');
-    public static readonly DEMANG_KANDHURUWAN = new Rakam(2, 'Demang Kandhuruwan');
-    public static readonly SANGGAR_WARINGIN = new Rakam(3, 'Sanggar Waringin');
-    public static readonly MANTRI_SINAROJA = new Rakam(4, 'Mantri Sinaroja');
-    public static readonly MACAN_KATAWAN = new Rakam(5, 'Macan Katawan');
+    private static readonly aValues = Object.freeze([
+        Object.freeze(new Rakam(0, "Nuju Pati")),
+        Object.freeze(new Rakam(1, "Kala Tinantang")),
+        Object.freeze(new Rakam(2, "Demang Kandhuruwan")),
+        Object.freeze(new Rakam(3, "Sanggar Waringin")),
+        Object.freeze(new Rakam(4, "Mantri Sinaroja")),
+        Object.freeze(new Rakam(5, "Macan Katawan")),
+    ]);
 
-    public static readonly lookup = [
-        Rakam.NUJU_PATI,
-        Rakam.KALA_TINANTANG,
-        Rakam.DEMANG_KANDHURUWAN,
-        Rakam.SANGGAR_WARINGIN,
-        Rakam.MANTRI_SINAROJA,
-        Rakam.MACAN_KATAWAN,
-    ];
+    public static get NUJU_PATI(): Readonly<Rakam> { return Rakam.aValues[0]; }
+    public static get KALA_TINANTANG(): Readonly<Rakam> { return Rakam.aValues[1]; }
+    public static get DEMANG_KANDHURUWAN(): Readonly<Rakam> { return Rakam.aValues[2]; }
+    public static get SANGGAR_WARINGIN(): Readonly<Rakam> { return Rakam.aValues[3]; }
+    public static get MANTRI_SINAROJA(): Readonly<Rakam> { return Rakam.aValues[4]; }
+    public static get MACAN_KATAWAN(): Readonly<Rakam> { return Rakam.aValues[5]; }
 
-    private constructor(public readonly id: number, public readonly name: string) { }
+    private constructor(
+        private readonly nId: number,
+        private readonly sName: string) { }
+
+    public get id(): number {
+        return this.nId;
+    }
+
+    public get name(): string {
+        return this.sName;
+    }
+
+    public static get values(): ReadonlyArray<Readonly<Rakam>> {
+        return Rakam.aValues;
+    }
 }

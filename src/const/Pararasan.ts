@@ -1,27 +1,41 @@
 export class Pararasan {
-    public static readonly LAKU_PANDITA_SAKTI = new Pararasan(0, 'Laku Pandita Sakti');
-    public static readonly ARAS_TUDING = new Pararasan(1, 'Aras Tuding');
-    public static readonly ARAS_KEMBANG = new Pararasan(2, 'Aras Kembang');
-    public static readonly LAKU_BINTANG = new Pararasan(3, 'Laku Bintang');
-    public static readonly LAKU_BULAN = new Pararasan(4, 'Laku Bulan');
-    public static readonly LAKU_SURYA = new Pararasan(5, 'Laku Surya');
-    public static readonly LAKU_AIR = new Pararasan(6, 'Laku Air');
-    public static readonly LAKU_BUMI = new Pararasan(7, 'Laku Bumi');
-    public static readonly LAKU_API = new Pararasan(8, 'Laku Api');
-    public static readonly LAKU_ANGIN = new Pararasan(9, 'Laku Angin');
+    private static readonly aValues = Object.freeze([
+        Object.freeze(new Pararasan(0, "Laku Pandita Sakti")),
+        Object.freeze(new Pararasan(1, "Aras Tuding")),
+        Object.freeze(new Pararasan(2, "Aras Kembang")),
+        Object.freeze(new Pararasan(3, "Laku Bintang")),
+        Object.freeze(new Pararasan(4, "Laku Bulan")),
+        Object.freeze(new Pararasan(5, "Laku Surya")),
+        Object.freeze(new Pararasan(6, "Laku Air")),
+        Object.freeze(new Pararasan(7, "Laku Bumi")),
+        Object.freeze(new Pararasan(8, "Laku Api")),
+        Object.freeze(new Pararasan(9, "Laku Angin")),
+    ]);
 
-    public static readonly lookup = [
-        Pararasan.LAKU_PANDITA_SAKTI,
-        Pararasan.ARAS_TUDING,
-        Pararasan.ARAS_KEMBANG,
-        Pararasan.LAKU_BINTANG,
-        Pararasan.LAKU_BULAN,
-        Pararasan.LAKU_SURYA,
-        Pararasan.LAKU_AIR,
-        Pararasan.LAKU_BUMI,
-        Pararasan.LAKU_API,
-        Pararasan.LAKU_ANGIN,
-    ];
+    public static get LAKU_PANDITA_SAKTI(): Readonly<Pararasan> { return Pararasan.aValues[0]; }
+    public static get ARAS_TUDING(): Readonly<Pararasan> { return Pararasan.aValues[1]; }
+    public static get ARAS_KEMBANG(): Readonly<Pararasan> { return Pararasan.aValues[2]; }
+    public static get LAKU_BINTANG(): Readonly<Pararasan> { return Pararasan.aValues[3]; }
+    public static get LAKU_BULAN(): Readonly<Pararasan> { return Pararasan.aValues[4]; }
+    public static get LAKU_SURYA(): Readonly<Pararasan> { return Pararasan.aValues[5]; }
+    public static get LAKU_AIR(): Readonly<Pararasan> { return Pararasan.aValues[6]; }
+    public static get LAKU_BUMI(): Readonly<Pararasan> { return Pararasan.aValues[7]; }
+    public static get LAKU_API(): Readonly<Pararasan> { return Pararasan.aValues[8]; }
+    public static get LAKU_ANGIN(): Readonly<Pararasan> { return Pararasan.aValues[9]; }
 
-    private constructor(public readonly id: number, public readonly name: string) { }
+    private constructor(
+        private readonly nId: number,
+        private readonly sName: string) { }
+
+    public get id(): number {
+        return this.nId;
+    }
+
+    public get name(): string {
+        return this.sName;
+    }
+
+    public static get values(): ReadonlyArray<Readonly<Pararasan>> {
+        return Pararasan.aValues;
+    }
 }

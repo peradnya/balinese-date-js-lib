@@ -1,19 +1,33 @@
 export class Ingkel {
-    public static readonly WONG = new Ingkel(0, 'Wong');
-    public static readonly SATO = new Ingkel(1, 'Sato');
-    public static readonly MINA = new Ingkel(2, 'Mina');
-    public static readonly MANUK = new Ingkel(3, 'Manuk');
-    public static readonly TARU = new Ingkel(4, 'Taru');
-    public static readonly BUKU = new Ingkel(5, 'Buku');
+    private static readonly aValues = Object.freeze([
+        Object.freeze(new Ingkel(0, "Wong")),
+        Object.freeze(new Ingkel(1, "Sato")),
+        Object.freeze(new Ingkel(2, "Mina")),
+        Object.freeze(new Ingkel(3, "Manuk")),
+        Object.freeze(new Ingkel(4, "Taru")),
+        Object.freeze(new Ingkel(5, "Buku")),
+    ]);
 
-    public static readonly lookup = [
-        Ingkel.WONG,
-        Ingkel.SATO,
-        Ingkel.MINA,
-        Ingkel.MANUK,
-        Ingkel.TARU,
-        Ingkel.BUKU,
-    ];
+    public static get WONG(): Readonly<Ingkel> { return Ingkel.aValues[0]; }
+    public static get SATO(): Readonly<Ingkel> { return Ingkel.aValues[1]; }
+    public static get MINA(): Readonly<Ingkel> { return Ingkel.aValues[2]; }
+    public static get MANUK(): Readonly<Ingkel> { return Ingkel.aValues[3]; }
+    public static get TARU(): Readonly<Ingkel> { return Ingkel.aValues[4]; }
+    public static get BUKU(): Readonly<Ingkel> { return Ingkel.aValues[5]; }
 
-    private constructor(public readonly id: number, public readonly name: string) { }
+    private constructor(
+        private readonly nId: number,
+        private readonly sName: string) { }
+
+    public get id(): number {
+        return this.nId;
+    }
+
+    public get name(): string {
+        return this.sName;
+    }
+
+    public static get values(): ReadonlyArray<Readonly<Ingkel>> {
+        return Ingkel.aValues;
+    }
 }

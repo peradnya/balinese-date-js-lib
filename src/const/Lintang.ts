@@ -1,77 +1,91 @@
 export class Lintang {
-    public static readonly GAJAH = new Lintang(0, 'Gajah');
-    public static readonly KIRIMAN = new Lintang(1, 'Kiriman');
-    public static readonly PERAHU_SARAT = new Lintang(2, 'Perahu Sarat');
-    public static readonly TIWA_TIWA = new Lintang(3, 'Tiwa Tiwa');
-    public static readonly SANGKA_TIKEL = new Lintang(4, 'Sangka Tikel');
-    public static readonly BUBU_BOLONG = new Lintang(5, 'Bubu Bolong');
-    public static readonly SUNGENGE = new Lintang(6, 'Sungenge');
-    public static readonly ULUKU = new Lintang(7, 'Uluku');
-    public static readonly PEDATI = new Lintang(8, 'Pedati');
-    public static readonly KUDA = new Lintang(9, 'Kuda');
-    public static readonly GAJAH_MINA = new Lintang(10, 'Gajah Mina');
-    public static readonly BADE = new Lintang(11, 'Bade');
-    public static readonly MANGELUT = new Lintang(12, 'Mangelut');
-    public static readonly PAGELANGAN = new Lintang(13, 'Pagelangan');
-    public static readonly KALA_SUNGSANG = new Lintang(14, 'Kala Sungsang');
-    public static readonly KUKUS = new Lintang(15, 'Kukus');
-    public static readonly ASU = new Lintang(16, 'Asu');
-    public static readonly KARTIKA = new Lintang(17, 'Kartika');
-    public static readonly NAGA = new Lintang(18, 'Naga');
-    public static readonly ANGSA_ANGREM = new Lintang(19, 'Angsa Angrem');
-    public static readonly PANAH = new Lintang(20, 'Panah');
-    public static readonly PATREM = new Lintang(21, 'Patrem');
-    public static readonly LEMBU = new Lintang(22, 'Lembu');
-    public static readonly DEPAT = new Lintang(23, 'Depat');
-    public static readonly TANGIS = new Lintang(24, 'Tangis');
-    public static readonly SALAH_UKUR = new Lintang(25, 'Salah Ukur');
-    public static readonly PERAHU_PEGAT = new Lintang(26, 'Perahu Pegat');
-    public static readonly PUWUH_ATARUNG = new Lintang(27, 'Puwuh Atarung');
-    public static readonly LAWEAN = new Lintang(28, 'Lawean');
-    public static readonly KELAPA = new Lintang(29, 'Kelapa');
-    public static readonly YUYU = new Lintang(30, 'Yuyu');
-    public static readonly LUMBUNG = new Lintang(31, 'Lumbung');
-    public static readonly KUMBA = new Lintang(32, 'Kumba');
-    public static readonly UDANG = new Lintang(33, 'Udang');
-    public static readonly BEGOONG = new Lintang(34, 'Begoong');
+    private static readonly aValues = Object.freeze([
+        Object.freeze(new Lintang(0, "Gajah")),
+        Object.freeze(new Lintang(1, "Kiriman")),
+        Object.freeze(new Lintang(2, "Perahu Sarat")),
+        Object.freeze(new Lintang(3, "Tiwa Tiwa")),
+        Object.freeze(new Lintang(4, "Sangka Tikel")),
+        Object.freeze(new Lintang(5, "Bubu Bolong")),
+        Object.freeze(new Lintang(6, "Sungenge")),
+        Object.freeze(new Lintang(7, "Uluku")),
+        Object.freeze(new Lintang(8, "Pedati")),
+        Object.freeze(new Lintang(9, "Kuda")),
+        Object.freeze(new Lintang(10, "Gajah Mina")),
+        Object.freeze(new Lintang(11, "Bade")),
+        Object.freeze(new Lintang(12, "Mangelut")),
+        Object.freeze(new Lintang(13, "Pagelangan")),
+        Object.freeze(new Lintang(14, "Kala Sungsang")),
+        Object.freeze(new Lintang(15, "Kukus")),
+        Object.freeze(new Lintang(16, "Asu")),
+        Object.freeze(new Lintang(17, "Kartika")),
+        Object.freeze(new Lintang(18, "Naga")),
+        Object.freeze(new Lintang(19, "Angsa Angrem")),
+        Object.freeze(new Lintang(20, "Panah")),
+        Object.freeze(new Lintang(21, "Patrem")),
+        Object.freeze(new Lintang(22, "Lembu")),
+        Object.freeze(new Lintang(23, "Depat")),
+        Object.freeze(new Lintang(24, "Tangis")),
+        Object.freeze(new Lintang(25, "Salah Ukur")),
+        Object.freeze(new Lintang(26, "Perahu Pegat")),
+        Object.freeze(new Lintang(27, "Puwuh Atarung")),
+        Object.freeze(new Lintang(28, "Lawean")),
+        Object.freeze(new Lintang(29, "Kelapa")),
+        Object.freeze(new Lintang(30, "Yuyu")),
+        Object.freeze(new Lintang(31, "Lumbung")),
+        Object.freeze(new Lintang(32, "Kumba")),
+        Object.freeze(new Lintang(33, "Udang")),
+        Object.freeze(new Lintang(34, "Begoong")),
+    ]);
 
-    public static readonly lookup = [
-        Lintang.GAJAH,
-        Lintang.KIRIMAN,
-        Lintang.PERAHU_SARAT,
-        Lintang.TIWA_TIWA,
-        Lintang.SANGKA_TIKEL,
-        Lintang.BUBU_BOLONG,
-        Lintang.SUNGENGE,
-        Lintang.ULUKU,
-        Lintang.PEDATI,
-        Lintang.KUDA,
-        Lintang.GAJAH_MINA,
-        Lintang.BADE,
-        Lintang.MANGELUT,
-        Lintang.PAGELANGAN,
-        Lintang.KALA_SUNGSANG,
-        Lintang.KUKUS,
-        Lintang.ASU,
-        Lintang.KARTIKA,
-        Lintang.NAGA,
-        Lintang.ANGSA_ANGREM,
-        Lintang.PANAH,
-        Lintang.PATREM,
-        Lintang.LEMBU,
-        Lintang.DEPAT,
-        Lintang.TANGIS,
-        Lintang.SALAH_UKUR,
-        Lintang.PERAHU_PEGAT,
-        Lintang.PUWUH_ATARUNG,
-        Lintang.LAWEAN,
-        Lintang.KELAPA,
-        Lintang.YUYU,
-        Lintang.LUMBUNG,
-        Lintang.KUMBA,
-        Lintang.UDANG,
-        Lintang.BEGOONG,
-    ];
+    public static get GAJAH(): Readonly<Lintang> { return Lintang.aValues[0]; }
+    public static get KIRIMAN(): Readonly<Lintang> { return Lintang.aValues[1]; }
+    public static get PERAHU_SARAT(): Readonly<Lintang> { return Lintang.aValues[2]; }
+    public static get TIWA_TIWA(): Readonly<Lintang> { return Lintang.aValues[3]; }
+    public static get SANGKA_TIKEL(): Readonly<Lintang> { return Lintang.aValues[4]; }
+    public static get BUBU_BOLONG(): Readonly<Lintang> { return Lintang.aValues[5]; }
+    public static get SUNGENGE(): Readonly<Lintang> { return Lintang.aValues[6]; }
+    public static get ULUKU(): Readonly<Lintang> { return Lintang.aValues[7]; }
+    public static get PEDATI(): Readonly<Lintang> { return Lintang.aValues[8]; }
+    public static get KUDA(): Readonly<Lintang> { return Lintang.aValues[9]; }
+    public static get GAJAH_MINA(): Readonly<Lintang> { return Lintang.aValues[10]; }
+    public static get BADE(): Readonly<Lintang> { return Lintang.aValues[11]; }
+    public static get MANGELUT(): Readonly<Lintang> { return Lintang.aValues[12]; }
+    public static get PAGELANGAN(): Readonly<Lintang> { return Lintang.aValues[13]; }
+    public static get KALA_SUNGSANG(): Readonly<Lintang> { return Lintang.aValues[14]; }
+    public static get KUKUS(): Readonly<Lintang> { return Lintang.aValues[15]; }
+    public static get ASU(): Readonly<Lintang> { return Lintang.aValues[16]; }
+    public static get KARTIKA(): Readonly<Lintang> { return Lintang.aValues[17]; }
+    public static get NAGA(): Readonly<Lintang> { return Lintang.aValues[18]; }
+    public static get ANGSA_ANGREM(): Readonly<Lintang> { return Lintang.aValues[19]; }
+    public static get PANAH(): Readonly<Lintang> { return Lintang.aValues[20]; }
+    public static get PATREM(): Readonly<Lintang> { return Lintang.aValues[21]; }
+    public static get LEMBU(): Readonly<Lintang> { return Lintang.aValues[22]; }
+    public static get DEPAT(): Readonly<Lintang> { return Lintang.aValues[23]; }
+    public static get TANGIS(): Readonly<Lintang> { return Lintang.aValues[24]; }
+    public static get SALAH_UKUR(): Readonly<Lintang> { return Lintang.aValues[25]; }
+    public static get PERAHU_PEGAT(): Readonly<Lintang> { return Lintang.aValues[26]; }
+    public static get PUWUH_ATARUNG(): Readonly<Lintang> { return Lintang.aValues[27]; }
+    public static get LAWEAN(): Readonly<Lintang> { return Lintang.aValues[28]; }
+    public static get KELAPA(): Readonly<Lintang> { return Lintang.aValues[29]; }
+    public static get YUYU(): Readonly<Lintang> { return Lintang.aValues[30]; }
+    public static get LUMBUNG(): Readonly<Lintang> { return Lintang.aValues[31]; }
+    public static get KUMBA(): Readonly<Lintang> { return Lintang.aValues[32]; }
+    public static get UDANG(): Readonly<Lintang> { return Lintang.aValues[33]; }
+    public static get BEGOONG(): Readonly<Lintang> { return Lintang.aValues[34]; }
 
-    private constructor(public readonly id: number, public readonly name: string) { }
+    private constructor(
+        public readonly nId: number,
+        public readonly sName: string) { }
+
+    public get id(): number {
+        return this.nId;
+    }
+
+    public get name(): string {
+        return this.sName;
+    }
+
+    public static get values(): ReadonlyArray<Readonly<Lintang>> {
+        return Lintang.aValues;
+    }
 }

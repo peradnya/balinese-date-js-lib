@@ -1,70 +1,86 @@
 export class Wuku {
-    public static readonly SINTA        = new Wuku( 0, 7, 'Sinta');
-    public static readonly LANDEP       = new Wuku( 1, 1, 'Landep');
-    public static readonly UKIR         = new Wuku( 2, 4, 'Ukir');
-    public static readonly KULANTIR     = new Wuku( 3, 6, 'Kulantir');
-    public static readonly TOLU         = new Wuku( 4, 5, 'Tolu');
-    public static readonly GUMBREG      = new Wuku( 5, 8, 'Gumbreg');
-    public static readonly WARIGA       = new Wuku( 6, 9, 'Wariga');
-    public static readonly WARIGADEAN   = new Wuku( 7, 3, 'Warigadean');
-    public static readonly JULUNGWANGI  = new Wuku( 8, 7, 'Julungwangi');
-    public static readonly SUNGSANG     = new Wuku( 9, 1, 'Sungsang');
-    public static readonly DUNGULAN     = new Wuku(10, 4, 'Dungulan');
-    public static readonly KUNINGAN     = new Wuku(11, 6, 'Kuningan');
-    public static readonly LANGKIR      = new Wuku(12, 5, 'Langkir');
-    public static readonly MEDANGSIA    = new Wuku(13, 8, 'Medangsia');
-    public static readonly PUJUD        = new Wuku(14, 9, 'Pujut');
-    public static readonly PAHANG       = new Wuku(15, 3, 'Pahang');
-    public static readonly KRULUT       = new Wuku(16, 7, 'Krulut');
-    public static readonly MERAKIH      = new Wuku(17, 1, 'Merakih');
-    public static readonly TAMBIR       = new Wuku(18, 4, 'Tambir');
-    public static readonly MEDANGKUNGAN = new Wuku(19, 6, 'Medangkungan');
-    public static readonly MATAL        = new Wuku(20, 5, 'Matal');
-    public static readonly UYE          = new Wuku(21, 8, 'Uye');
-    public static readonly MENAIL       = new Wuku(22, 9, 'Menail');
-    public static readonly PRANGBAKAT   = new Wuku(23, 3, 'Prangbakat');
-    public static readonly BALA         = new Wuku(24, 7, 'Bala');
-    public static readonly UGU          = new Wuku(25, 1, 'Ugu');
-    public static readonly WAYANG       = new Wuku(26, 4, 'Wayang');
-    public static readonly KLAWU        = new Wuku(27, 6, 'Klawu');
-    public static readonly DUKUT        = new Wuku(28, 5, 'Dukut');
-    public static readonly WATUGUNUNG   = new Wuku(29, 8, 'Watugunung');
+    private static readonly aValues = Object.freeze([
+        Object.freeze(new Wuku( 0, 7, "Sinta")),
+        Object.freeze(new Wuku( 1, 1, "Landep")),
+        Object.freeze(new Wuku( 2, 4, "Ukir")),
+        Object.freeze(new Wuku( 3, 6, "Kulantir")),
+        Object.freeze(new Wuku( 4, 5, "Tolu")),
+        Object.freeze(new Wuku( 5, 8, "Gumbreg")),
+        Object.freeze(new Wuku( 6, 9, "Wariga")),
+        Object.freeze(new Wuku( 7, 3, "Warigadean")),
+        Object.freeze(new Wuku( 8, 7, "Julungwangi")),
+        Object.freeze(new Wuku( 9, 1, "Sungsang")),
+        Object.freeze(new Wuku(10, 4, "Dungulan")),
+        Object.freeze(new Wuku(11, 6, "Kuningan")),
+        Object.freeze(new Wuku(12, 5, "Langkir")),
+        Object.freeze(new Wuku(13, 8, "Medangsia")),
+        Object.freeze(new Wuku(14, 9, "Pujut")),
+        Object.freeze(new Wuku(15, 3, "Pahang")),
+        Object.freeze(new Wuku(16, 7, "Krulut")),
+        Object.freeze(new Wuku(17, 1, "Merakih")),
+        Object.freeze(new Wuku(18, 4, "Tambir")),
+        Object.freeze(new Wuku(19, 6, "Medangkungan")),
+        Object.freeze(new Wuku(20, 5, "Matal")),
+        Object.freeze(new Wuku(21, 8, "Uye")),
+        Object.freeze(new Wuku(22, 9, "Menail")),
+        Object.freeze(new Wuku(23, 3, "Prangbakat")),
+        Object.freeze(new Wuku(24, 7, "Bala")),
+        Object.freeze(new Wuku(25, 1, "Ugu")),
+        Object.freeze(new Wuku(26, 4, "Wayang")),
+        Object.freeze(new Wuku(27, 6, "Klawu")),
+        Object.freeze(new Wuku(28, 5, "Dukut")),
+        Object.freeze(new Wuku(29, 8, "Watugunung")),
+    ]);
 
-    public static readonly lookup = [
-        Wuku.SINTA,
-        Wuku.LANDEP,
-        Wuku.UKIR,
-        Wuku.KULANTIR,
-        Wuku.TOLU,
-        Wuku.GUMBREG,
-        Wuku.WARIGA,
-        Wuku.WARIGADEAN,
-        Wuku.JULUNGWANGI,
-        Wuku.SUNGSANG,
-        Wuku.DUNGULAN,
-        Wuku.KUNINGAN,
-        Wuku.LANGKIR,
-        Wuku.MEDANGSIA,
-        Wuku.PUJUD,
-        Wuku.PAHANG,
-        Wuku.KRULUT,
-        Wuku.MERAKIH,
-        Wuku.TAMBIR,
-        Wuku.MEDANGKUNGAN,
-        Wuku.MATAL,
-        Wuku.UYE,
-        Wuku.MENAIL,
-        Wuku.PRANGBAKAT,
-        Wuku.BALA,
-        Wuku.UGU,
-        Wuku.WAYANG,
-        Wuku.KLAWU,
-        Wuku.DUKUT,
-        Wuku.WATUGUNUNG,
-    ];
+    public static get SINTA(): Readonly<Wuku> { return Wuku.aValues[0]; }
+    public static get LANDEP(): Readonly<Wuku> { return Wuku.aValues[1]; }
+    public static get UKIR(): Readonly<Wuku> { return Wuku.aValues[2]; }
+    public static get KULANTIR(): Readonly<Wuku> { return Wuku.aValues[3]; }
+    public static get TOLU(): Readonly<Wuku> { return Wuku.aValues[4]; }
+    public static get GUMBREG(): Readonly<Wuku> { return Wuku.aValues[5]; }
+    public static get WARIGA(): Readonly<Wuku> { return Wuku.aValues[6]; }
+    public static get WARIGADEAN(): Readonly<Wuku> { return Wuku.aValues[7]; }
+    public static get JULUNGWANGI(): Readonly<Wuku> { return Wuku.aValues[8]; }
+    public static get SUNGSANG(): Readonly<Wuku> { return Wuku.aValues[9]; }
+    public static get DUNGULAN(): Readonly<Wuku> { return Wuku.aValues[10]; }
+    public static get KUNINGAN(): Readonly<Wuku> { return Wuku.aValues[11]; }
+    public static get LANGKIR(): Readonly<Wuku> { return Wuku.aValues[12]; }
+    public static get MEDANGSIA(): Readonly<Wuku> { return Wuku.aValues[13]; }
+    public static get PUJUD(): Readonly<Wuku> { return Wuku.aValues[14]; }
+    public static get PAHANG(): Readonly<Wuku> { return Wuku.aValues[15]; }
+    public static get KRULUT(): Readonly<Wuku> { return Wuku.aValues[16]; }
+    public static get MERAKIH(): Readonly<Wuku> { return Wuku.aValues[17]; }
+    public static get TAMBIR(): Readonly<Wuku> { return Wuku.aValues[18]; }
+    public static get MEDANGKUNGAN(): Readonly<Wuku> { return Wuku.aValues[19]; }
+    public static get MATAL(): Readonly<Wuku> { return Wuku.aValues[20]; }
+    public static get UYE(): Readonly<Wuku> { return Wuku.aValues[21]; }
+    public static get MENAIL(): Readonly<Wuku> { return Wuku.aValues[22]; }
+    public static get PRANGBAKAT(): Readonly<Wuku> { return Wuku.aValues[23]; }
+    public static get BALA(): Readonly<Wuku> { return Wuku.aValues[24]; }
+    public static get UGU(): Readonly<Wuku> { return Wuku.aValues[25]; }
+    public static get WAYANG(): Readonly<Wuku> { return Wuku.aValues[26]; }
+    public static get KLAWU(): Readonly<Wuku> { return Wuku.aValues[27]; }
+    public static get DUKUT(): Readonly<Wuku> { return Wuku.aValues[28]; }
+    public static get WATUGUNUNG(): Readonly<Wuku> { return Wuku.aValues[29]; }
 
     private constructor(
-        public readonly id: number,
-        public readonly urip: number,
-        public readonly name: string) { }
+        private readonly nId: number,
+        private readonly nUrip: number,
+        private readonly sName: string) { }
+
+    public get id(): number {
+        return this.nId;
+    }
+
+    public get urip(): number {
+        return this.nUrip;
+    }
+
+    public get name(): string {
+        return this.sName;
+    }
+
+    public static get values(): ReadonlyArray<Readonly<Wuku>> {
+        return Wuku.aValues;
+    }
 }

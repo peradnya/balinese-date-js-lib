@@ -1,21 +1,41 @@
 export class Pancawara {
-    public static readonly PAING = new Pancawara(0, 9, 3, 'Paing');
-    public static readonly PON = new Pancawara(1, 7, 4, 'Pon');
-    public static readonly WAGE = new Pancawara(2, 4, 5, 'Wage');
-    public static readonly KLIWON = new Pancawara(3, 8, 1, 'Kliwon');
-    public static readonly UMANIS = new Pancawara(4, 5, 2, 'Umanis');
+    private static readonly aValues = Object.freeze([
+        Object.freeze(new Pancawara(0, 9, 3, "Paing")),
+        Object.freeze(new Pancawara(1, 7, 4, "Pon")),
+        Object.freeze(new Pancawara(2, 4, 5, "Wage")),
+        Object.freeze(new Pancawara(3, 8, 1, "Kliwon")),
+        Object.freeze(new Pancawara(4, 5, 2, "Umanis")),
+    ]);
 
-    public static readonly lookup = [
-        Pancawara.PAING,
-        Pancawara.PON,
-        Pancawara.WAGE,
-        Pancawara.KLIWON,
-        Pancawara.UMANIS,
-    ];
+    public static get PAING(): Readonly<Pancawara> { return Pancawara.aValues[0]; }
+    public static get PON(): Readonly<Pancawara> { return Pancawara.aValues[1]; }
+    public static get WAGE(): Readonly<Pancawara> { return Pancawara.aValues[2]; }
+    public static get KLIWON(): Readonly<Pancawara> { return Pancawara.aValues[3]; }
+    public static get UMANIS(): Readonly<Pancawara> { return Pancawara.aValues[4]; }
 
     private constructor(
-        public readonly id: number,
-        public readonly urip: number,
-        public readonly kupih: number,
-        public readonly name: string) { }
+        private readonly nId: number,
+        private readonly nUrip: number,
+        private readonly nKupih: number,
+        private readonly sName: string) { }
+
+    public get id(): number {
+        return this.nId;
+    }
+
+    public get urip(): number {
+        return this.nUrip;
+    }
+
+    public get kupih(): number {
+        return this.nKupih;
+    }
+
+    public get name(): string {
+        return this.sName;
+    }
+
+    public static get values(): ReadonlyArray<Readonly<Pancawara>> {
+        return Pancawara.aValues;
+    }
 }
