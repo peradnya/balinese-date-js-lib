@@ -23,6 +23,3 @@ export * from "./Dasawara";
 export * from "./Sasih";
 export * from "./PenanggalInfo";
 export * from "./BalineseDatePivot";
-
-export const NGUNARATRI = 63;
-export const DAYS_IN_YEAR_PAWUKON = 210;

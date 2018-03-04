@@ -2,6 +2,8 @@ import * as BalineseDateConst from "./const";
 
 export class BalineseDatePawukon {
 
+    private static readonly DAYS_IN_YEAR_PAWUKON = 210;
+
     private static calcCaturwaraIdx(pawukonDayInYear: number): number {
         let idx = 0;
         if (pawukonDayInYear <= 70) {
@@ -64,7 +66,7 @@ export class BalineseDatePawukon {
     private readonly oRakam: Readonly<BalineseDateConst.Rakam>;
 
     public constructor(private readonly nPawukonDayInYear: number) {
-        if (nPawukonDayInYear >= BalineseDateConst.DAYS_IN_YEAR_PAWUKON ||
+        if (nPawukonDayInYear >= BalineseDatePawukon.DAYS_IN_YEAR_PAWUKON ||
             nPawukonDayInYear < 0) {
             throw Error("Invalid day in year value. Value need in between 0 - 209.");
         }
