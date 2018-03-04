@@ -3,7 +3,7 @@ var webpack = require('webpack'),
     yargs = require('yargs');
  
 var libraryName = 'balinese-date-js-lib',
-    plugins = [],
+    plugins = [new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)],
     outputFile;
  
 if (yargs.argv.p) {
@@ -24,35 +24,36 @@ var config = {
     ],
     devtool: 'source-map',
     output: {
-        path: path.join(__dirname, '/build-dist'),
+        path: path.join(__dirname, '/build'),
         filename: outputFile,
         library: libraryName,
         libraryTarget: 'umd',
         umdNamedDefine: true
     },
     module: {
-        preLoaders: [{ 
-            test: /\.tsx?$/, 
-            loader: 'tslint', 
-            exclude: /node_modules/ 
-        }],
-        loaders: [{ 
-            test: /\.tsx?$/, 
-            loader: 'ts', 
-            exclude: /node_modules/ 
-        }]
+        loaders: [
+            {
+                enforce: 'pre',
+                test: /\.tsx?$/,
+                loader: 'tslint-loader',
+                exclude: /node_modules/,
+                options: {
+                    emitErrors: true,
+                    failOnHint: true
+                }
+            },
+            {
+                test: /\.tsx?$/, 
+                loader: 'ts-loader', 
+                exclude: /node_modules/ 
+            }
+        ]
     },
     resolve: {
-        root: path.resolve('./src'),
-        extensions: [ '', '.js', '.ts', '.jsx', '.tsx' ]
+        modules: [path.resolve('./src'), path.resolve('./node_modules')],//path.resolve('./src'),
+        extensions: ['.js', '.ts', '.jsx', '.tsx']
     },
-    plugins: plugins,
-    
-    // Individual Plugin Options
-    tslint: {
-        emitErrors: true,
-        failOnHint: true
-    }
+    plugins: plugins
 };
  
 module.exports = config;
