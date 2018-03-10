@@ -5,13 +5,17 @@
   "main": "build/nodejs/BalineseDate.js",
   "scripts": {
     "build:nodejs": "tsc -d --target \"es6\" --outDir \"./build/nodejs\"",
-    "build:web": "webpack",
-    "build:web-dist": "webpack -p"
+    "build:umd": "webpack",
+    "build:umd-dist": "webpack -p",
+    "pretest": "run-s build:nodejs build:umd-dist",
+    "test": "ava --verbose"
   },
   "keywords": [],
   "author": "Ida Bagus Putu Peradnya Dinata",
   "license": "Apache-2.0",
   "devDependencies": {
+    "ava": "^1.0.0-beta.3",
+    "npm-run-all": "^4.1.2",
     "ts-loader": "^3.5.0",
     "tslint": "^5.9.1",
     "tslint-loader": "^3.5.3",
@@ -21,5 +25,6 @@
   },
   "dependencies": {
     "date-fns": "^1.29.0"
-  }
+  },
+  "ava": {}
 }

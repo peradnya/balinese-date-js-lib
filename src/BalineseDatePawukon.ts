@@ -71,7 +71,7 @@ export class BalineseDatePawukon {
             throw Error("Invalid day in year value. Value need in between 0 - 209.");
         }
 
-        this.oWuku = BalineseDateConst.Wuku.values[nPawukonDayInYear / 7];
+        this.oWuku = BalineseDateConst.Wuku.values[Math.floor(nPawukonDayInYear / 7)];
 
         this.oTriwara = BalineseDateConst.Triwara.values[nPawukonDayInYear % 3];
         this.oPancawara = BalineseDateConst.Pancawara.values[nPawukonDayInYear % 5];

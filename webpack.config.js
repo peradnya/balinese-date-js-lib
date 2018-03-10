@@ -17,7 +17,7 @@ if (yargs.argv.p) {
 } else {
     outputFile = libraryName + '.js';
 }
- 
+
 var config = {
     entry: [
         __dirname + '/src/BalineseDate.ts'

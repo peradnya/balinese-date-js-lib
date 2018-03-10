@@ -6,6 +6,9 @@ import isEqual from "date-fns/is_equal";
 import { BalineseDatePawukon } from "./BalineseDatePawukon";
 import * as BalineseDateConst from "./const";
 
+export * from "./const/index";
+export * from "./BalineseDatePawukon";
+
 export class BalineseDate {
 
     private static readonly NGUNARATRI = 63;
@@ -37,7 +40,7 @@ export class BalineseDate {
         const a = pivot.calendar.getTime();
         const b = calendar.getTime();
 
-        const diff = differenceInDays(a, b);
+        const diff = differenceInDays(b, a);
         return BalineseDate.mod(pivot.pawukonDayInYear + diff, BalineseDate.DAYS_IN_YEAR_PAWUKON);
     }
 
@@ -49,7 +52,7 @@ export class BalineseDate {
 
         const a = pivot.calendar.getTime();
         const b = calendar.getTime();
-        const dayDiff = differenceInDays(a, b);
+        const dayDiff = differenceInDays(b, a);
         const daySkip = Math.ceil(dayDiff / BalineseDate.NGUNARATRI);
         const dayTotal = pivot.penanggal + dayDiff + daySkip;
 
@@ -98,13 +101,13 @@ export class BalineseDate {
 
         const a = pivot.calendar.getTime();
         const b = calendar.getTime();
-        const dayDiff = differenceInDays(a, b);
+        const dayDiff = differenceInDays(b, a);
         const daySkip = Math.ceil(dayDiff / BalineseDate.NGUNARATRI);
         const dayTotal = pivot.penanggal + dayDiff + daySkip;
 
         const pivotOffset = pivot.penanggal === 0 && pivot.ngunaratriDay === 0 ? 0 : 1;
 
-        let totalSasih = Math.ceil(dayTotal / 30);
+        let totalSasih = Math.ceil(dayTotal / 30) - pivotOffset;
         let currentSasih = pivot.sasih.id;
         let currentSaka = pivot.saka - (currentSasih === BalineseDateConst.Sasih.KADASA.id ? 1 : 0);
         let nampihCount = pivot.isNampihSasih ? 1 : 0;
@@ -116,7 +119,7 @@ export class BalineseDate {
         const tFinish = BalineseDate.DATE_TRANSITION_SK_FINISH.getTime();
 
         if ((isEqual(a, tStart) || isAfter(a, tStart)) && isBefore(a, tFinish)) {
-                inSK = true;
+            inSK = true;
         }
 
         while (totalSasih !== 0) {
@@ -289,7 +292,7 @@ export class BalineseDate {
     public constructor()
     public constructor(nYear: number, nMonth: number, nDaysOfMonth: number)
     public constructor(nYear?: number, nMonth?: number, nDaysOfMonth?: number) {
-        if (nYear && nMonth && nDaysOfMonth) {
+        if (nYear !== undefined && nMonth !== undefined && nDaysOfMonth !== undefined) {
             this.oCalendar = Object.freeze(new Date(nYear, nMonth, nDaysOfMonth));
         } else {
             this.oCalendar = Object.freeze(new Date());
