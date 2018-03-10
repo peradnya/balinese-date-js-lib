@@ -1,4 +1,6 @@
 # BalineseDate Javascript Library
+[![pipeline status](https://gitlab.com/peradnya/balinese-date-js-lib/badges/master/pipeline.svg)](https://gitlab.com/peradnya/balinese-date-js-lib/commits/master)
+[![coverage report](https://gitlab.com/peradnya/balinese-date-js-lib/badges/master/coverage.svg)](https://gitlab.com/peradnya/balinese-date-js-lib/commits/master)
 
 ## Introduction
 BalineseDate is an open source library to build Balinese Saka Calendar in Javascript based application or pages. 
