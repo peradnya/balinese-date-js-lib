@@ -3,22 +3,27 @@
 # https://hub.docker.com/r/library/node/tags/
 image: node:latest
 
-# This folder is cached between builds
-# http://docs.gitlab.com/ce/ci/yaml/README.html#cache
-cache:
-  paths:
-  - node_modules/
-  - build/
-
 build:
   stage: build
   script:
   - npm install
   - npm run build
+  cache:
+    key: "$CI_COMMIT_REF_NAME"
+    policy: push
+    paths:
+      - build
+      - node_modules
 
 test:
   stage: test
   script:
   - npm install
   - npm run test:quick
+  cache:
+    key: "$CI_COMMIT_REF_NAME"
+    policy: pull
+    paths:
+      - build
+      - node_modules
 
