@@ -7,9 +7,11 @@
     "build:nodejs": "tsc -d --target \"es6\" --outDir \"./build/nodejs\"",
     "build:umd": "webpack",
     "build:umd-dist": "webpack -p",
-    "pretest": "run-s build:nodejs build:umd-dist",
-    "test": "ava --verbose",
-    "test:quick": "ava --verbose"
+    "build": "run-p build:nodejs build:umd-dist",
+    "pretest": "npm run build",
+    "test": "nyc ava",
+    "test:quick": "nyc ava",
+    "report": "nyc report --reporter=lcov"
   },
   "keywords": [],
   "author": "Ida Bagus Putu Peradnya Dinata",
@@ -17,6 +19,7 @@
   "devDependencies": {
     "ava": "^1.0.0-beta.3",
     "npm-run-all": "^4.1.2",
+    "nyc": "^11.4.1",
     "ts-loader": "^3.5.0",
     "tslint": "^5.9.1",
     "tslint-loader": "^3.5.3",
