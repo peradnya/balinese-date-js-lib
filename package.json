@@ -8,7 +8,8 @@
     "build:umd": "webpack",
     "build:umd-dist": "webpack -p",
     "pretest": "run-s build:nodejs build:umd-dist",
-    "test": "ava --verbose"
+    "test": "ava --verbose",
+    "test:quick": "ava --verbose"
   },
   "keywords": [],
   "author": "Ida Bagus Putu Peradnya Dinata",

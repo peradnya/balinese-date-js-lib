@@ -58,8 +58,8 @@ export class BalineseDatePawukon {
 
     private readonly oIngkel: Readonly<BalineseDateConst.Ingkel>;
     private readonly oJejapan: Readonly<BalineseDateConst.Jejapan>;
-    private readonly oWatekAlit: Readonly<BalineseDateConst.PewatekanAlit>;
-    private readonly oWatekMadya: Readonly<BalineseDateConst.PewatekanMadya>;
+    private readonly oWatekAlit: Readonly<BalineseDateConst.PawatekanAlit>;
+    private readonly oWatekMadya: Readonly<BalineseDateConst.PawatekanMadya>;
     private readonly oLintang: Readonly<BalineseDateConst.Lintang>;
     private readonly oPancasuda: Readonly<BalineseDateConst.Pancasuda>;
     private readonly oPararasan: Readonly<BalineseDateConst.Pararasan>;
@@ -91,8 +91,8 @@ export class BalineseDatePawukon {
         this.oJejapan = BalineseDateConst.Jejapan.values[nPawukonDayInYear % 6];
         this.oLintang = BalineseDateConst.Lintang.values[nPawukonDayInYear % 35];
 
-        this.oWatekAlit = BalineseDateConst.PewatekanAlit.values[this.nUrip % 4];
-        this.oWatekMadya = BalineseDateConst.PewatekanMadya.values[this.nUrip % 5];
+        this.oWatekAlit = BalineseDateConst.PawatekanAlit.values[this.nUrip % 4];
+        this.oWatekMadya = BalineseDateConst.PawatekanMadya.values[this.nUrip % 5];
         this.oPararasan = BalineseDateConst.Pararasan.values[this.nUrip % 10];
 
         this.oPancasuda = BalineseDateConst.Pancasuda.values[(this.oSaptawara.kertaaji + this.oPancawara.urip) % 7];
@@ -115,8 +115,8 @@ export class BalineseDatePawukon {
 
     public get ingkel(): Readonly<BalineseDateConst.Ingkel> { return this.oIngkel; }
     public get jejapan(): Readonly<BalineseDateConst.Jejapan> { return this.oJejapan; }
-    public get watekAlit(): Readonly<BalineseDateConst.PewatekanAlit> { return this.oWatekAlit; }
-    public get watekMadya(): Readonly<BalineseDateConst.PewatekanMadya> { return this.oWatekMadya; }
+    public get watekAlit(): Readonly<BalineseDateConst.PawatekanAlit> { return this.oWatekAlit; }
+    public get watekMadya(): Readonly<BalineseDateConst.PawatekanMadya> { return this.oWatekMadya; }
     public get lintang(): Readonly<BalineseDateConst.Lintang> { return this.oLintang; }
     public get pancasuda(): Readonly<BalineseDateConst.Pancasuda> { return this.oPancasuda; }
     public get pararasan(): Readonly<BalineseDateConst.Pararasan> { return this.oPararasan; }
