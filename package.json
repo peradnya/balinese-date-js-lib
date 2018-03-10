@@ -2,10 +2,11 @@
   "name": "balinese-date-js-lib",
   "version": "0.1.0",
   "description": "Library to Develop Balinese Saka Calendar (Kalender Saka Bali)",
-  "main": "build/balinese-date-js-lib.min.js",
+  "main": "build/nodejs/BalineseDate.js",
   "scripts": {
-    "debug": "webpack -d",
-    "production": "webpack -p"
+    "build:nodejs": "tsc -d --target \"es6\" --outDir \"./build/nodejs\"",
+    "build:web": "webpack",
+    "build:web-dist": "webpack -p"
   },
   "keywords": [],
   "author": "Ida Bagus Putu Peradnya Dinata",
@@ -19,6 +20,6 @@
     "yargs": "^11.0.0"
   },
   "dependencies": {
-    "moment": "^2.20.1"
+    "date-fns": "^1.29.0"
   }
 }

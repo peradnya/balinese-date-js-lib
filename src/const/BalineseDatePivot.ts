@@ -1,4 +1,3 @@
-import moment from "moment";
 import { Sasih } from "./Sasih";
 
 export class BalineseDatePivot {
@@ -10,7 +9,7 @@ export class BalineseDatePivot {
     public static get PIVOT_NG_PON(): Readonly<BalineseDatePivot> { return BalineseDatePivot.aValues[0]; }
     public static get PIVOT_NG_PAING(): Readonly<BalineseDatePivot> { return BalineseDatePivot.aValues[1]; }
 
-    private readonly mCalendar: moment.Moment;
+    private readonly mCalendar: Readonly<Date>;
 
     private constructor(
         private readonly nYear: number,
@@ -22,10 +21,10 @@ export class BalineseDatePivot {
         private readonly nSaka: number,
         private readonly oSasih: Readonly<Sasih>,
         private readonly bIsNampihSasih: boolean) {
-            this.mCalendar = Object.freeze(moment([nYear, nMonth, nDayOfMonth]));
+            this.mCalendar = Object.freeze(new Date(nYear, nMonth, nDayOfMonth));
         }
 
-    public get calendar(): moment.Moment {
+    public get calendar(): Readonly<Date> {
         return this.mCalendar;
     }
 

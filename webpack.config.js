@@ -3,7 +3,7 @@ var webpack = require('webpack'),
     yargs = require('yargs');
  
 var libraryName = 'balinese-date-js-lib',
-    plugins = [new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)],
+    plugins = [],
     outputFile;
  
 if (yargs.argv.p) {
@@ -24,7 +24,7 @@ var config = {
     ],
     devtool: 'source-map',
     output: {
-        path: path.join(__dirname, '/build'),
+        path: path.join(__dirname, '/build/umd'),
         filename: outputFile,
         library: libraryName,
         libraryTarget: 'umd',
@@ -50,7 +50,7 @@ var config = {
         ]
     },
     resolve: {
-        modules: [path.resolve('./src'), path.resolve('./node_modules')],//path.resolve('./src'),
+        modules: [path.resolve('./src'), path.resolve('./node_modules')],
         extensions: ['.js', '.ts', '.jsx', '.tsx']
     },
     plugins: plugins

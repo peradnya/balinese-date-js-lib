@@ -1,4 +1,8 @@
-import moment from "moment";
+import differenceInDays from "date-fns/difference_in_days";
+import isAfter from "date-fns/is_after";
+import isBefore from "date-fns/is_before";
+import isEqual from "date-fns/is_equal";
+
 import { BalineseDatePawukon } from "./BalineseDatePawukon";
 import * as BalineseDateConst from "./const";
 
@@ -7,37 +11,45 @@ export class BalineseDate {
     private static readonly NGUNARATRI = 63;
     private static readonly DAYS_IN_YEAR_PAWUKON = 210;
 
-    private static readonly DATE_TRANSITION_PON = Object.freeze(moment([1971, 0, 27]));
-    private static readonly DATE_TRANSITION_PAING = Object.freeze(moment([2000, 0, 6]));
-    private static readonly DATE_TRANSITION_SK_START = Object.freeze(moment([1993, 0, 24]));
-    private static readonly DATE_TRANSITION_SK_FINISH = Object.freeze(moment([2003, 0, 3]));
+    private static readonly DATE_TRANSITION_PON = Object.freeze(new Date(1971, 0, 27));
+    private static readonly DATE_TRANSITION_PAING = Object.freeze(new Date(2000, 0, 6));
+    private static readonly DATE_TRANSITION_SK_START = Object.freeze(new Date(1993, 0, 24));
+    private static readonly DATE_TRANSITION_SK_FINISH = Object.freeze(new Date(2003, 0, 3));
 
     private static mod(a: number, b: number): number {
         // try to fix negative mod
         return ((a % b) + b) % b;
     }
 
-    private static chooseBestPivot(calendar: Readonly<moment.Moment>): Readonly<BalineseDateConst.BalineseDatePivot> {
-        return (calendar.isBefore(BalineseDate.DATE_TRANSITION_PAING)) ?
+    private static chooseBestPivot(calendar: Readonly<Date>): Readonly<BalineseDateConst.BalineseDatePivot> {
+        const a = BalineseDate.DATE_TRANSITION_PAING.getTime();
+        const b = calendar.getTime();
+
+        return isBefore(b, a) ?
             BalineseDateConst.BalineseDatePivot.PIVOT_NG_PON :
             BalineseDateConst.BalineseDatePivot.PIVOT_NG_PAING;
     }
 
     private static calcPawukonDayInYear(
         pivot: Readonly<BalineseDateConst.BalineseDatePivot>,
-        calendar: Readonly<moment.Moment>): number {
+        calendar: Readonly<Date>): number {
 
-        const diff = pivot.calendar.diff(calendar, "days");
+        const a = pivot.calendar.getTime();
+        const b = calendar.getTime();
+
+        const diff = differenceInDays(a, b);
         return BalineseDate.mod(pivot.pawukonDayInYear + diff, BalineseDate.DAYS_IN_YEAR_PAWUKON);
     }
 
     private static calcPenanggal(
         pivot: Readonly<BalineseDateConst.BalineseDatePivot>,
-        calendar: Readonly<moment.Moment>): number[] {
+        calendar: Readonly<Date>): number[] {
 
         const res = new Array<number>(3);
 
-        const dayDiff = pivot.calendar.diff(calendar, "days");
+        const a = pivot.calendar.getTime();
+        const b = calendar.getTime();
+        const dayDiff = differenceInDays(a, b);
         const daySkip = Math.ceil(dayDiff / BalineseDate.NGUNARATRI);
         const dayTotal = pivot.penanggal + dayDiff + daySkip;
 
@@ -80,11 +92,13 @@ export class BalineseDate {
 
     private static calcSasih(
         pivot: Readonly<BalineseDateConst.BalineseDatePivot>,
-        calendar: Readonly<moment.Moment>): number[] {
+        calendar: Readonly<Date>): number[] {
 
         const res = new Array<number>(3);
 
-        const dayDiff = pivot.calendar.diff(calendar, "days");
+        const a = pivot.calendar.getTime();
+        const b = calendar.getTime();
+        const dayDiff = differenceInDays(a, b);
         const daySkip = Math.ceil(dayDiff / BalineseDate.NGUNARATRI);
         const dayTotal = pivot.penanggal + dayDiff + daySkip;
 
@@ -97,8 +111,11 @@ export class BalineseDate {
 
         let nyepiFix = false;
         let inSK = false;
-        if (pivot.calendar.isSameOrAfter(BalineseDate.DATE_TRANSITION_SK_START) &&
-            pivot.calendar.isBefore(BalineseDate.DATE_TRANSITION_SK_FINISH)) {
+
+        const tStart = BalineseDate.DATE_TRANSITION_SK_START.getTime();
+        const tFinish = BalineseDate.DATE_TRANSITION_SK_FINISH.getTime();
+
+        if ((isEqual(a, tStart) || isAfter(a, tStart)) && isBefore(a, tFinish)) {
                 inSK = true;
         }
 
@@ -256,7 +273,7 @@ export class BalineseDate {
         return BalineseDateConst.Sasih.values[sasih];
     }
 
-    private readonly oCalendar: Readonly<moment.Moment>;
+    private readonly oCalendar: Readonly<Date>;
     private readonly oPivot: Readonly<BalineseDateConst.BalineseDatePivot>;
 
     private readonly nPenanggal: number;
@@ -273,9 +290,9 @@ export class BalineseDate {
     public constructor(nYear: number, nMonth: number, nDaysOfMonth: number)
     public constructor(nYear?: number, nMonth?: number, nDaysOfMonth?: number) {
         if (nYear && nMonth && nDaysOfMonth) {
-            this.oCalendar = Object.freeze(moment([nYear, nMonth, nDaysOfMonth]));
+            this.oCalendar = Object.freeze(new Date(nYear, nMonth, nDaysOfMonth));
         } else {
-            this.oCalendar = Object.freeze(moment());
+            this.oCalendar = Object.freeze(new Date());
         }
 
         this.oPivot = BalineseDate.chooseBestPivot(this.oCalendar);
@@ -302,11 +319,7 @@ export class BalineseDate {
     }
 
     public get toDate(): Readonly<Date> {
-        return Object.freeze(this.oCalendar.toDate());
-    }
-
-    public get toMomentJS(): Readonly<moment.Moment> {
-        return this.oCalendar;
+        return Object.freeze(new Date(this.oCalendar.getTime()));
     }
 
     public get pawukon(): Readonly<BalineseDatePawukon> {
