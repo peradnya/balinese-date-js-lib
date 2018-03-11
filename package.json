@@ -1,21 +1,38 @@
 {
   "name": "balinese-date-js-lib",
   "version": "0.1.0",
-  "description": "Library to Develop Balinese Saka Calendar (Kalender Saka Bali)",
-  "main": "build/nodejs/BalineseDate.js",
+  "description": "Library to Develop Balinese Saka Calendar (Kalender Bali)",
+  "main": "node/BalineseDate.js",
+  "types": "node/BalineseDate.d.ts",
   "scripts": {
-    "build:nodejs": "tsc -d --target \"es6\" --outDir \"./build/nodejs\"",
+    "build:nodejs": "tsc -d --target \"es6\" --outDir \"./node\"",
     "build:umd": "webpack",
     "build:umd-dist": "webpack -p",
-    "build": "run-p build:nodejs build:umd-dist",
+    "build": "run-p build:nodejs build:umd build:umd-dist",
     "pretest": "npm run build",
     "test": "nyc ava",
     "test:quick": "nyc ava",
     "report": "nyc report --reporter=lcov"
   },
-  "keywords": [],
+  "keywords": [
+    "kalender bali",
+    "balinese calendar"
+  ],
   "author": "Ida Bagus Putu Peradnya Dinata",
   "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/peradnya/balinese-date-js-lib.git"
+  },
+  "bugs": {
+    "url": "https://github.com/peradnya/balinese-date-js-lib/issues"
+  },
+  "files": [
+    "LICENSE.md",
+    "README.md",
+    "node/",
+    "umd/"
+  ],
   "devDependencies": {
     "ava": "^1.0.0-beta.3",
     "npm-run-all": "^4.1.2",
@@ -29,6 +46,5 @@
   },
   "dependencies": {
     "date-fns": "^1.29.0"
-  },
-  "ava": {}
+  }
 }

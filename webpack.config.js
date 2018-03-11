@@ -24,7 +24,7 @@ var config = {
     ],
     devtool: 'source-map',
     output: {
-        path: path.join(__dirname, '/build/umd'),
+        path: path.join(__dirname, '/umd'),
         filename: outputFile,
         library: libraryName,
         libraryTarget: 'umd',

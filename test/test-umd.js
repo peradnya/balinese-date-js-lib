@@ -1,6 +1,6 @@
 import test from "ava";
 
-const BD = require("../build/umd/balinese-date-js-lib.min");
+const BD = require("../umd/balinese-date-js-lib.min");
 
 test("1969-01-01-node", t => {
     const date = new Date(1969,0,1);

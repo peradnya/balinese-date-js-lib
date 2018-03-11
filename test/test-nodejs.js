@@ -1,7 +1,7 @@
 import test from "ava";
-import * as ES6 from "../build/nodejs/BalineseDate";
+import * as ES6 from "../node/BalineseDate";
 
-var BD = require("../build/nodejs/BalineseDate");
+var BD = require("../node/BalineseDate");
 
 test("1969-01-01-node", t => {
     const date = new Date(1969,0,1);
