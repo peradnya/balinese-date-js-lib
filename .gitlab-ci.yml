@@ -8,11 +8,15 @@ build:
   script:
   - npm install
   - npm run build
+  artifacts:
+    expire_in: 1 day
+    paths:
+    - node
+    - umd
   cache:
     key: "$CI_COMMIT_REF_NAME"
     policy: push
     paths:
-      - build
       - node_modules
 
 test:
@@ -20,10 +24,11 @@ test:
   script:
   - npm install
   - npm run test:quick
+  dependencies:
+  - build
   cache:
     key: "$CI_COMMIT_REF_NAME"
     policy: pull
     paths:
-      - build
       - node_modules
 
