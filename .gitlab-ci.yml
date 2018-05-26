@@ -22,3 +22,12 @@ test:
   dependencies:
   - build
 
+publish:
+  stage: deploy
+  only:
+    - tags
+  script:
+    - npm install
+    - npm run build
+    - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
+    - npm publish
