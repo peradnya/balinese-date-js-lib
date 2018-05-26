@@ -1,16 +1,29 @@
 # BalineseDate Javascript Library
+
 [![pipeline status](https://gitlab.com/peradnya/balinese-date-js-lib/badges/master/pipeline.svg)](https://gitlab.com/peradnya/balinese-date-js-lib/commits/master)
 [![coverage report](https://gitlab.com/peradnya/balinese-date-js-lib/badges/master/coverage.svg)](https://gitlab.com/peradnya/balinese-date-js-lib/commits/master)
 
+[![NPM](https://nodei.co/npm/balinese-date-js-lib.png)](https://nodei.co/npm/balinese-date-js-lib/)
+
+## Web Page Library (UMD) Download
+
+* [balinese-date-js-lib.js](https://unpkg.com/balinese-date-js-lib/umd/balinese-date-js-lib.js) (recomended for development)
+* [balinese-date-js-lib.js.map](https://unpkg.com/balinese-date-js-lib/umd/balinese-date-js-lib.js.map)
+* [balinese-date-js-lib.min.js](https://unpkg.com/balinese-date-js-lib/umd/balinese-date-js-lib.min.js) (recomended for release)
+* [balinese-date-js-lib.min.js.map](https://unpkg.com/balinese-date-js-lib/umd/balinese-date-js-lib.min.js.map)
+
 ## Introduction
-BalineseDate is an open source library to build Balinese Saka Calendar in Javascript based application or pages. 
+
+BalineseDate is an open source javascript library to build Balinese Saka Calendar in NodeJS or web page.
 
 **Disclaimer**: This library is in **Beta Phase**. Feedbacks, corrections, or bug reports are welcomed ... :)
 
 ## Features
-BalineseDate provide a easy way to convert gregorian date into balinese date. 
+
+BalineseDate provide a easy way to convert gregorian date into balinese date.
 
 BalineseDate support several features:
+
 1. Sasih
     1. Penanggal / Pangelong
     2. Purnama / Tilem
@@ -28,9 +41,76 @@ BalineseDate support several features:
     8. Pararasan
     9. Rakam
 
-## How to Build (Under Construction)
+## How to Build
+
+### Requirement
+
+The recomended requirement to build this project is:
+
+1. Latest NodeJS (Recomended >= 8.11.x LTS)
+2. Latest Git Client
+
+### Install Depedencies
+
+To install depedencies that nessesary to build this project, developer should using following command:
+
+```sh
+[project root]$ npm install
+```
+
+### Building BalineseDate Library
+
+To build all BalineseDate Library (NodeJS, UMD, minimized UMD), developer should using following command:
+
+```sh
+[project root]$ npm run build
+```
+
+if developer only need to build specific BalineseDate library, developer should using following command:
+
+```sh
+# Build NodeJS Lib
+[project root]$ npm run build:nodejs
+
+# Build Web Page (UMD) Lib
+[project root]$ npm run build:umd
+
+# Build minimized Web Page (UMD) Lib
+[project root]$ npm run build:umd-dist
+```
+
+### Testing & Checking
+
+Testing and checking of BalineseDate Library could be done by using following command:
+
+```sh
+[project root]$ npm run test
+```
+
+To build test result, developer should using following command:
+
+```sh
+[project root]$ npm run report
+```
+
+You could find the test results at:
+
+```sh
+[project root]/coverage/lcov-report/index.html
+```
+
+## Using in Code
+
+### NodeJS
+
+```COMING SOON```
+
+### Browser (Web Page)
+
+```COMING SOON```
 
 ## References
+
 * babadbali.com (Yayasan Bali Galang) for [wewaran](http://www.babadbali.com/pewarigaan/perhitungan.htm) and [paringkelan](http://www.babadbali.com/pewarigaan/paringkelan.htm) algorithm.
 * kalenderbali.org and kalenderbali.info for cross-checking and building sample test-cases.
 * Pendit, Nyoman.(2001). *"Nyepi: kebangkitan, toleransi, dan kerukunan"*. Jakarta : Gramedia. Retrieved at [google book](https://books.google.co.id/books?id=4ND9KPn2o8AC).

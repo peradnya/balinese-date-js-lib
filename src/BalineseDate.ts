@@ -24,6 +24,7 @@ import * as BalineseDateConst from "./const";
 
 export * from "./const/index";
 export * from "./BalineseDatePawukon";
+export * from "./BalineseDateUtil";
 
 export class BalineseDate {
 

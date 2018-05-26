@@ -13,11 +13,6 @@ build:
     paths:
     - node
     - umd
-  cache:
-    key: "$CI_COMMIT_REF_NAME"
-    policy: push
-    paths:
-      - node_modules
 
 test:
   stage: test
@@ -26,9 +21,4 @@ test:
   - npm run test:quick
   dependencies:
   - build
-  cache:
-    key: "$CI_COMMIT_REF_NAME"
-    policy: pull
-    paths:
-      - node_modules
 
