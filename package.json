@@ -9,10 +9,10 @@
     "build:umd": "webpack",
     "build:umd-dist": "webpack -p",
     "doc": "typedoc --out doc/ --target ES6 --mode file --excludeExternals --excludePrivate src/",
-    "build": "run-p build:nodejs build:umd build:umd-dist",
-    "pretest": "npm run build",
-    "test": "nyc ava",
-    "test:quick": "ava",
+    "build": "run-s build:nodejs build:umd build:umd-dist",
+    "test:nodejs": "nyc ava test/test-nodejs.js",
+    "test:umd": "nyc ava test/test-umd.js",
+    "test": "run-s test:nodejs test:umd",
     "report": "nyc report --reporter=lcov"
   },
   "keywords": [
