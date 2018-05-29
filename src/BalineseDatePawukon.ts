@@ -16,6 +16,20 @@
 
 import * as BalineseDateConst from "./const";
 
+/**
+ * BalineseDatePawukon provides representation of Pawukon used by BalineseDate.
+ * <p>
+ * BalineseDatePawukon provides information about:
+ * <ul>
+ *  <li>Wuku (Sinta - Watugunung)</li>
+ *  <li>Wewaran (Ekawara - Dasawara)</li>
+ *  <li>Paringkelan (Ingkel, Jejapan, Watek, Lintang, Pancasuda, Pararasan, Rakam)</li>
+ * </ul>
+ * <p>
+ * Calculation of pawukon that used by this class, is based on documentation from
+ * <a href='http://www.babadbali.com/pewarigaan/paringkelan.htm'>babadbali.com</a>.
+ * @author Ida Bagus Putu Peradnya Dinata
+ */
 export class BalineseDatePawukon {
 
     private static readonly DAYS_IN_YEAR_PAWUKON = 210;
@@ -81,6 +95,11 @@ export class BalineseDatePawukon {
     private readonly oPararasan: Readonly<BalineseDateConst.Pararasan>;
     private readonly oRakam: Readonly<BalineseDateConst.Rakam>;
 
+    /**
+     * Construct BalineseDate Pawukon.
+     * @param nPawukonDayInYear number of day in 1 year (cycle) of pawukon.
+     *                          Number is from 0 (Redite Sinta) to 209 (Saniscara Watugunung).
+     */
     public constructor(private readonly nPawukonDayInYear: number) {
         if (nPawukonDayInYear >= BalineseDatePawukon.DAYS_IN_YEAR_PAWUKON ||
             nPawukonDayInYear < 0) {

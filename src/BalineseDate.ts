@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-import differenceInDays from "date-fns/difference_in_days";
+import differenceInCalendarDays from "date-fns/difference_in_calendar_days";
 import isAfter from "date-fns/is_after";
 import isBefore from "date-fns/is_before";
 import isEqual from "date-fns/is_equal";
@@ -27,6 +27,18 @@ import * as BalineseDateConst from "./const";
 export * from "./const/index";
 export * from "./BalineseDateUtil";
 
+/**
+ * BalineseDate provides representation of Saka Calendar used by Indonesia Hindu's.
+ * <p>
+ * BalineseDate provides information about:
+ * <ul>
+ *  <li>Pawukon info (Wewaran, Wuku, Paringkelan, etc.)</li>
+ *  <li>Sasih info (Penanggal, Sasih name, etc.)</li>
+ *  <li>Saka info (Saka year)</li>
+ * </ul>
+ * @author Ida Bagus Putu Peradnya Dinata
+ * @see BalineseDatePawukon
+ */
 export class BalineseDate {
 
     private static readonly NGUNARATRI = 63;
@@ -58,7 +70,7 @@ export class BalineseDate {
         const a = pivot.calendar.getTime();
         const b = calendar.getTime();
 
-        const diff = differenceInDays(b, a);
+        const diff = differenceInCalendarDays(b, a);
         return BalineseDate.mod(pivot.pawukonDayInYear + diff, BalineseDate.DAYS_IN_YEAR_PAWUKON);
     }
 
@@ -70,7 +82,7 @@ export class BalineseDate {
 
         const a = pivot.calendar.getTime();
         const b = calendar.getTime();
-        const dayDiff = differenceInDays(b, a);
+        const dayDiff = differenceInCalendarDays(b, a);
         const daySkip = Math.ceil(dayDiff / BalineseDate.NGUNARATRI);
         const dayTotal = pivot.penanggal + dayDiff + daySkip;
 
@@ -119,7 +131,7 @@ export class BalineseDate {
 
         const a = pivot.calendar.getTime();
         const b = calendar.getTime();
-        const dayDiff = differenceInDays(b, a);
+        const dayDiff = differenceInCalendarDays(b, a);
         const daySkip = Math.ceil(dayDiff / BalineseDate.NGUNARATRI);
         const dayTotal = pivot.penanggal + dayDiff + daySkip;
 
@@ -307,6 +319,12 @@ export class BalineseDate {
     private readonly bIsNampihSasih: boolean;
     private readonly oPawukon: Readonly<BalineseDatePawukon>;
 
+    /**
+     * Construct balinese date with specific date. Zero parameter mean using current date.
+     * @param nYear the gregorian year.
+     * @param nMonth the gregorian month of year. Start from 0 (January) to 11 (December).
+     * @param nDaysOfMonth the gregorian day of month. Start from 1 - 31.
+     */
     public constructor()
     public constructor(nYear: number, nMonth: number, nDaysOfMonth: number)
     public constructor(nYear?: number, nMonth?: number, nDaysOfMonth?: number) {
