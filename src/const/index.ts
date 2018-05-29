@@ -38,4 +38,3 @@ export * from "./Dasawara";
 
 export * from "./Sasih";
 export * from "./PenanggalInfo";
-export * from "./BalineseDatePivot";

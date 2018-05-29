@@ -36,6 +36,7 @@ bower_components
 build/Release
 node/
 umd/
+doc/
 
 # Dependency directories
 node_modules/

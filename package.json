@@ -8,15 +8,17 @@
     "build:nodejs": "tsc -d --target \"es6\" --outDir \"./node\"",
     "build:umd": "webpack",
     "build:umd-dist": "webpack -p",
+    "doc": "typedoc --out doc/ --target ES6 --mode file --excludeExternals --excludePrivate src/",
     "build": "run-p build:nodejs build:umd build:umd-dist",
     "pretest": "npm run build",
     "test": "nyc ava",
-    "test:quick": "nyc ava",
+    "test:quick": "ava",
     "report": "nyc report --reporter=lcov"
   },
   "keywords": [
     "kalender bali",
-    "balinese calendar"
+    "balinese calendar",
+    "saka"
   ],
   "author": "Ida Bagus Putu Peradnya Dinata",
   "license": "Apache-2.0",
@@ -40,6 +42,7 @@
     "ts-loader": "^3.5.0",
     "tslint": "^5.9.1",
     "tslint-loader": "^3.5.3",
+    "typedoc": "^0.11.1",
     "typescript": "^2.7.2",
     "webpack": "^3.11.0",
     "yargs": "^11.0.0"

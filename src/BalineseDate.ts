@@ -20,10 +20,11 @@ import isBefore from "date-fns/is_before";
 import isEqual from "date-fns/is_equal";
 
 import { BalineseDatePawukon } from "./BalineseDatePawukon";
+import { BalineseDatePivot } from "./const/BalineseDatePivot";
+
 import * as BalineseDateConst from "./const";
 
 export * from "./const/index";
-export * from "./BalineseDatePawukon";
 export * from "./BalineseDateUtil";
 
 export class BalineseDate {
@@ -41,17 +42,17 @@ export class BalineseDate {
         return ((a % b) + b) % b;
     }
 
-    private static chooseBestPivot(calendar: Readonly<Date>): Readonly<BalineseDateConst.BalineseDatePivot> {
+    private static chooseBestPivot(calendar: Readonly<Date>): Readonly<BalineseDatePivot> {
         const a = BalineseDate.DATE_TRANSITION_PAING.getTime();
         const b = calendar.getTime();
 
         return isBefore(b, a) ?
-            BalineseDateConst.BalineseDatePivot.PIVOT_NG_PON :
-            BalineseDateConst.BalineseDatePivot.PIVOT_NG_PAING;
+            BalineseDatePivot.PIVOT_NG_PON :
+            BalineseDatePivot.PIVOT_NG_PAING;
     }
 
     private static calcPawukonDayInYear(
-        pivot: Readonly<BalineseDateConst.BalineseDatePivot>,
+        pivot: Readonly<BalineseDatePivot>,
         calendar: Readonly<Date>): number {
 
         const a = pivot.calendar.getTime();
@@ -62,7 +63,7 @@ export class BalineseDate {
     }
 
     private static calcPenanggal(
-        pivot: Readonly<BalineseDateConst.BalineseDatePivot>,
+        pivot: Readonly<BalineseDatePivot>,
         calendar: Readonly<Date>): number[] {
 
         const res = new Array<number>(3);
@@ -111,7 +112,7 @@ export class BalineseDate {
     }
 
     private static calcSasih(
-        pivot: Readonly<BalineseDateConst.BalineseDatePivot>,
+        pivot: Readonly<BalineseDatePivot>,
         calendar: Readonly<Date>): number[] {
 
         const res = new Array<number>(3);
@@ -294,7 +295,7 @@ export class BalineseDate {
     }
 
     private readonly oCalendar: Readonly<Date>;
-    private readonly oPivot: Readonly<BalineseDateConst.BalineseDatePivot>;
+    private readonly oPivot: Readonly<BalineseDatePivot>;
 
     private readonly nPenanggal: number;
     private readonly bIsPangelong: boolean;
