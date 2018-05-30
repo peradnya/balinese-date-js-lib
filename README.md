@@ -3,14 +3,20 @@
 [![pipeline status](https://gitlab.com/peradnya/balinese-date-js-lib/badges/master/pipeline.svg)](https://gitlab.com/peradnya/balinese-date-js-lib/commits/master)
 [![coverage report](https://gitlab.com/peradnya/balinese-date-js-lib/badges/master/coverage.svg)](https://gitlab.com/peradnya/balinese-date-js-lib/commits/master)
 
+## NodeJS Download
+
 [![NPM](https://nodei.co/npm/balinese-date-js-lib.png)](https://nodei.co/npm/balinese-date-js-lib/)
 
 ## Web Page Library (UMD) Download
 
-* [balinese-date-js-lib.js](https://unpkg.com/balinese-date-js-lib/umd/balinese-date-js-lib.js) (recomended for development)
+* [balinese-date-js-lib.js](https://unpkg.com/balinese-date-js-lib/umd/balinese-date-js-lib.js) (development)
 * [balinese-date-js-lib.js.map](https://unpkg.com/balinese-date-js-lib/umd/balinese-date-js-lib.js.map)
-* [balinese-date-js-lib.min.js](https://unpkg.com/balinese-date-js-lib/umd/balinese-date-js-lib.min.js) (recomended for release)
+* [balinese-date-js-lib.min.js](https://unpkg.com/balinese-date-js-lib/umd/balinese-date-js-lib.min.js) (release)
 * [balinese-date-js-lib.min.js.map](https://unpkg.com/balinese-date-js-lib/umd/balinese-date-js-lib.min.js.map)
+
+## Documentation
+
+* [Latest Documentation](https://peradnya.gitlab.io/balinese-date-js-lib/index.html)
 
 ## Introduction
 
@@ -40,6 +46,7 @@ BalineseDate support several features:
     7. Pancasuda
     8. Pararasan
     9. Rakam
+4. Get the BalineseDate(s) from selected Date and Filter __(NEW v0.2.0!)__
 
 ## How to Build
 
@@ -77,6 +84,20 @@ if developer only need to build specific BalineseDate library, developer should 
 
 # Build minimized Web Page (UMD) Lib
 [project root]$ npm run build:umd-dist
+```
+
+### Building Documentation (Typedoc)
+
+Documentation of BalineseDate Library could be built by using following command:
+
+```sh
+[project root]$ npm run doc
+```
+
+You could find the documentation at:
+
+```sh
+[project root]/doc/index.html
 ```
 
 ### Testing & Checking

@@ -26,8 +26,15 @@ publish:
   stage: deploy
   only:
     - tags
+  dependencies:
+    - build
   script:
     - npm install
-    - npm run build
+    - npm run doc
+    - mkdir public
+    - mv doc/* public
     - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
     - npm publish
+  artifacts:
+    paths:
+      - public
