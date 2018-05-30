@@ -1386,3 +1386,104 @@ test("2017-01-01-STR-es6", t => {
     // Sasih
     t.is("Kapitu", bdate.sasih.name);
 });
+
+test("test_query_1_year_watugunung", t => {
+    const start = new Date(2017,0,1);
+    const finish = new Date(2017,11,31);
+    const q = new ES6.Filter();
+
+    q.wuku = ES6.Wuku.WATUGUNUNG;
+
+    const arr = ES6.BalineseDateUtil.getBalineseDateByDate(q, start, finish);
+
+    t.is(arr.length, 14);
+});
+
+test("test_query_1_year_watugunung_kliwon", t => {
+    const start = new Date(2017,0,1);
+    const finish = new Date(2017,11,31);
+    const q = new ES6.Filter();
+
+    q.wuku      = ES6.Wuku.WATUGUNUNG;
+    q.pancawara = ES6.Pancawara.KLIWON;
+
+    const arr = ES6.BalineseDateUtil.getBalineseDateByDate(q, start, finish);
+
+    t.is(arr.length, 4);
+});
+
+test("test_query_1_year_watugunung_saniscara", t => {
+    const start = new Date(2017,0,1);
+    const finish = new Date(2017,11,31);
+    const q = new ES6.Filter();
+
+    q.wuku      = ES6.Wuku.WATUGUNUNG;
+    q.saptawara = ES6.Saptawara.SANISCARA;
+
+    const arr = ES6.BalineseDateUtil.getBalineseDateByDate(q, start, finish);
+
+    t.is(arr.length, 2);
+});
+
+test("test_query_1_year_watugunung_saniscara_kliwon", t => {
+    const start = new Date(2017,0,1);
+    const finish = new Date(2017,11,31);
+    const q = new ES6.Filter();
+
+    q.wuku      = ES6.Wuku.WATUGUNUNG;
+    q.saptawara = ES6.Saptawara.SANISCARA;
+    q.pancawara = ES6.Pancawara.KLIWON;
+
+    const arr = ES6.BalineseDateUtil.getBalineseDateByDate(q, start, finish);
+
+    t.is(arr.length, 0);
+});
+
+test("test_query_1_month_agustus_ngunaratri", t => {
+    const start = new Date(2017,7,1);
+    const finish = new Date(2017,7,31);
+    const q = new ES6.Filter();
+
+    q.isNgunaRatri      = true;
+
+    const arr = ES6.BalineseDateUtil.getBalineseDateByDate(q, start, finish);
+
+    t.is(arr.length, 1);
+});
+
+test("test_query_1_month_agustus_katiga", t => {
+    const start = new Date(2017,7,1);
+    const finish = new Date(2017,7,31);
+    const q = new ES6.Filter();
+
+    q.sasih      = ES6.Sasih.KATIGA;
+
+    const arr = ES6.BalineseDateUtil.getBalineseDateByDate(q, start, finish);
+
+    t.is(arr.length, 9);
+});
+
+test("test_query_1_month_agustus_1", t => {
+    const start = new Date(2017,7,1);
+    const finish = new Date(2017,7,31);
+    const q = new ES6.Filter();
+
+    q.penanggal = 1;
+
+    const arr = ES6.BalineseDateUtil.getBalineseDateByDate(q, start, finish);
+
+    t.is(arr.length, 1);
+});
+
+test("test_query_1_month_agustus_penanggal_9", t => {
+    const start = new Date(2017,7,1);
+    const finish = new Date(2017,7,31);
+    const q = new ES6.Filter();
+
+    q.penanggal = 9;
+    q.penanggalInfo = ES6.PenanggalInfo.PENANGGAL;
+
+    const arr = ES6.BalineseDateUtil.getBalineseDateByDate(q, start, finish);
+
+    t.is(arr.length, 2);
+});

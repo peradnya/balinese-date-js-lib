@@ -702,3 +702,103 @@ test("2017-01-01-STR-node", t => {
     t.is("Kapitu", bdate.sasih.name);
 });
 
+test("test_query_1_year_watugunung", t => {
+    const start = new Date(2017,0,1);
+    const finish = new Date(2017,11,31);
+    const q = new BD.Filter();
+
+    q.wuku = BD.Wuku.WATUGUNUNG;
+
+    const arr = BD.BalineseDateUtil.getBalineseDateByDate(q, start, finish);
+
+    t.is(arr.length, 14);
+});
+
+test("test_query_1_year_watugunung_kliwon", t => {
+    const start = new Date(2017,0,1);
+    const finish = new Date(2017,11,31);
+    const q = new BD.Filter();
+
+    q.wuku      = BD.Wuku.WATUGUNUNG;
+    q.pancawara = BD.Pancawara.KLIWON;
+
+    const arr = BD.BalineseDateUtil.getBalineseDateByDate(q, start, finish);
+
+    t.is(arr.length, 4);
+});
+
+test("test_query_1_year_watugunung_saniscara", t => {
+    const start = new Date(2017,0,1);
+    const finish = new Date(2017,11,31);
+    const q = new BD.Filter();
+
+    q.wuku      = BD.Wuku.WATUGUNUNG;
+    q.saptawara = BD.Saptawara.SANISCARA;
+
+    const arr = BD.BalineseDateUtil.getBalineseDateByDate(q, start, finish);
+
+    t.is(arr.length, 2);
+});
+
+test("test_query_1_year_watugunung_saniscara_kliwon", t => {
+    const start = new Date(2017,0,1);
+    const finish = new Date(2017,11,31);
+    const q = new BD.Filter();
+
+    q.wuku      = BD.Wuku.WATUGUNUNG;
+    q.saptawara = BD.Saptawara.SANISCARA;
+    q.pancawara = BD.Pancawara.KLIWON;
+
+    const arr = BD.BalineseDateUtil.getBalineseDateByDate(q, start, finish);
+
+    t.is(arr.length, 0);
+});
+
+test("test_query_1_month_agustus_ngunaratri", t => {
+    const start = new Date(2017,7,1);
+    const finish = new Date(2017,7,31);
+    const q = new BD.Filter();
+
+    q.isNgunaRatri      = true;
+
+    const arr = BD.BalineseDateUtil.getBalineseDateByDate(q, start, finish);
+
+    t.is(arr.length, 1);
+});
+
+test("test_query_1_month_agustus_katiga", t => {
+    const start = new Date(2017,7,1);
+    const finish = new Date(2017,7,31);
+    const q = new BD.Filter();
+
+    q.sasih      = BD.Sasih.KATIGA;
+
+    const arr = BD.BalineseDateUtil.getBalineseDateByDate(q, start, finish);
+
+    t.is(arr.length, 9);
+});
+
+test("test_query_1_month_agustus_1", t => {
+    const start = new Date(2017,7,1);
+    const finish = new Date(2017,7,31);
+    const q = new BD.Filter();
+
+    q.penanggal = 1;
+
+    const arr = BD.BalineseDateUtil.getBalineseDateByDate(q, start, finish);
+
+    t.is(arr.length, 1);
+});
+
+test("test_query_1_month_agustus_penanggal_9", t => {
+    const start = new Date(2017,7,1);
+    const finish = new Date(2017,7,31);
+    const q = new BD.Filter();
+
+    q.penanggal = 9;
+    q.penanggalInfo = BD.PenanggalInfo.PENANGGAL;
+
+    const arr = BD.BalineseDateUtil.getBalineseDateByDate(q, start, finish);
+
+    t.is(arr.length, 2);
+});

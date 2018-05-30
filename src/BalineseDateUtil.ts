@@ -46,7 +46,7 @@ export class BalineseDateUtil {
         const res: BalineseDate[] = [];
 
         let now: Date;
-        for (now = addDays(start, 0); differenceInCalendarDays(finish, now) <= 0; now = addDays(now, 1)) {
+        for (now = addDays(start, 0); differenceInCalendarDays(finish, now) >= 0; now = addDays(now, 1)) {
             const date: BalineseDate = new BalineseDate(now.getFullYear(), now.getMonth(), now.getDate());
             const pawukon: Readonly<BalineseDatePawukon> = date.pawukon;
 
