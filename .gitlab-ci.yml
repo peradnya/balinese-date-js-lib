@@ -22,6 +22,21 @@ test:
   dependencies:
   - build
 
+pages:
+  stage: deploy
+  only:
+    - master
+  dependencies:
+    - build
+  script:
+    - npm install
+    - npm run doc
+    - mkdir public
+    - mv doc/* public
+  artifacts:
+    paths:
+      - public
+
 publish:
   stage: deploy
   only:
@@ -30,11 +45,5 @@ publish:
     - build
   script:
     - npm install
-    - npm run doc
-    - mkdir public
-    - mv doc/* public
     - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
     - npm publish
-  artifacts:
-    paths:
-      - public
