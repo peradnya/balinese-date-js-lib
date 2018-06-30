@@ -37,5 +37,8 @@ export * from "./Sangawara";
 export * from "./Dasawara";
 
 export * from "./Sasih";
-export * from "./PenanggalInfo";
+export * from "./SasihDayInfo";
 export * from "./Filter";
+
+export * from "./EkaJalaRsi";
+export * from "./PratithiSamutPada";

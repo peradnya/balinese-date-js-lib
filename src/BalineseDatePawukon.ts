@@ -24,15 +24,52 @@ import * as BalineseDateConst from "./const";
  *  <li>Wuku (Sinta - Watugunung)</li>
  *  <li>Wewaran (Ekawara - Dasawara)</li>
  *  <li>Paringkelan (Ingkel, Jejapan, Watek, Lintang, Pancasuda, Pararasan, Rakam)</li>
+ *  <li>Eka Jala Rsi</li>
  * </ul>
  * <p>
- * Calculation of pawukon that used by this class, is based on documentation from
+ * Calculation of pawukon that used by this class, is based on documentation from :
  * <a href='http://www.babadbali.com/pewarigaan/paringkelan.htm'>babadbali.com</a>.
+ * <p>
+ * Calculation of Eka Jala Rsi that used by this class, is based on :
+ * Ardhana, I.B.S.(2005). "Pokok-Pokok Wariga". Surabaya : Paramita.
  * @author Ida Bagus Putu Peradnya Dinata
  */
 export class BalineseDatePawukon {
 
     private static readonly DAYS_IN_YEAR_PAWUKON = 210;
+
+    private static readonly ejlMap = Object.freeze([
+        23, 7, 17, 7, 23, 23, 17,
+        9, 7, 13, 26, 24, 23, 20,
+        13, 7, 13, 25, 19, 5, 2,
+        14, 26, 17, 20, 25, 22, 0,
+        10, 5, 15, 23, 7, 17, 23,
+        17, 25, 4, 23, 2, 2, 2,
+        12, 12, 4, 14, 12, 26, 26,
+        1, 23, 23, 15, 25, 15, 5,
+        9, 25, 18, 25, 11, 15, 21,
+        25, 25, 12, 0, 17, 13, 0,
+        15, 23, 12, 7, 16, 25, 18,
+        24, 12, 12, 5, 7, 5, 26,
+        7, 5, 12, 7, 25, 2, 12,
+        25, 25, 14, 15, 26, 7, 12,
+        20, 7, 5, 25, 25, 5, 13,
+        25, 17, 13, 23, 5, 26, 20,
+        25, 25, 23, 7, 18, 18, 17,
+        7, 17, 7, 4, 26, 17, 5,
+        9, 12, 12, 13, 25, 18, 18,
+        5, 2, 25, 25, 2, 25, 17,
+        20, 14, 27, 23, 17, 8, 25,
+        17, 5, 17, 7, 6, 15, 18,
+        25, 2, 7, 13, 25, 20, 7,
+        15, 15, 23, 7, 8, 24, 2,
+        12, 9, 24, 24, 17, 24, 20,
+        7, 12, 12, 14, 18, 25, 20,
+        4, 18, 4, 20, 26, 12, 23,
+        18, 17, 17, 25, 15, 2, 24,
+        3, 2, 23, 25, 18, 25, 20,
+        14, 3, 2, 25, 7, 25, 17,
+    ]);
 
     private static calcCaturwaraIdx(pawukonDayInYear: number): number {
         let idx = 0;
@@ -94,37 +131,38 @@ export class BalineseDatePawukon {
     private readonly oPancasuda: Readonly<BalineseDateConst.Pancasuda>;
     private readonly oPararasan: Readonly<BalineseDateConst.Pararasan>;
     private readonly oRakam: Readonly<BalineseDateConst.Rakam>;
+    private readonly oEkaJalaRsi: Readonly<BalineseDateConst.EkaJalaRsi>;
 
     /**
      * Construct BalineseDate Pawukon.
-     * @param nPawukonDayInYear number of day in 1 year (cycle) of pawukon.
+     * @param nPawukonDay number of day in 1 year (cycle) of pawukon.
      *                          Number is from 0 (Redite Sinta) to 209 (Saniscara Watugunung).
      */
-    public constructor(private readonly nPawukonDayInYear: number) {
-        if (nPawukonDayInYear >= BalineseDatePawukon.DAYS_IN_YEAR_PAWUKON ||
-            nPawukonDayInYear < 0) {
+    public constructor(private readonly nPawukonDay: number) {
+        if (nPawukonDay >= BalineseDatePawukon.DAYS_IN_YEAR_PAWUKON ||
+            nPawukonDay < 0) {
             throw Error("Invalid day in year value. Value need in between 0 - 209.");
         }
 
-        this.oWuku = BalineseDateConst.Wuku.values[Math.floor(nPawukonDayInYear / 7)];
+        this.oWuku = BalineseDateConst.Wuku.values[Math.floor(nPawukonDay / 7)];
 
-        this.oTriwara = BalineseDateConst.Triwara.values[nPawukonDayInYear % 3];
-        this.oPancawara = BalineseDateConst.Pancawara.values[nPawukonDayInYear % 5];
-        this.oSadwara = BalineseDateConst.Sadwara.values[nPawukonDayInYear % 6];
-        this.oSaptawara = BalineseDateConst.Saptawara.values[nPawukonDayInYear % 7];
+        this.oTriwara = BalineseDateConst.Triwara.values[nPawukonDay % 3];
+        this.oPancawara = BalineseDateConst.Pancawara.values[nPawukonDay % 5];
+        this.oSadwara = BalineseDateConst.Sadwara.values[nPawukonDay % 6];
+        this.oSaptawara = BalineseDateConst.Saptawara.values[nPawukonDay % 7];
 
         this.nUrip = this.oPancawara.urip + this.oSaptawara.urip;
         this.oEkawara = BalineseDateConst.Ekawara.values[this.nUrip % 2];
         this.oDwiwara = BalineseDateConst.Dwiwara.values[this.nUrip % 2];
         this.oDasawara = BalineseDateConst.Dasawara.values[this.nUrip % 10];
 
-        this.oCaturwara = BalineseDateConst.Caturwara.values[BalineseDatePawukon.calcCaturwaraIdx(nPawukonDayInYear)];
-        this.oAstawara = BalineseDateConst.Astawara.values[BalineseDatePawukon.calcAstawaraIdx(nPawukonDayInYear)];
-        this.oSangawara = BalineseDateConst.Sangawara.values[BalineseDatePawukon.calcSangawaraIdx(nPawukonDayInYear)];
+        this.oCaturwara = BalineseDateConst.Caturwara.values[BalineseDatePawukon.calcCaturwaraIdx(nPawukonDay)];
+        this.oAstawara = BalineseDateConst.Astawara.values[BalineseDatePawukon.calcAstawaraIdx(nPawukonDay)];
+        this.oSangawara = BalineseDateConst.Sangawara.values[BalineseDatePawukon.calcSangawaraIdx(nPawukonDay)];
 
         this.oIngkel = BalineseDateConst.Ingkel.values[this.oWuku.id % 6];
-        this.oJejapan = BalineseDateConst.Jejapan.values[nPawukonDayInYear % 6];
-        this.oLintang = BalineseDateConst.Lintang.values[nPawukonDayInYear % 35];
+        this.oJejapan = BalineseDateConst.Jejapan.values[nPawukonDay % 6];
+        this.oLintang = BalineseDateConst.Lintang.values[nPawukonDay % 35];
 
         this.oWatekAlit = BalineseDateConst.PawatekanAlit.values[this.nUrip % 4];
         this.oWatekMadya = BalineseDateConst.PawatekanMadya.values[this.nUrip % 5];
@@ -132,8 +170,11 @@ export class BalineseDatePawukon {
 
         this.oPancasuda = BalineseDateConst.Pancasuda.values[(this.oSaptawara.kertaaji + this.oPancawara.urip) % 7];
         this.oRakam = BalineseDateConst.Rakam.values[(this.oSaptawara.kupih + this.oPancawara.kupih) % 6];
+
+        this.oEkaJalaRsi = BalineseDateConst.EkaJalaRsi.values[BalineseDatePawukon.ejlMap[nPawukonDay]];
     }
 
+    public get pawukonDay(): number { return this.nPawukonDay; }
     public get urip(): number { return this.nUrip; }
     public get wuku(): Readonly<BalineseDateConst.Wuku> { return this.oWuku; }
 
@@ -157,4 +198,5 @@ export class BalineseDatePawukon {
     public get pararasan(): Readonly<BalineseDateConst.Pararasan> { return this.oPararasan; }
     public get rakam(): Readonly<BalineseDateConst.Rakam> { return this.oRakam; }
 
+    public get ekaJalaRsi(): Readonly<BalineseDateConst.EkaJalaRsi> { return this.oEkaJalaRsi; }
 }

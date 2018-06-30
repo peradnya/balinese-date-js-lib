@@ -16,26 +16,26 @@
 
 export class Sasih {
     private static readonly aValues = Object.freeze([
-        Object.freeze(new Sasih(0, "Kasa")),
-        Object.freeze(new Sasih(1, "Karo")),
-        Object.freeze(new Sasih(2, "Katiga")),
-        Object.freeze(new Sasih(3, "Kapat")),
-        Object.freeze(new Sasih(4, "Kalima")),
-        Object.freeze(new Sasih(5, "Kanem")),
-        Object.freeze(new Sasih(6, "Kapitu")),
-        Object.freeze(new Sasih(7, "Kawolu")),
-        Object.freeze(new Sasih(8, "Kasanga")),
-        Object.freeze(new Sasih(9, "Kadasa")),
-        Object.freeze(new Sasih(10, "Destha")),
-        Object.freeze(new Sasih(11, "Sadha")),
-        Object.freeze(new Sasih(12, "Mala Destha")),
-        Object.freeze(new Sasih(13, "Mala Sadha")),
-        Object.freeze(new Sasih(14, "Nampih Destha")),
-        Object.freeze(new Sasih(15, "Nampih Katiga")),
-        Object.freeze(new Sasih(16, "Nampih Kasa")),
-        Object.freeze(new Sasih(17, "Nampih Kadasa")),
-        Object.freeze(new Sasih(18, "Nampih Karo")),
-        Object.freeze(new Sasih(19, "Nampih Sadha")),
+        Object.freeze(new Sasih(0, 0, "Kasa")),
+        Object.freeze(new Sasih(1, 1, "Karo")),
+        Object.freeze(new Sasih(2, 2, "Katiga")),
+        Object.freeze(new Sasih(3, 3, "Kapat")),
+        Object.freeze(new Sasih(4, 4, "Kalima")),
+        Object.freeze(new Sasih(5, 5, "Kanem")),
+        Object.freeze(new Sasih(6, 6, "Kapitu")),
+        Object.freeze(new Sasih(7, 7, "Kawolu")),
+        Object.freeze(new Sasih(8, 8, "Kasanga")),
+        Object.freeze(new Sasih(9, 9, "Kadasa")),
+        Object.freeze(new Sasih(10, 10, "Destha")),
+        Object.freeze(new Sasih(11, 11, "Sadha")),
+        Object.freeze(new Sasih(12, 10, "Mala Destha")),
+        Object.freeze(new Sasih(13, 11, "Mala Sadha")),
+        Object.freeze(new Sasih(14, 10, "Nampih Destha")),
+        Object.freeze(new Sasih(15, 2, "Nampih Katiga")),
+        Object.freeze(new Sasih(16, 0, "Nampih Kasa")),
+        Object.freeze(new Sasih(17, 9, "Nampih Kadasa")),
+        Object.freeze(new Sasih(18, 1, "Nampih Karo")),
+        Object.freeze(new Sasih(19, 11, "Nampih Sadha")),
     ]);
 
     public static get KASA(): Readonly<Sasih> { return Sasih.aValues[0]; }
@@ -61,10 +61,15 @@ export class Sasih {
 
     private constructor(
         private readonly nId: number,
+        private readonly nRef: number,
         private readonly sName: string) { }
 
     public get id(): number {
         return this.nId;
+    }
+
+    public get ref(): number {
+        return this.nRef;
     }
 
     public get name(): string {

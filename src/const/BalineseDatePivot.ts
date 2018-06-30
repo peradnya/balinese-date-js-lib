@@ -31,9 +31,9 @@ export class BalineseDatePivot {
         private readonly nYear: number,
         private readonly nMonth: number,
         private readonly nDayOfMonth: number,
-        private readonly nPawukonDayInYear: number,
-        private readonly nPenanggal: number,
-        private readonly nNgunaratriDay: number,
+        private readonly nPawukonDay: number,
+        private readonly nSasihDay: number,
+        private readonly nNgunaRatriDay: number,
         private readonly nSaka: number,
         private readonly oSasih: Readonly<Sasih>,
         private readonly bIsNampihSasih: boolean) {
@@ -44,16 +44,16 @@ export class BalineseDatePivot {
         return this.mCalendar;
     }
 
-    public get pawukonDayInYear(): number {
-        return this.nPawukonDayInYear;
+    public get pawukonDay(): number {
+        return this.nPawukonDay;
     }
 
-    public get penanggal(): number {
-        return this.nPenanggal;
+    public get sasihDay(): number {
+        return this.nSasihDay;
     }
 
-    public get ngunaratriDay(): number {
-        return this.nNgunaratriDay;
+    public get ngunaRatriDay(): number {
+        return this.nNgunaRatriDay;
     }
 
     public get saka(): number {

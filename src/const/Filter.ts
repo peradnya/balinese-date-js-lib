@@ -36,8 +36,11 @@ import { PawatekanAlit } from "./PawatekanAlit";
 import { PawatekanMadya } from "./PawatekanMadya";
 import { Rakam } from "./Rakam";
 
-import { PenanggalInfo } from "./PenanggalInfo";
 import { Sasih } from "./Sasih";
+import { SasihDayInfo } from "./SasihDayInfo";
+
+import { EkaJalaRsi } from "./EkaJalaRsi";
+import { PratithiSamutPada } from "./PratithiSamutPada";
 
 /**
  * Filter class for BalineseDateUtil class.
@@ -56,8 +59,6 @@ export class Filter {
     public sangawara?: Readonly<Sangawara>;
     public dasawara?: Readonly<Dasawara>;
 
-    public wuku?: Readonly<Wuku>;
-
     public ingkel?: Readonly<Ingkel>;
     public jejapan?: Readonly<Jejapan>;
     public lintang?: Readonly<Lintang>;
@@ -66,11 +67,14 @@ export class Filter {
     public watekAlit?: Readonly<PawatekanAlit>;
     public watekMadya?: Readonly<PawatekanMadya>;
     public rakam?: Readonly<Rakam>;
+    public ekaJalaRsi?: Readonly<EkaJalaRsi>;
 
-    public penanggalInfo?: Readonly<PenanggalInfo>;
+    public wuku?: Readonly<Wuku>;
+
     public sasih?: Readonly<Sasih>;
-    public isNgunaRatri?: boolean;
+    public sasihDayInfo?: Readonly<SasihDayInfo>;
+    public sasihDay?: ReadonlyArray<number>;
     public saka?: number;
-    public penanggal?: number;
+    public pratithiSamutPada?: Readonly<PratithiSamutPada>;
 
 }

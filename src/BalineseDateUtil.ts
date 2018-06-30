@@ -36,7 +36,7 @@ export class BalineseDateUtil {
      * @return array of BalineseDate that matched with given filters and dates.
      * @see Filter
      */
-    public static getBalineseDateByDate(
+    public static getBalineseDateByDateRange(
         filter: BalineseDateConst.Filter,
         start: Date,
         finish: Date): BalineseDate[] {
@@ -51,35 +51,34 @@ export class BalineseDateUtil {
             const pawukon: Readonly<BalineseDatePawukon> = date.pawukon;
 
             if (filter !== undefined && filter !== null) {
+                if (BalineseDateUtil.check(filter.ekawara, pawukon.ekawara))                    { continue; }
+                if (BalineseDateUtil.check(filter.dwiwara, pawukon.dwiwara))                    { continue; }
+                if (BalineseDateUtil.check(filter.triwara, pawukon.triwara))                    { continue; }
+                if (BalineseDateUtil.check(filter.caturwara, pawukon.caturwara))                { continue; }
+                if (BalineseDateUtil.check(filter.pancawara, pawukon.pancawara))                { continue; }
+                if (BalineseDateUtil.check(filter.sadwara, pawukon.sadwara))                    { continue; }
+                if (BalineseDateUtil.check(filter.saptawara, pawukon.saptawara))                { continue; }
+                if (BalineseDateUtil.check(filter.astawara, pawukon.astawara))                  { continue; }
+                if (BalineseDateUtil.check(filter.sangawara, pawukon.sangawara))                { continue; }
+                if (BalineseDateUtil.check(filter.dasawara, pawukon.dasawara))                  { continue; }
 
-                if (BalineseDateUtil.check(filter.ekawara, pawukon.ekawara))         { continue; }
-                if (BalineseDateUtil.check(filter.dwiwara, pawukon.dwiwara))         { continue; }
-                if (BalineseDateUtil.check(filter.triwara, pawukon.triwara))         { continue; }
-                if (BalineseDateUtil.check(filter.caturwara, pawukon.caturwara))     { continue; }
-                if (BalineseDateUtil.check(filter.pancawara, pawukon.pancawara))     { continue; }
-                if (BalineseDateUtil.check(filter.sadwara, pawukon.sadwara))         { continue; }
-                if (BalineseDateUtil.check(filter.saptawara, pawukon.saptawara))     { continue; }
-                if (BalineseDateUtil.check(filter.astawara, pawukon.astawara))       { continue; }
-                if (BalineseDateUtil.check(filter.sangawara, pawukon.sangawara))     { continue; }
-                if (BalineseDateUtil.check(filter.dasawara, pawukon.dasawara))       { continue; }
+                if (BalineseDateUtil.check(filter.ingkel, pawukon.ingkel))                      { continue; }
+                if (BalineseDateUtil.check(filter.jejapan, pawukon.jejapan))                    { continue; }
+                if (BalineseDateUtil.check(filter.watekAlit, pawukon.watekAlit))                { continue; }
+                if (BalineseDateUtil.check(filter.watekMadya, pawukon.watekMadya))              { continue; }
+                if (BalineseDateUtil.check(filter.lintang, pawukon.lintang))                    { continue; }
+                if (BalineseDateUtil.check(filter.pancasuda, pawukon.pancasuda))                { continue; }
+                if (BalineseDateUtil.check(filter.pararasan, pawukon.pararasan))                { continue; }
+                if (BalineseDateUtil.check(filter.rakam, pawukon.rakam))                        { continue; }
+                if (BalineseDateUtil.check(filter.ekaJalaRsi, pawukon.ekaJalaRsi))              { continue; }
 
-                if (BalineseDateUtil.check(filter.ingkel, pawukon.ingkel))           { continue; }
-                if (BalineseDateUtil.check(filter.jejapan, pawukon.jejapan))         { continue; }
-                if (BalineseDateUtil.check(filter.watekAlit, pawukon.watekAlit))     { continue; }
-                if (BalineseDateUtil.check(filter.watekMadya, pawukon.watekMadya))   { continue; }
-                if (BalineseDateUtil.check(filter.lintang, pawukon.lintang))         { continue; }
-                if (BalineseDateUtil.check(filter.pancasuda, pawukon.pancasuda))     { continue; }
-                if (BalineseDateUtil.check(filter.pararasan, pawukon.pararasan))     { continue; }
-                if (BalineseDateUtil.check(filter.rakam, pawukon.rakam))             { continue; }
+                if (BalineseDateUtil.check(filter.wuku, pawukon.wuku))                          { continue; }
 
-                if (BalineseDateUtil.check(filter.wuku, pawukon.wuku))               { continue; }
-
-                if (BalineseDateUtil.check(filter.sasih, date.sasih))                { continue; }
-                if (BalineseDateUtil.check(filter.penanggalInfo, date.penanggalInfo)) { continue; }
-                if (BalineseDateUtil.check(filter.isNgunaRatri, date.isNgunaRatri))  { continue; }
-                if (BalineseDateUtil.check(filter.penanggal, date.penanggal))        { continue; }
-                if (BalineseDateUtil.check(filter.saka, date.saka))                  { continue; }
-
+                if (BalineseDateUtil.check(filter.sasih, date.sasih))                           { continue; }
+                if (BalineseDateUtil.checkSasihDayInfo(filter.sasihDayInfo, date.sasihDayInfo)) { continue; }
+                if (BalineseDateUtil.checkIntArr(filter.sasihDay, date.sasihDay))               { continue; }
+                if (BalineseDateUtil.check(filter.saka, date.saka))                             { continue; }
+                if (BalineseDateUtil.check(filter.pratithiSamutPada, date.pratithiSamutPada))   { continue; }
             }
 
             res.push(date);
@@ -90,6 +89,41 @@ export class BalineseDateUtil {
 
     private static check<I>(filter: I, date: I): boolean {
         return (filter !== undefined ? filter !== date : false);
+    }
+
+    private static checkIntArr(
+        filter?: ReadonlyArray<number>,
+        date?: ReadonlyArray<number>): boolean {
+
+        if (filter !== undefined && date !== undefined) {
+            if (filter.length === 1) {
+                for (const y of date) {
+                    if (filter[0] === y) { return false; }
+                }
+            } else if (filter.length === 2 && date.length === 2) {
+                return !(filter[0] === date[0] && filter[1] === date[1]);
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private static checkSasihDayInfo(
+        filter?: Readonly<BalineseDateConst.SasihDayInfo>,
+        date?: Readonly<BalineseDateConst.SasihDayInfo>): boolean {
+
+        if (filter !== undefined && date !== undefined) {
+            if (filter === BalineseDateConst.SasihDayInfo.PURNAMA ||
+                filter === BalineseDateConst.SasihDayInfo.TILEM) {
+
+                return filter !== date;
+            } else {
+                return filter.group !== date.group;
+            }
+        } else {
+            return false;
+        }
     }
 
 }

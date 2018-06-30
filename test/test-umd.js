@@ -43,9 +43,11 @@ test("1969-01-01-node", t => {
     t.is(BD.Pararasan.ARAS_TUDING, bdate.pawukon.pararasan);
     t.is(BD.Pancasuda.SATRIA_WIBAWA, bdate.pawukon.pancasuda);
 
-    t.is(12, bdate.penanggal);
-    t.is(BD.PenanggalInfo.PENANGGAL, bdate.penanggalInfo);
-    t.is(true, bdate.isNgunaRatri);
+    t.is(BD.EkaJalaRsi.BUAT_SUKA, bdate.pawukon.ekaJalaRsi);
+
+    t.deepEqual([12, 13], bdate.sasihDay);
+    t.is(BD.SasihDayInfo.PENANGGAL, bdate.sasihDayInfo);
+    t.is(BD.PratithiSamutPada.WIDNYANA, bdate.pratithiSamutPada);
 
     t.is(1890, bdate.saka);
     t.is(BD.Sasih.KAPITU, bdate.sasih);
@@ -79,10 +81,12 @@ test("1970-01-01-node", t => {
     t.is(BD.Pararasan.ARAS_KEMBANG, bdate.pawukon.pararasan);
     t.is(BD.Pancasuda.TUNGGAK_SEMI, bdate.pawukon.pancasuda);
 
+    t.is(BD.EkaJalaRsi.BUAT_SUKA, bdate.pawukon.ekaJalaRsi);
+
     // Penanggal
-    t.is(8, bdate.penanggal);
-    t.is(BD.PenanggalInfo.PANGELONG, bdate.penanggalInfo);
-    t.is(false, bdate.isNgunaRatri);
+    t.deepEqual([8], bdate.sasihDay);
+    t.is(BD.SasihDayInfo.PANGELONG, bdate.sasihDayInfo);
+    t.is(BD.PratithiSamutPada.WEDANA, bdate.pratithiSamutPada);
 
     // Sasih
     t.is(1891, bdate.saka);
@@ -118,10 +122,12 @@ test("1976-03-31-node", t => {
     t.is(BD.Pararasan.LAKU_SURYA, bdate.pawukon.pararasan);
     t.is(BD.Pancasuda.LEBU_KATIUB_ANGIN, bdate.pawukon.pancasuda);
 
+    t.is(BD.EkaJalaRsi.BUAT_SUKA, bdate.pawukon.ekaJalaRsi);
+
     // Penanggal
-    t.is(15, bdate.penanggal);
-    t.is(BD.PenanggalInfo.TILEM, bdate.penanggalInfo);
-    t.is(true, bdate.isNgunaRatri);
+    t.deepEqual([15, 1], bdate.sasihDay);
+    t.is(BD.SasihDayInfo.TILEM, bdate.sasihDayInfo);
+    t.is(BD.PratithiSamutPada.SADAYATANA, bdate.pratithiSamutPada);
 
     // Sasih
     t.is(1897, bdate.saka);
@@ -157,10 +163,12 @@ test("1976-04-01-node", t => {
     t.is(BD.Pararasan.LAKU_BINTANG, bdate.pawukon.pararasan);
     t.is(BD.Pancasuda.SATRIA_WIBAWA, bdate.pawukon.pancasuda);
 
+    t.is(BD.EkaJalaRsi.SUKA_PINANGGIH, bdate.pawukon.ekaJalaRsi);
+
     // Penanggal
-    t.is(2, bdate.penanggal);
-    t.is(BD.PenanggalInfo.PENANGGAL, bdate.penanggalInfo);
-    t.is(false, bdate.isNgunaRatri);
+    t.deepEqual([2], bdate.sasihDay);
+    t.is(BD.SasihDayInfo.PENANGGAL, bdate.sasihDayInfo);
+    t.is(BD.PratithiSamutPada.NAMARUPA, bdate.pratithiSamutPada);
 
     // Sasih
     t.is(1898, bdate.saka);
@@ -196,10 +204,12 @@ test("1978-05-08-node", t => {
     t.is(BD.Pararasan.ARAS_TUDING, bdate.pawukon.pararasan);
     t.is(BD.Pancasuda.SUMUR_SINABA, bdate.pawukon.pancasuda);
 
+    t.is(BD.EkaJalaRsi.LANGGENG_KAYOHANAAN, bdate.pawukon.ekaJalaRsi);
+
     // Penanggal
-    t.is(1, bdate.penanggal);
-    t.is(BD.PenanggalInfo.PENANGGAL, bdate.penanggalInfo);
-    t.is(false, bdate.isNgunaRatri);
+    t.deepEqual([1], bdate.sasihDay);
+    t.is(BD.SasihDayInfo.PENANGGAL, bdate.sasihDayInfo);
+    t.is(BD.PratithiSamutPada.SEPARSA, bdate.pratithiSamutPada);
 
     // Sasih
     t.is(1900, bdate.saka);
@@ -235,10 +245,12 @@ test("1993-03-24-node", t => {
     t.is(BD.Pararasan.LAKU_AIR, bdate.pawukon.pararasan);
     t.is(BD.Pancasuda.WISESA_SEGARA, bdate.pawukon.pancasuda);
 
+    t.is(BD.EkaJalaRsi.BUAT_SUKA, bdate.pawukon.ekaJalaRsi);
+
     // Penanggal
-    t.is(1, bdate.penanggal);
-    t.is(BD.PenanggalInfo.PENANGGAL, bdate.penanggalInfo);
-    t.is(false, bdate.isNgunaRatri);
+    t.deepEqual([1], bdate.sasihDay);
+    t.is(BD.SasihDayInfo.PENANGGAL, bdate.sasihDayInfo);
+    t.is(BD.PratithiSamutPada.SADAYATANA, bdate.pratithiSamutPada);
 
     // Sasih
     t.is(1915, bdate.saka);
@@ -274,10 +286,12 @@ test("1993-09-01-node", t => {
     t.is(BD.Pararasan.LAKU_BULAN, bdate.pawukon.pararasan);
     t.is(BD.Pancasuda.BUMI_KAPETAK, bdate.pawukon.pancasuda);
 
+    t.is(BD.EkaJalaRsi.BAGNA_MAPASAH, bdate.pawukon.ekaJalaRsi);
+
     // Penanggal
-    t.is(14, bdate.penanggal);
-    t.is(BD.PenanggalInfo.PURNAMA, bdate.penanggalInfo);
-    t.is(true, bdate.isNgunaRatri);
+    t.deepEqual([14, 15], bdate.sasihDay);
+    t.is(BD.SasihDayInfo.PURNAMA, bdate.sasihDayInfo);
+    t.is(BD.PratithiSamutPada.UPADANA, bdate.pratithiSamutPada);
 
     // Sasih
     t.is(1915, bdate.saka);
@@ -313,10 +327,12 @@ test("1999-01-01-node", t => {
     t.is(BD.Pararasan.ARAS_TUDING, bdate.pawukon.pararasan);
     t.is(BD.Pancasuda.SATRIA_WIRANG, bdate.pawukon.pancasuda);
 
+    t.is(BD.EkaJalaRsi.MANGGIH_SUKA, bdate.pawukon.ekaJalaRsi);
+
     // Penanggal
-    t.is(13, bdate.penanggal);
-    t.is(BD.PenanggalInfo.PENANGGAL, bdate.penanggalInfo);
-    t.is(false, bdate.isNgunaRatri);
+    t.deepEqual([13], bdate.sasihDay);
+    t.is(BD.SasihDayInfo.PENANGGAL, bdate.sasihDayInfo);
+    t.is(BD.PratithiSamutPada.WIDNYANA, bdate.pratithiSamutPada);
 
     // Sasih
     t.is(1920, bdate.saka);
@@ -352,10 +368,12 @@ test("1999-03-17-node", t => {
     t.is(BD.Pararasan.ARAS_KEMBANG, bdate.pawukon.pararasan);
     t.is(BD.Pancasuda.SUMUR_SINABA, bdate.pawukon.pancasuda);
 
+    t.is(BD.EkaJalaRsi.TININGGALING_SUKA, bdate.pawukon.ekaJalaRsi);
+
     // Penanggal
-    t.is(15, bdate.penanggal);
-    t.is(BD.PenanggalInfo.TILEM, bdate.penanggalInfo);
-    t.is(false, bdate.isNgunaRatri);
+    t.deepEqual([15], bdate.sasihDay);
+    t.is(BD.SasihDayInfo.TILEM, bdate.sasihDayInfo);
+    t.is(BD.PratithiSamutPada.JARAMARANA, bdate.pratithiSamutPada);
 
     // Sasih
     t.is(1920, bdate.saka);
@@ -390,10 +408,12 @@ test("1999-03-18-node", t => {
     t.is(BD.Pararasan.LAKU_BUMI, bdate.pawukon.pararasan);
     t.is(BD.Pancasuda.LEBU_KATIUB_ANGIN, bdate.pawukon.pancasuda);
 
+    t.is(BD.EkaJalaRsi.PATINING_AMRTA, bdate.pawukon.ekaJalaRsi);
+
     // Penanggal
-    t.is(1, bdate.penanggal);
-    t.is(BD.PenanggalInfo.PENANGGAL, bdate.penanggalInfo);
-    t.is(false, bdate.isNgunaRatri);
+    t.deepEqual([1], bdate.sasihDay);
+    t.is(BD.SasihDayInfo.PENANGGAL, bdate.sasihDayInfo);
+    t.is(BD.PratithiSamutPada.SADAYATANA, bdate.pratithiSamutPada);
 
     // Sasih
     t.is(1921, bdate.saka);
@@ -428,10 +448,12 @@ test("2000-01-01-node", t => {
     t.is(BD.Pararasan.LAKU_BULAN, bdate.pawukon.pararasan);
     t.is(BD.Pancasuda.BUMI_KAPETAK, bdate.pawukon.pancasuda);
 
+    t.is(BD.EkaJalaRsi.BAGNA_MAPASAH, bdate.pawukon.ekaJalaRsi);
+
     // Penanggal
-    t.is(9, bdate.penanggal);
-    t.is(BD.PenanggalInfo.PANGELONG, bdate.penanggalInfo);
-    t.is(false, bdate.isNgunaRatri);
+    t.deepEqual([9], bdate.sasihDay);
+    t.is(BD.SasihDayInfo.PANGELONG, bdate.sasihDayInfo);
+    t.is(BD.PratithiSamutPada.SADAYATANA, bdate.pratithiSamutPada);
 
     // Sasih
     t.is(1921, bdate.saka);
@@ -466,10 +488,12 @@ test("2000-01-17-node", t => {
     t.is(BD.Pararasan.LAKU_BINTANG, bdate.pawukon.pararasan);
     t.is(BD.Pancasuda.BUMI_KAPETAK, bdate.pawukon.pancasuda);
 
+    t.is(BD.EkaJalaRsi.BUAT_SEBET, bdate.pawukon.ekaJalaRsi);
+
     // Penanggal
-    t.is(11, bdate.penanggal);
-    t.is(BD.PenanggalInfo.PENANGGAL, bdate.penanggalInfo);
-    t.is(false, bdate.isNgunaRatri);
+    t.deepEqual([11], bdate.sasihDay);
+    t.is(BD.SasihDayInfo.PENANGGAL, bdate.sasihDayInfo);
+    t.is(BD.PratithiSamutPada.SADAYATANA, bdate.pratithiSamutPada);
 
     // Sasih
     t.is(1921, bdate.saka);
@@ -504,10 +528,12 @@ test("2001-08-18-node", t => {
     t.is(BD.Pararasan.LAKU_BULAN, bdate.pawukon.pararasan);
     t.is(BD.Pancasuda.BUMI_KAPETAK, bdate.pawukon.pancasuda);
 
+    t.is(BD.EkaJalaRsi.SUKA_PINANGGIH, bdate.pawukon.ekaJalaRsi);
+
     // Penanggal
-    t.is(15, bdate.penanggal);
-    t.is(BD.PenanggalInfo.TILEM, bdate.penanggalInfo);
-    t.is(false, bdate.isNgunaRatri);
+    t.deepEqual([15], bdate.sasihDay);
+    t.is(BD.SasihDayInfo.TILEM, bdate.sasihDayInfo);
+    t.is(BD.PratithiSamutPada.SADAYATANA, bdate.pratithiSamutPada);
 
     // Sasih
     t.is(1923, bdate.saka);
@@ -543,10 +569,12 @@ test("2001-09-17-node", t => {
     t.is(BD.Pararasan.LAKU_ANGIN, bdate.pawukon.pararasan);
     t.is(BD.Pancasuda.TUNGGAK_SEMI, bdate.pawukon.pancasuda);
 
+    t.is(BD.EkaJalaRsi.TININGGALING_SUKA, bdate.pawukon.ekaJalaRsi);
+
     // Penanggal
-    t.is(15, bdate.penanggal);
-    t.is(BD.PenanggalInfo.TILEM, bdate.penanggalInfo);
-    t.is(false, bdate.isNgunaRatri);
+    t.deepEqual([15], bdate.sasihDay);
+    t.is(BD.SasihDayInfo.TILEM, bdate.sasihDayInfo);
+    t.is(BD.PratithiSamutPada.SEPARSA, bdate.pratithiSamutPada);
 
     // Sasih
     t.is(1923, bdate.saka);
@@ -581,10 +609,12 @@ test("2001-09-24-node", t => {
     t.is(BD.Pararasan.ARAS_TUDING, bdate.pawukon.pararasan);
     t.is(BD.Pancasuda.SUMUR_SINABA, bdate.pawukon.pancasuda);
 
+    t.is(BD.EkaJalaRsi.SUKA_PINANGGIH, bdate.pawukon.ekaJalaRsi);
+
     // Penanggal
-    t.is(7, bdate.penanggal);
-    t.is(BD.PenanggalInfo.PENANGGAL, bdate.penanggalInfo);
-    t.is(false, bdate.isNgunaRatri);
+    t.deepEqual([7], bdate.sasihDay);
+    t.is(BD.SasihDayInfo.PENANGGAL, bdate.sasihDayInfo);
+    t.is(BD.PratithiSamutPada.NAMARUPA, bdate.pratithiSamutPada);
 
     // Sasih
     t.is(1923, bdate.saka);
@@ -619,10 +649,12 @@ test("2003-01-03-node", t => {
     t.is(BD.Pararasan.LAKU_PANDITA_SAKTI, bdate.pawukon.pararasan);
     t.is(BD.Pancasuda.SUMUR_SINABA, bdate.pawukon.pancasuda);
 
+    t.is(BD.EkaJalaRsi.PATINING_AMRTA, bdate.pawukon.ekaJalaRsi);
+
     // Penanggal
-    t.is(1, bdate.penanggal);
-    t.is(BD.PenanggalInfo.PENANGGAL, bdate.penanggalInfo);
-    t.is(false, bdate.isNgunaRatri);
+    t.deepEqual([1], bdate.sasihDay);
+    t.is(BD.SasihDayInfo.PENANGGAL, bdate.sasihDayInfo);
+    t.is(BD.PratithiSamutPada.SAMSKARA, bdate.pratithiSamutPada);
 
     // Sasih
     t.is(1924, bdate.saka);
@@ -657,10 +689,12 @@ test("2017-01-01-node", t => {
     t.is(BD.Pararasan.LAKU_PANDITA_SAKTI, bdate.pawukon.pararasan);
     t.is(BD.Pancasuda.SUMUR_SINABA, bdate.pawukon.pancasuda);
 
+    t.is(BD.EkaJalaRsi.PATINING_AMRTA, bdate.pawukon.ekaJalaRsi);
+
     // Penanggal
-    t.is(4, bdate.penanggal);
-    t.is(BD.PenanggalInfo.PENANGGAL, bdate.penanggalInfo);
-    t.is(false, bdate.isNgunaRatri);
+    t.deepEqual([4], bdate.sasihDay);
+    t.is(BD.SasihDayInfo.PENANGGAL, bdate.sasihDayInfo);
+    t.is(BD.PratithiSamutPada.JATI, bdate.pratithiSamutPada);
 
     // Sasih
     t.is(1938, bdate.saka);
@@ -695,11 +729,14 @@ test("2017-01-01-STR-node", t => {
     t.is("Laku Pandita Sakti", bdate.pawukon.pararasan.name);
     t.is("Sumur Sinaba", bdate.pawukon.pancasuda.name);
 
+    t.is("Patining Amrta", bdate.pawukon.ekaJalaRsi.name);
+
     // Penanggal
-    t.is("Penanggal", bdate.penanggalInfo.name);
+    t.is("Penanggal", bdate.sasihDayInfo.name);
 
     // Sasih
     t.is("Kapitu", bdate.sasih.name);
+    t.is("Jati", bdate.pratithiSamutPada.name);
 });
 
 test("test_query_1_year_watugunung", t => {
@@ -709,7 +746,7 @@ test("test_query_1_year_watugunung", t => {
 
     q.wuku = BD.Wuku.WATUGUNUNG;
 
-    const arr = BD.BalineseDateUtil.getBalineseDateByDate(q, start, finish);
+    const arr = BD.BalineseDateUtil.getBalineseDateByDateRange(q, start, finish);
 
     t.is(arr.length, 14);
 });
@@ -722,7 +759,7 @@ test("test_query_1_year_watugunung_kliwon", t => {
     q.wuku      = BD.Wuku.WATUGUNUNG;
     q.pancawara = BD.Pancawara.KLIWON;
 
-    const arr = BD.BalineseDateUtil.getBalineseDateByDate(q, start, finish);
+    const arr = BD.BalineseDateUtil.getBalineseDateByDateRange(q, start, finish);
 
     t.is(arr.length, 4);
 });
@@ -735,7 +772,7 @@ test("test_query_1_year_watugunung_saniscara", t => {
     q.wuku      = BD.Wuku.WATUGUNUNG;
     q.saptawara = BD.Saptawara.SANISCARA;
 
-    const arr = BD.BalineseDateUtil.getBalineseDateByDate(q, start, finish);
+    const arr = BD.BalineseDateUtil.getBalineseDateByDateRange(q, start, finish);
 
     t.is(arr.length, 2);
 });
@@ -749,21 +786,9 @@ test("test_query_1_year_watugunung_saniscara_kliwon", t => {
     q.saptawara = BD.Saptawara.SANISCARA;
     q.pancawara = BD.Pancawara.KLIWON;
 
-    const arr = BD.BalineseDateUtil.getBalineseDateByDate(q, start, finish);
+    const arr = BD.BalineseDateUtil.getBalineseDateByDateRange(q, start, finish);
 
     t.is(arr.length, 0);
-});
-
-test("test_query_1_month_agustus_ngunaratri", t => {
-    const start = new Date(2017,7,1);
-    const finish = new Date(2017,7,31);
-    const q = new BD.Filter();
-
-    q.isNgunaRatri      = true;
-
-    const arr = BD.BalineseDateUtil.getBalineseDateByDate(q, start, finish);
-
-    t.is(arr.length, 1);
 });
 
 test("test_query_1_month_agustus_katiga", t => {
@@ -773,7 +798,7 @@ test("test_query_1_month_agustus_katiga", t => {
 
     q.sasih      = BD.Sasih.KATIGA;
 
-    const arr = BD.BalineseDateUtil.getBalineseDateByDate(q, start, finish);
+    const arr = BD.BalineseDateUtil.getBalineseDateByDateRange(q, start, finish);
 
     t.is(arr.length, 9);
 });
@@ -783,11 +808,11 @@ test("test_query_1_month_agustus_1", t => {
     const finish = new Date(2017,7,31);
     const q = new BD.Filter();
 
-    q.penanggal = 1;
+    q.sasihDay = [1];
 
-    const arr = BD.BalineseDateUtil.getBalineseDateByDate(q, start, finish);
+    const arr = BD.BalineseDateUtil.getBalineseDateByDateRange(q, start, finish);
 
-    t.is(arr.length, 1);
+    t.is(arr.length, 2);
 });
 
 test("test_query_1_month_agustus_penanggal_9", t => {
@@ -795,10 +820,10 @@ test("test_query_1_month_agustus_penanggal_9", t => {
     const finish = new Date(2017,7,31);
     const q = new BD.Filter();
 
-    q.penanggal = 9;
-    q.penanggalInfo = BD.PenanggalInfo.PENANGGAL;
+    q.sasihDay = [9];
+    q.sasihDayInfo = BD.SasihDayInfo.PENANGGAL;
 
-    const arr = BD.BalineseDateUtil.getBalineseDateByDate(q, start, finish);
+    const arr = BD.BalineseDateUtil.getBalineseDateByDateRange(q, start, finish);
 
     t.is(arr.length, 2);
 });
