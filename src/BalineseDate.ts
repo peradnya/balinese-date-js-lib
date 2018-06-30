@@ -29,17 +29,17 @@ export * from "./const/index";
 export * from "./BalineseDateUtil";
 
 /**
- * BalineseDate provides representation of Saka Calendar used by Indonesia Hindu's.
+ * BalineseDate provides implementation of Saka Calendar used by Indonesia Hindu's.
  * <p>
  * BalineseDate provides information about:
  * <ul>
- *  <li>Pawukon info (Wewaran, Wuku, Paringkelan, etc.)</li>
- *  <li>Sasih info (Penanggal, Sasih name, etc.)</li>
- *  <li>Saka info (Saka year)</li>
- *  <li>Pratithi Samud Pada</li>
+ *  <li>Pawukon info: Wewaran, Wuku, Paringkelan, etc.</li>
+ *  <li>Sasih info: Sasih Day (1-15), Sasih Day Info (Penanggal, Pangelong, Purnama, Tilem), Sasih Name, etc.</li>
+ *  <li>Saka info: Saka Year</li>
+ *  <li>Pratithi Samut Pada</li>
  * </ul>
  * <p>
- * Calculation of Pratithi Samud Pada that used by this class, is based on :
+ * Calculation of Pratithi Samut Pada that used by this class, is based on :
  * Ardhana, I.B.S.(2005). "Pokok-Pokok Wariga". Surabaya : Paramita.
  *
  * @author Ida Bagus Putu Peradnya Dinata

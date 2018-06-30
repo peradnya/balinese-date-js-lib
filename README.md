@@ -22,7 +22,7 @@
 
 BalineseDate is an open source javascript library to build Balinese Saka Calendar in NodeJS or web page.
 
-**Disclaimer**: This library is in **Beta Phase**. Feedbacks, corrections, or bug reports are welcomed ... :)
+**Note**: This library is in **Beta Phase**. Feedbacks, corrections, or bug reports are welcomed ... :)
 
 ## Features
 
@@ -30,13 +30,15 @@ BalineseDate provide a easy way to convert gregorian date into balinese date.
 
 BalineseDate support several features:
 
-1. Sasih
+1. Immutable (Thread Safe)
+2. Sasih
     1. Penanggal / Pangelong
     2. Purnama / Tilem
-    3. Mala Sasih / Nampih Sasih
+    3. Mala Masa / Nampih Sasih
     4. NgunaRatri
-2. Saka Year
-3. Pawukon
+    5. Pratithi Samut Pada __(v0.3.0)__
+3. Saka Year
+4. Pawukon
     1. Wuku
     2. Wewaran (Ekawara - Dasawara)
     3. Ingkel
@@ -46,7 +48,9 @@ BalineseDate support several features:
     7. Pancasuda
     8. Pararasan
     9. Rakam
-4. Get the BalineseDate(s) from selected Date and Filter __(NEW v0.2.0!)__
+    10. Eka Jala Rsi __(v0.3.0)__
+5. Utilities
+    1. Get the BalineseDate(s) from selected Date and Filter __(v0.2.0)__
 
 ## How to Build
 
@@ -132,6 +136,7 @@ You could find the test results at:
 
 ## References
 
+* Ardhana, I.B.S.(2005). *"Pokok-Pokok Wariga"*. Surabaya : Paramita.
 * babadbali.com (Yayasan Bali Galang) for [wewaran](http://www.babadbali.com/pewarigaan/perhitungan.htm) and [paringkelan](http://www.babadbali.com/pewarigaan/paringkelan.htm) algorithm.
 * kalenderbali.org and kalenderbali.info for cross-checking and building sample test-cases.
 * Pendit, Nyoman.(2001). *"Nyepi: kebangkitan, toleransi, dan kerukunan"*. Jakarta : Gramedia. Retrieved at [google book](https://books.google.co.id/books?id=4ND9KPn2o8AC).
