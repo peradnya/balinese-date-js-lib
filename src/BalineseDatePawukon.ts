@@ -199,4 +199,7 @@ export class BalineseDatePawukon {
     public get rakam(): Readonly<BalineseDateConst.Rakam> { return this.oRakam; }
 
     public get ekaJalaRsi(): Readonly<BalineseDateConst.EkaJalaRsi> { return this.oEkaJalaRsi; }
+    public get toString(): string {
+        return this.oSaptawara.name + " " + this.oPancawara.name + ", Wuku " + this.oWuku.name;
+    }
 }

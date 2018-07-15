@@ -48,6 +48,15 @@ export * from "./BalineseDateUtil";
 
 export class BalineseDate {
 
+    /**
+     * Static method to construct BalineseDate object from Javascript Date
+     * @param oDate the Javascript Date Object
+     * @returns BalineseDate Object
+     */
+    public static toBalineseDate(oDate: Date): BalineseDate {
+        return new BalineseDate(oDate.getFullYear(), oDate.getMonth(), oDate.getDate());
+    }
+
     private static readonly NGUNARATRI = 63;
     private static readonly DAYS_IN_YEAR_PAWUKON = 210;
 
@@ -376,7 +385,7 @@ export class BalineseDate {
     private readonly oPawukon: Readonly<BalineseDatePawukon>;
 
     /**
-     * Construct balinese date with specific date. Zero parameter mean using current date.
+     * Construct BalineseDate object with specific date. Zero parameter mean using current date.
      * @param nYear the gregorian year.
      * @param nMonth the gregorian month of year. Start from 0 (January) to 11 (December).
      * @param nDaysOfMonth the gregorian day of month. Start from 1 - 31.
@@ -429,7 +438,10 @@ export class BalineseDate {
     }
 
     public get sasihDay(): ReadonlyArray<number> {
-        return this.aSasihDay;
+        const temp = (this.aSasihDay.length === 1) ?
+            [this.aSasihDay[0]] :
+            [this.aSasihDay[0], this.aSasihDay[1]];
+        return Object.freeze(temp);
     }
 
     public get sasihDayInfo(): Readonly<BalineseDateConst.SasihDayInfo> {
@@ -446,5 +458,17 @@ export class BalineseDate {
 
     public get pratithiSamutPada(): Readonly<BalineseDateConst.PratithiSamutPada> {
         return this.oPratithiSamutPada;
+    }
+
+    public get toString(): string {
+        let dateStr = "" + this.aSasihDay[0];
+        if (this.aSasihDay.length > 1) {
+            dateStr = dateStr + "/" + this.aSasihDay[1];
+        }
+
+        return this.oPawukon.toString + ", " +
+            this.oSasihDayInfo.name + " " +
+            dateStr + ", Sasih " +
+            this.oSasih.name + ", Saka " + this.nSaka;
     }
 }

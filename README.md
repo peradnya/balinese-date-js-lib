@@ -132,7 +132,27 @@ You could find the test results at:
 
 ### Browser (Web Page)
 
-```COMING SOON```
+You can import the BalineseDate library to your WebPage by adding below code in your HTML file.
+
+```html
+<script src="../../umd/balinese-date-js-lib.min.js"></script>
+<script>
+    var BD      = new this.BalineseDate.BalineseDate();
+
+    document.getElementById("saka").innerHTML = BD.saka;
+    document.getElementById("sasih").innerHTML = BD.sasih.name;
+    document.getElementById("wuku").innerHTML = BD.pawukon.wuku.name;
+
+    ...
+
+</script>
+```
+
+The example(s) of how to use BalineseDate inside HTML file are available at:
+
+```sh
+[project root]/example/webpage/*.html
+```
 
 ## References
 

@@ -2,7 +2,8 @@ var webpack = require('webpack'),
     path = require('path'),
     yargs = require('yargs');
  
-var libraryName = 'balinese-date-js-lib',
+var libraryName = 'BalineseDate',
+    libraryFileName = 'balinese-date-js-lib',
     plugins = [],
     outputFile;
  
@@ -13,9 +14,9 @@ if (yargs.argv.p) {
             sourceMap: true
         })
     );
-    outputFile = libraryName + '.min.js';
+    outputFile = libraryFileName + '.min.js';
 } else {
-    outputFile = libraryName + '.js';
+    outputFile = libraryFileName + '.js';
 }
 
 var config = {
