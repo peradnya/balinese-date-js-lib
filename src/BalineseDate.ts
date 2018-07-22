@@ -429,8 +429,8 @@ export class BalineseDate {
             this.oCalendar);
     }
 
-    public get toDate(): Readonly<Date> {
-        return Object.freeze(new Date(this.oCalendar.getTime()));
+    public get toDate(): Date {
+        return new Date(this.oCalendar.getTime());
     }
 
     public get pawukon(): Readonly<BalineseDatePawukon> {
@@ -438,10 +438,7 @@ export class BalineseDate {
     }
 
     public get sasihDay(): ReadonlyArray<number> {
-        const temp = (this.aSasihDay.length === 1) ?
-            [this.aSasihDay[0]] :
-            [this.aSasihDay[0], this.aSasihDay[1]];
-        return Object.freeze(temp);
+        return this.aSasihDay;
     }
 
     public get sasihDayInfo(): Readonly<BalineseDateConst.SasihDayInfo> {

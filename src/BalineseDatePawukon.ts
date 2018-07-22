@@ -38,7 +38,7 @@ export class BalineseDatePawukon {
 
     private static readonly DAYS_IN_YEAR_PAWUKON = 210;
 
-    private static readonly ejlMap = Object.freeze([
+    private static readonly aEkaJalaRsiMap = Object.freeze([
         23, 7, 17, 7, 23, 23, 17,
         9, 7, 13, 26, 24, 23, 20,
         13, 7, 13, 25, 19, 5, 2,
@@ -171,7 +171,7 @@ export class BalineseDatePawukon {
         this.oPancasuda = BalineseDateConst.Pancasuda.values[(this.oSaptawara.kertaaji + this.oPancawara.urip) % 7];
         this.oRakam = BalineseDateConst.Rakam.values[(this.oSaptawara.kupih + this.oPancawara.kupih) % 6];
 
-        this.oEkaJalaRsi = BalineseDateConst.EkaJalaRsi.values[BalineseDatePawukon.ejlMap[nPawukonDay]];
+        this.oEkaJalaRsi = BalineseDateConst.EkaJalaRsi.values[BalineseDatePawukon.aEkaJalaRsiMap[nPawukonDay]];
     }
 
     public get pawukonDay(): number { return this.nPawukonDay; }
