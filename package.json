@@ -5,9 +5,9 @@
   "main": "node/BalineseDate.js",
   "types": "node/BalineseDate.d.ts",
   "scripts": {
-    "build:nodejs": "tsc -d --target \"es6\" --outDir \"./node\"",
-    "build:umd": "webpack",
-    "build:umd-dist": "webpack -p",
+    "build:nodejs": "tsc",
+    "build:umd": "webpack --mode=development",
+    "build:umd-dist": "webpack --mode=production",
     "doc": "typedoc --out doc/ --target ES6 --mode file --excludeExternals --excludePrivate src/",
     "build": "run-s build:nodejs build:umd build:umd-dist",
     "test:nodejs": "nyc ava test/test-nodejs.js",
@@ -36,16 +36,16 @@
     "umd/"
   ],
   "devDependencies": {
-    "ava": "^1.0.0-beta.6",
+    "ava": "^1.0.0-beta.8",
     "npm-run-all": "^4.1.3",
-    "nyc": "^11.9.0",
-    "ts-loader": "^3.5.0",
-    "tslint": "^5.10.0",
+    "nyc": "^13.0.1",
+    "ts-loader": "^5.2.1",
+    "tslint": "^5.11.0",
     "tslint-loader": "^3.6.0",
-    "typedoc": "^0.11.1",
-    "typescript": "^2.9.2",
-    "webpack": "^3.12.0",
-    "yargs": "^11.1.0"
+    "typedoc": "^0.12.0",
+    "typescript": "^3.1.1",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.1"
   },
   "dependencies": {
     "date-fns": "^1.29.0"

@@ -20,30 +20,30 @@ var BD = require("../node/BalineseDate");
 
 test("1969-01-01-node", t => {
     const date = new Date(1969,0,1);
-    const bdate = new BD.BalineseDate(date.getFullYear(), date.getMonth(), date.getDate());
+    const bdate = new BD.BalineseDate(date);
 
-    t.is(BD.Wuku.LANGKIR, bdate.pawukon.wuku);
+    t.is(BD.Wuku.LANGKIR, bdate.wuku);
 
-    t.is(BD.Ekawara.LUANG, bdate.pawukon.ekawara);
-    t.is(BD.Dwiwara.PEPET, bdate.pawukon.dwiwara);
-    t.is(BD.Triwara.PASAH, bdate.pawukon.triwara);
-    t.is(BD.Caturwara.LABA, bdate.pawukon.caturwara);
-    t.is(BD.Pancawara.WAGE, bdate.pawukon.pancawara);
-    t.is(BD.Sadwara.PANIRON, bdate.pawukon.sadwara);
-    t.is(BD.Saptawara.BUDA, bdate.pawukon.saptawara);
-    t.is(BD.Astawara.BRAHMA, bdate.pawukon.astawara);
-    t.is(BD.Sangawara.NOHAN, bdate.pawukon.sangawara);
-    t.is(BD.Dasawara.PATI, bdate.pawukon.dasawara);
+    t.is(BD.EkaWara.LUANG, bdate.ekaWara);
+    t.is(BD.DwiWara.PEPET, bdate.dwiWara);
+    t.is(BD.TriWara.PASAH, bdate.triWara);
+    t.is(BD.CaturWara.LABA, bdate.caturWara);
+    t.is(BD.PancaWara.WAGE, bdate.pancaWara);
+    t.is(BD.SadWara.PANIRON, bdate.sadWara);
+    t.is(BD.SaptaWara.BUDA, bdate.saptaWara);
+    t.is(BD.AstaWara.BRAHMA, bdate.astaWara);
+    t.is(BD.SangaWara.NOHAN, bdate.sangaWara);
+    t.is(BD.DasaWara.PATI, bdate.dasaWara);
 
-    t.is(BD.Ingkel.WONG, bdate.pawukon.ingkel);
-    t.is(BD.Jejapan.PATRA, bdate.pawukon.jejapan);
-    t.is(BD.PawatekanMadya.GAJAH, bdate.pawukon.watekMadya);
-    t.is(BD.PawatekanAlit.LEMBU, bdate.pawukon.watekAlit);
-    t.is(BD.Lintang.KARTIKA, bdate.pawukon.lintang);
-    t.is(BD.Pararasan.ARAS_TUDING, bdate.pawukon.pararasan);
-    t.is(BD.Pancasuda.SATRIA_WIBAWA, bdate.pawukon.pancasuda);
+    t.is(BD.Ingkel.WONG, bdate.ingkel);
+    t.is(BD.Jejepan.PATRA, bdate.jejepan);
+    t.is(BD.WatekMadya.GAJAH, bdate.watekMadya);
+    t.is(BD.WatekAlit.LEMBU, bdate.watekAlit);
+    t.is(BD.Lintang.KARTIKA, bdate.lintang);
+    t.is(BD.Pararasan.ARAS_TUDING, bdate.pararasan);
+    t.is(BD.PancaSuda.SATRIA_WIBAWA, bdate.pancaSuda);
 
-    t.is(BD.EkaJalaRsi.BUAT_SUKA, bdate.pawukon.ekaJalaRsi);
+    t.is(BD.EkaJalaRsi.BUAT_SUKA, bdate.ekaJalaRsi);
 
     t.deepEqual([12, 13], bdate.sasihDay);
     t.is(BD.SasihDayInfo.PENANGGAL, bdate.sasihDayInfo);
@@ -55,33 +55,33 @@ test("1969-01-01-node", t => {
 
 test("1970-01-01-node", t => {
     const date = new Date(1970,0,1);
-    const bdate = new BD.BalineseDate(date.getFullYear(), date.getMonth(), date.getDate());
+    const bdate = new BD.BalineseDate(date);
 
     // Wuku
-    t.is(BD.Wuku.TOLU, bdate.pawukon.wuku);
+    t.is(BD.Wuku.TOLU, bdate.wuku);
 
-    // Wewaran
-    t.is(BD.Ekawara.VOID, bdate.pawukon.ekawara);
-    t.is(BD.Dwiwara.MENGA, bdate.pawukon.dwiwara);
-    t.is(BD.Triwara.KAJENG, bdate.pawukon.triwara);
-    t.is(BD.Caturwara.SRI, bdate.pawukon.caturwara);
-    t.is(BD.Pancawara.WAGE, bdate.pawukon.pancawara);
-    t.is(BD.Sadwara.URUKUNG, bdate.pawukon.sadwara);
-    t.is(BD.Saptawara.WRESPATI, bdate.pawukon.saptawara);
-    t.is(BD.Astawara.SRI, bdate.pawukon.astawara);
-    t.is(BD.Sangawara.GIGIS, bdate.pawukon.sangawara);
-    t.is(BD.Dasawara.SUKA, bdate.pawukon.dasawara);
+    // WeWaran
+    t.is(BD.EkaWara.VOID, bdate.ekaWara);
+    t.is(BD.DwiWara.MENGA, bdate.dwiWara);
+    t.is(BD.TriWara.KAJENG, bdate.triWara);
+    t.is(BD.CaturWara.SRI, bdate.caturWara);
+    t.is(BD.PancaWara.WAGE, bdate.pancaWara);
+    t.is(BD.SadWara.URUKUNG, bdate.sadWara);
+    t.is(BD.SaptaWara.WRASPATI, bdate.saptaWara);
+    t.is(BD.AstaWara.SRI, bdate.astaWara);
+    t.is(BD.SangaWara.GIGIS, bdate.sangaWara);
+    t.is(BD.DasaWara.SUKA, bdate.dasaWara);
 
-    // Another wewaran
-    t.is(BD.Ingkel.TARU, bdate.pawukon.ingkel);
-    t.is(BD.Jejapan.SATO, bdate.pawukon.jejapan);
-    t.is(BD.PawatekanMadya.WATU, bdate.pawukon.watekMadya);
-    t.is(BD.PawatekanAlit.LINTAH, bdate.pawukon.watekAlit);
-    t.is(BD.Lintang.KUMBA, bdate.pawukon.lintang);
-    t.is(BD.Pararasan.ARAS_KEMBANG, bdate.pawukon.pararasan);
-    t.is(BD.Pancasuda.TUNGGAK_SEMI, bdate.pawukon.pancasuda);
+    // Another weWaran
+    t.is(BD.Ingkel.TARU, bdate.ingkel);
+    t.is(BD.Jejepan.SATO, bdate.jejepan);
+    t.is(BD.WatekMadya.WATU, bdate.watekMadya);
+    t.is(BD.WatekAlit.LINTAH, bdate.watekAlit);
+    t.is(BD.Lintang.KUMBA, bdate.lintang);
+    t.is(BD.Pararasan.ARAS_KEMBANG, bdate.pararasan);
+    t.is(BD.PancaSuda.TUNGGAK_SEMI, bdate.pancaSuda);
 
-    t.is(BD.EkaJalaRsi.BUAT_SUKA, bdate.pawukon.ekaJalaRsi);
+    t.is(BD.EkaJalaRsi.BUAT_SUKA, bdate.ekaJalaRsi);
 
     // Penanggal
     t.deepEqual([8], bdate.sasihDay);
@@ -96,33 +96,33 @@ test("1970-01-01-node", t => {
 
 test("1976-03-31-node", t => {
     const date = new Date(1976,2,31);
-    const bdate = new BD.BalineseDate(date.getFullYear(), date.getMonth(), date.getDate());
+    const bdate = new BD.BalineseDate(date);
 
     // Wuku
-    t.is(BD.Wuku.SINTA, bdate.pawukon.wuku);
+    t.is(BD.Wuku.SINTA, bdate.wuku);
 
-    // Wewaran
-    t.is(BD.Ekawara.LUANG, bdate.pawukon.ekawara);
-    t.is(BD.Dwiwara.PEPET, bdate.pawukon.dwiwara);
-    t.is(BD.Triwara.PASAH, bdate.pawukon.triwara);
-    t.is(BD.Caturwara.MENALA, bdate.pawukon.caturwara);
-    t.is(BD.Pancawara.KLIWON, bdate.pawukon.pancawara);
-    t.is(BD.Sadwara.PANIRON, bdate.pawukon.sadwara);
-    t.is(BD.Saptawara.BUDA, bdate.pawukon.saptawara);
-    t.is(BD.Astawara.YAMA, bdate.pawukon.astawara);
-    t.is(BD.Sangawara.DANGU, bdate.pawukon.sangawara);
-    t.is(BD.Dasawara.MANUH, bdate.pawukon.dasawara);
+    // WeWaran
+    t.is(BD.EkaWara.LUANG, bdate.ekaWara);
+    t.is(BD.DwiWara.PEPET, bdate.dwiWara);
+    t.is(BD.TriWara.PASAH, bdate.triWara);
+    t.is(BD.CaturWara.MENALA, bdate.caturWara);
+    t.is(BD.PancaWara.KLIWON, bdate.pancaWara);
+    t.is(BD.SadWara.PANIRON, bdate.sadWara);
+    t.is(BD.SaptaWara.BUDA, bdate.saptaWara);
+    t.is(BD.AstaWara.YAMA, bdate.astaWara);
+    t.is(BD.SangaWara.DANGU, bdate.sangaWara);
+    t.is(BD.DasaWara.MANUH, bdate.dasaWara);
 
-    // Another wewaran
-    t.is(BD.Ingkel.WONG, bdate.pawukon.ingkel);
-    t.is(BD.Jejapan.PATRA, bdate.pawukon.jejapan);
-    t.is(BD.PawatekanMadya.WONG, bdate.pawukon.watekMadya);
-    t.is(BD.PawatekanAlit.LEMBU, bdate.pawukon.watekAlit);
-    t.is(BD.Lintang.TIWA_TIWA, bdate.pawukon.lintang);
-    t.is(BD.Pararasan.LAKU_SURYA, bdate.pawukon.pararasan);
-    t.is(BD.Pancasuda.LEBU_KATIUB_ANGIN, bdate.pawukon.pancasuda);
+    // Another weWaran
+    t.is(BD.Ingkel.WONG, bdate.ingkel);
+    t.is(BD.Jejepan.PATRA, bdate.jejepan);
+    t.is(BD.WatekMadya.WONG, bdate.watekMadya);
+    t.is(BD.WatekAlit.LEMBU, bdate.watekAlit);
+    t.is(BD.Lintang.ATIWA_TIWA, bdate.lintang);
+    t.is(BD.Pararasan.LAKU_SURYA, bdate.pararasan);
+    t.is(BD.PancaSuda.LEBU_KATIUB_ANGIN, bdate.pancaSuda);
 
-    t.is(BD.EkaJalaRsi.BUAT_SUKA, bdate.pawukon.ekaJalaRsi);
+    t.is(BD.EkaJalaRsi.BUAT_SUKA, bdate.ekaJalaRsi);
 
     // Penanggal
     t.deepEqual([15, 1], bdate.sasihDay);
@@ -137,33 +137,33 @@ test("1976-03-31-node", t => {
 
 test("1976-04-01-node", t => {
     const date = new Date(1976,3,1);
-    const bdate = new BD.BalineseDate(date.getFullYear(), date.getMonth(), date.getDate());
+    const bdate = new BD.BalineseDate(date);
 
     // Wuku
-    t.is(BD.Wuku.SINTA, bdate.pawukon.wuku);
+    t.is(BD.Wuku.SINTA, bdate.wuku);
 
-    // Wewaran
-    t.is(BD.Ekawara.LUANG, bdate.pawukon.ekawara);
-    t.is(BD.Dwiwara.PEPET, bdate.pawukon.dwiwara);
-    t.is(BD.Triwara.BETENG, bdate.pawukon.triwara);
-    t.is(BD.Caturwara.SRI, bdate.pawukon.caturwara);
-    t.is(BD.Pancawara.UMANIS, bdate.pawukon.pancawara);
-    t.is(BD.Sadwara.WAS, bdate.pawukon.sadwara);
-    t.is(BD.Saptawara.WRESPATI, bdate.pawukon.saptawara);
-    t.is(BD.Astawara.LUDRA, bdate.pawukon.astawara);
-    t.is(BD.Sangawara.JANGUR, bdate.pawukon.sangawara);
-    t.is(BD.Dasawara.DUKA, bdate.pawukon.dasawara);
+    // WeWaran
+    t.is(BD.EkaWara.LUANG, bdate.ekaWara);
+    t.is(BD.DwiWara.PEPET, bdate.dwiWara);
+    t.is(BD.TriWara.BETENG, bdate.triWara);
+    t.is(BD.CaturWara.SRI, bdate.caturWara);
+    t.is(BD.PancaWara.UMANIS, bdate.pancaWara);
+    t.is(BD.SadWara.WAS, bdate.sadWara);
+    t.is(BD.SaptaWara.WRASPATI, bdate.saptaWara);
+    t.is(BD.AstaWara.LUDRA, bdate.astaWara);
+    t.is(BD.SangaWara.JANGUR, bdate.sangaWara);
+    t.is(BD.DasaWara.DUKA, bdate.dasaWara);
 
-    // Another wewaran
-    t.is(BD.Ingkel.WONG, bdate.pawukon.ingkel);
-    t.is(BD.Jejapan.WONG, bdate.pawukon.jejapan);
-    t.is(BD.PawatekanMadya.BUTA, bdate.pawukon.watekMadya);
-    t.is(BD.PawatekanAlit.ULER, bdate.pawukon.watekAlit);
-    t.is(BD.Lintang.SANGKA_TIKEL, bdate.pawukon.lintang);
-    t.is(BD.Pararasan.LAKU_BINTANG, bdate.pawukon.pararasan);
-    t.is(BD.Pancasuda.SATRIA_WIBAWA, bdate.pawukon.pancasuda);
+    // Another weWaran
+    t.is(BD.Ingkel.WONG, bdate.ingkel);
+    t.is(BD.Jejepan.WONG, bdate.jejepan);
+    t.is(BD.WatekMadya.BUTA, bdate.watekMadya);
+    t.is(BD.WatekAlit.ULER, bdate.watekAlit);
+    t.is(BD.Lintang.SANGKA_TIKEL, bdate.lintang);
+    t.is(BD.Pararasan.LAKU_BINTANG, bdate.pararasan);
+    t.is(BD.PancaSuda.SATRIA_WIBAWA, bdate.pancaSuda);
 
-    t.is(BD.EkaJalaRsi.SUKA_PINANGGIH, bdate.pawukon.ekaJalaRsi);
+    t.is(BD.EkaJalaRsi.SUKA_PINANGGIH, bdate.ekaJalaRsi);
 
     // Penanggal
     t.deepEqual([2], bdate.sasihDay);
@@ -178,33 +178,33 @@ test("1976-04-01-node", t => {
 
 test("1978-05-08-node", t => {
     const date = new Date(1978,4,8);
-    const bdate = new BD.BalineseDate(date.getFullYear(), date.getMonth(), date.getDate());
+    const bdate = new BD.BalineseDate(date);
 
     // Wuku
-    t.is(BD.Wuku.MATAL, bdate.pawukon.wuku);
+    t.is(BD.Wuku.MATAL, bdate.wuku);
 
-    // Wewaran
-    t.is(BD.Ekawara.LUANG, bdate.pawukon.ekawara);
-    t.is(BD.Dwiwara.PEPET, bdate.pawukon.dwiwara);
-    t.is(BD.Triwara.PASAH, bdate.pawukon.triwara);
-    t.is(BD.Caturwara.MENALA, bdate.pawukon.caturwara);
-    t.is(BD.Pancawara.PON, bdate.pawukon.pancawara);
-    t.is(BD.Sadwara.PANIRON, bdate.pawukon.sadwara);
-    t.is(BD.Saptawara.SOMA, bdate.pawukon.saptawara);
-    t.is(BD.Astawara.YAMA, bdate.pawukon.astawara);
-    t.is(BD.Sangawara.NOHAN, bdate.pawukon.sangawara);
-    t.is(BD.Dasawara.PATI, bdate.pawukon.dasawara);
+    // WeWaran
+    t.is(BD.EkaWara.LUANG, bdate.ekaWara);
+    t.is(BD.DwiWara.PEPET, bdate.dwiWara);
+    t.is(BD.TriWara.PASAH, bdate.triWara);
+    t.is(BD.CaturWara.MENALA, bdate.caturWara);
+    t.is(BD.PancaWara.PON, bdate.pancaWara);
+    t.is(BD.SadWara.PANIRON, bdate.sadWara);
+    t.is(BD.SaptaWara.SOMA, bdate.saptaWara);
+    t.is(BD.AstaWara.YAMA, bdate.astaWara);
+    t.is(BD.SangaWara.NOHAN, bdate.sangaWara);
+    t.is(BD.DasaWara.PATI, bdate.dasaWara);
 
-    // Another wewaran
-    t.is(BD.Ingkel.MINA, bdate.pawukon.ingkel);
-    t.is(BD.Jejapan.PATRA, bdate.pawukon.jejapan);
-    t.is(BD.PawatekanMadya.GAJAH, bdate.pawukon.watekMadya);
-    t.is(BD.PawatekanAlit.LEMBU, bdate.pawukon.watekAlit);
-    t.is(BD.Lintang.KIRIMAN, bdate.pawukon.lintang);
-    t.is(BD.Pararasan.ARAS_TUDING, bdate.pawukon.pararasan);
-    t.is(BD.Pancasuda.SUMUR_SINABA, bdate.pawukon.pancasuda);
+    // Another weWaran
+    t.is(BD.Ingkel.MINA, bdate.ingkel);
+    t.is(BD.Jejepan.PATRA, bdate.jejepan);
+    t.is(BD.WatekMadya.GAJAH, bdate.watekMadya);
+    t.is(BD.WatekAlit.LEMBU, bdate.watekAlit);
+    t.is(BD.Lintang.KIRIMAN, bdate.lintang);
+    t.is(BD.Pararasan.ARAS_TUDING, bdate.pararasan);
+    t.is(BD.PancaSuda.SUMUR_SINABA, bdate.pancaSuda);
 
-    t.is(BD.EkaJalaRsi.LANGGENG_KAYOHANAAN, bdate.pawukon.ekaJalaRsi);
+    t.is(BD.EkaJalaRsi.LANGGENG_KAYOHANAAN, bdate.ekaJalaRsi);
 
     // Penanggal
     t.deepEqual([1], bdate.sasihDay);
@@ -219,33 +219,33 @@ test("1978-05-08-node", t => {
 
 test("1993-03-24-node", t => {
     const date = new Date(1993,2,24);
-    const bdate = new BD.BalineseDate(date.getFullYear(), date.getMonth(), date.getDate());
+    const bdate = new BD.BalineseDate(date);
 
     // Wuku
-    t.is(BD.Wuku.KRULUT, bdate.pawukon.wuku);
+    t.is(BD.Wuku.KRULUT, bdate.wuku);
 
-    // Wewaran
-    t.is(BD.Ekawara.VOID, bdate.pawukon.ekawara);
-    t.is(BD.Dwiwara.MENGA, bdate.pawukon.dwiwara);
-    t.is(BD.Triwara.BETENG, bdate.pawukon.triwara);
-    t.is(BD.Caturwara.LABA, bdate.pawukon.caturwara);
-    t.is(BD.Pancawara.PAING, bdate.pawukon.pancawara);
-    t.is(BD.Sadwara.ARYANG, bdate.pawukon.sadwara);
-    t.is(BD.Saptawara.BUDA, bdate.pawukon.saptawara);
-    t.is(BD.Astawara.INDRA, bdate.pawukon.astawara);
-    t.is(BD.Sangawara.OGAN, bdate.pawukon.sangawara);
-    t.is(BD.Dasawara.MANUSA, bdate.pawukon.dasawara);
+    // WeWaran
+    t.is(BD.EkaWara.VOID, bdate.ekaWara);
+    t.is(BD.DwiWara.MENGA, bdate.dwiWara);
+    t.is(BD.TriWara.BETENG, bdate.triWara);
+    t.is(BD.CaturWara.LABA, bdate.caturWara);
+    t.is(BD.PancaWara.PAING, bdate.pancaWara);
+    t.is(BD.SadWara.ARYANG, bdate.sadWara);
+    t.is(BD.SaptaWara.BUDA, bdate.saptaWara);
+    t.is(BD.AstaWara.INDRA, bdate.astaWara);
+    t.is(BD.SangaWara.OGAN, bdate.sangaWara);
+    t.is(BD.DasaWara.MANUSA, bdate.dasaWara);
 
-    // Another wewaran
-    t.is(BD.Ingkel.TARU, bdate.pawukon.ingkel);
-    t.is(BD.Jejapan.TARU, bdate.pawukon.jejapan);
-    t.is(BD.PawatekanMadya.GAJAH, bdate.pawukon.watekMadya);
-    t.is(BD.PawatekanAlit.LINTAH, bdate.pawukon.watekAlit);
-    t.is(BD.Lintang.GAJAH_MINA, bdate.pawukon.lintang);
-    t.is(BD.Pararasan.LAKU_AIR, bdate.pawukon.pararasan);
-    t.is(BD.Pancasuda.WISESA_SEGARA, bdate.pawukon.pancasuda);
+    // Another weWaran
+    t.is(BD.Ingkel.TARU, bdate.ingkel);
+    t.is(BD.Jejepan.TARU, bdate.jejepan);
+    t.is(BD.WatekMadya.GAJAH, bdate.watekMadya);
+    t.is(BD.WatekAlit.LINTAH, bdate.watekAlit);
+    t.is(BD.Lintang.GAJAH_MINA, bdate.lintang);
+    t.is(BD.Pararasan.LAKU_AIR, bdate.pararasan);
+    t.is(BD.PancaSuda.WISESA_SEGARA, bdate.pancaSuda);
 
-    t.is(BD.EkaJalaRsi.BUAT_SUKA, bdate.pawukon.ekaJalaRsi);
+    t.is(BD.EkaJalaRsi.BUAT_SUKA, bdate.ekaJalaRsi);
 
     // Penanggal
     t.deepEqual([1], bdate.sasihDay);
@@ -260,33 +260,33 @@ test("1993-03-24-node", t => {
 
 test("1993-09-01-node", t => {
     const date = new Date(1993,8,1);
-    const bdate = new BD.BalineseDate(date.getFullYear(), date.getMonth(), date.getDate());
+    const bdate = new BD.BalineseDate(date);
 
     // Wuku
-    t.is(BD.Wuku.SUNGSANG, bdate.pawukon.wuku);
+    t.is(BD.Wuku.SUNGSANG, bdate.wuku);
 
-    // Wewaran
-    t.is(BD.Ekawara.VOID, bdate.pawukon.ekawara);
-    t.is(BD.Dwiwara.MENGA, bdate.pawukon.dwiwara);
-    t.is(BD.Triwara.PASAH, bdate.pawukon.triwara);
-    t.is(BD.Caturwara.JAYA, bdate.pawukon.caturwara);
-    t.is(BD.Pancawara.PON, bdate.pawukon.pancawara);
-    t.is(BD.Sadwara.TUNGLEH, bdate.pawukon.sadwara);
-    t.is(BD.Saptawara.BUDA, bdate.pawukon.saptawara);
-    t.is(BD.Astawara.GURU, bdate.pawukon.astawara);
-    t.is(BD.Sangawara.DANGU, bdate.pawukon.sangawara);
-    t.is(BD.Dasawara.SRI, bdate.pawukon.dasawara);
+    // WeWaran
+    t.is(BD.EkaWara.VOID, bdate.ekaWara);
+    t.is(BD.DwiWara.MENGA, bdate.dwiWara);
+    t.is(BD.TriWara.PASAH, bdate.triWara);
+    t.is(BD.CaturWara.JAYA, bdate.caturWara);
+    t.is(BD.PancaWara.PON, bdate.pancaWara);
+    t.is(BD.SadWara.TUNGLEH, bdate.sadWara);
+    t.is(BD.SaptaWara.BUDA, bdate.saptaWara);
+    t.is(BD.AstaWara.GURU, bdate.astaWara);
+    t.is(BD.SangaWara.DANGU, bdate.sangaWara);
+    t.is(BD.DasaWara.SRI, bdate.dasaWara);
 
-    // Another wewaran
-    t.is(BD.Ingkel.MANUK, bdate.pawukon.ingkel);
-    t.is(BD.Jejapan.MINA, bdate.pawukon.jejapan);
-    t.is(BD.PawatekanMadya.SUKU, bdate.pawukon.watekMadya);
-    t.is(BD.PawatekanAlit.GAJAH, bdate.pawukon.watekAlit);
-    t.is(BD.Lintang.LUMBUNG, bdate.pawukon.lintang);
-    t.is(BD.Pararasan.LAKU_BULAN, bdate.pawukon.pararasan);
-    t.is(BD.Pancasuda.BUMI_KAPETAK, bdate.pawukon.pancasuda);
+    // Another weWaran
+    t.is(BD.Ingkel.MANUK, bdate.ingkel);
+    t.is(BD.Jejepan.MINA, bdate.jejepan);
+    t.is(BD.WatekMadya.SUKU, bdate.watekMadya);
+    t.is(BD.WatekAlit.GAJAH, bdate.watekAlit);
+    t.is(BD.Lintang.LUMBUNG, bdate.lintang);
+    t.is(BD.Pararasan.LAKU_BULAN, bdate.pararasan);
+    t.is(BD.PancaSuda.BUMI_KAPETAK, bdate.pancaSuda);
 
-    t.is(BD.EkaJalaRsi.BAGNA_MAPASAH, bdate.pawukon.ekaJalaRsi);
+    t.is(BD.EkaJalaRsi.BAGNA_MAPASAH, bdate.ekaJalaRsi);
 
     // Penanggal
     t.deepEqual([14, 15], bdate.sasihDay);
@@ -301,33 +301,33 @@ test("1993-09-01-node", t => {
 
 test("1999-01-01-node", t => {
     const date = new Date(1999,0,1);
-    const bdate = new BD.BalineseDate(date.getFullYear(), date.getMonth(), date.getDate());
+    const bdate = new BD.BalineseDate(date);
 
     // Wuku
-    t.is(BD.Wuku.MERAKIH, bdate.pawukon.wuku);
+    t.is(BD.Wuku.MERAKIH, bdate.wuku);
 
-    // Wewaran
-    t.is(BD.Ekawara.LUANG, bdate.pawukon.ekawara);
-    t.is(BD.Dwiwara.PEPET, bdate.pawukon.dwiwara);
-    t.is(BD.Triwara.BETENG, bdate.pawukon.triwara);
-    t.is(BD.Caturwara.JAYA, bdate.pawukon.caturwara);
-    t.is(BD.Pancawara.UMANIS, bdate.pawukon.pancawara);
-    t.is(BD.Sadwara.WAS, bdate.pawukon.sadwara);
-    t.is(BD.Saptawara.SUKRA, bdate.pawukon.saptawara);
-    t.is(BD.Astawara.GURU, bdate.pawukon.astawara);
-    t.is(BD.Sangawara.OGAN, bdate.pawukon.sangawara);
-    t.is(BD.Dasawara.PATI, bdate.pawukon.dasawara);
+    // WeWaran
+    t.is(BD.EkaWara.LUANG, bdate.ekaWara);
+    t.is(BD.DwiWara.PEPET, bdate.dwiWara);
+    t.is(BD.TriWara.BETENG, bdate.triWara);
+    t.is(BD.CaturWara.JAYA, bdate.caturWara);
+    t.is(BD.PancaWara.UMANIS, bdate.pancaWara);
+    t.is(BD.SadWara.WAS, bdate.sadWara);
+    t.is(BD.SaptaWara.SUKRA, bdate.saptaWara);
+    t.is(BD.AstaWara.GURU, bdate.astaWara);
+    t.is(BD.SangaWara.OGAN, bdate.sangaWara);
+    t.is(BD.DasaWara.PATI, bdate.dasaWara);
 
-    // Another wewaran
-    t.is(BD.Ingkel.BUKU, bdate.pawukon.ingkel);
-    t.is(BD.Jejapan.WONG, bdate.pawukon.jejapan);
-    t.is(BD.PawatekanMadya.GAJAH, bdate.pawukon.watekMadya);
-    t.is(BD.PawatekanAlit.LEMBU, bdate.pawukon.watekAlit);
-    t.is(BD.Lintang.ANGSA_ANGREM, bdate.pawukon.lintang);
-    t.is(BD.Pararasan.ARAS_TUDING, bdate.pawukon.pararasan);
-    t.is(BD.Pancasuda.SATRIA_WIRANG, bdate.pawukon.pancasuda);
+    // Another weWaran
+    t.is(BD.Ingkel.BUKU, bdate.ingkel);
+    t.is(BD.Jejepan.WONG, bdate.jejepan);
+    t.is(BD.WatekMadya.GAJAH, bdate.watekMadya);
+    t.is(BD.WatekAlit.LEMBU, bdate.watekAlit);
+    t.is(BD.Lintang.ANGSA_ANGREM, bdate.lintang);
+    t.is(BD.Pararasan.ARAS_TUDING, bdate.pararasan);
+    t.is(BD.PancaSuda.SATRIA_WIRANG, bdate.pancaSuda);
 
-    t.is(BD.EkaJalaRsi.MANGGIH_SUKA, bdate.pawukon.ekaJalaRsi);
+    t.is(BD.EkaJalaRsi.MANGGIH_SUKA, bdate.ekaJalaRsi);
 
     // Penanggal
     t.deepEqual([13], bdate.sasihDay);
@@ -342,33 +342,33 @@ test("1999-01-01-node", t => {
 
 test("1999-03-17-node", t => {
     const date = new Date(1999,2,17);
-    const bdate = new BD.BalineseDate(date.getFullYear(), date.getMonth(), date.getDate());
+    const bdate = new BD.BalineseDate(date);
 
     // Wuku
-    t.is(BD.Wuku.DUKUT, bdate.pawukon.wuku);
+    t.is(BD.Wuku.DUKUT, bdate.wuku);
 
-    // Wewaran
-    t.is(BD.Ekawara.VOID, bdate.pawukon.ekawara);
-    t.is(BD.Dwiwara.MENGA, bdate.pawukon.dwiwara);
-    t.is(BD.Triwara.BETENG, bdate.pawukon.triwara);
-    t.is(BD.Caturwara.LABA, bdate.pawukon.caturwara);
-    t.is(BD.Pancawara.UMANIS, bdate.pawukon.pancawara);
-    t.is(BD.Sadwara.ARYANG, bdate.pawukon.sadwara);
-    t.is(BD.Saptawara.BUDA, bdate.pawukon.saptawara);
-    t.is(BD.Astawara.BRAHMA, bdate.pawukon.astawara);
-    t.is(BD.Sangawara.TULUS, bdate.pawukon.sangawara);
-    t.is(BD.Dasawara.SUKA, bdate.pawukon.dasawara);
+    // WeWaran
+    t.is(BD.EkaWara.VOID, bdate.ekaWara);
+    t.is(BD.DwiWara.MENGA, bdate.dwiWara);
+    t.is(BD.TriWara.BETENG, bdate.triWara);
+    t.is(BD.CaturWara.LABA, bdate.caturWara);
+    t.is(BD.PancaWara.UMANIS, bdate.pancaWara);
+    t.is(BD.SadWara.ARYANG, bdate.sadWara);
+    t.is(BD.SaptaWara.BUDA, bdate.saptaWara);
+    t.is(BD.AstaWara.BRAHMA, bdate.astaWara);
+    t.is(BD.SangaWara.TULUS, bdate.sangaWara);
+    t.is(BD.DasaWara.SUKA, bdate.dasaWara);
 
-    // Another wewaran
-    t.is(BD.Ingkel.TARU, bdate.pawukon.ingkel);
-    t.is(BD.Jejapan.TARU, bdate.pawukon.jejapan);
-    t.is(BD.PawatekanMadya.WATU, bdate.pawukon.watekMadya);
-    t.is(BD.PawatekanAlit.LINTAH, bdate.pawukon.watekAlit);
-    t.is(BD.Lintang.TANGIS, bdate.pawukon.lintang);
-    t.is(BD.Pararasan.ARAS_KEMBANG, bdate.pawukon.pararasan);
-    t.is(BD.Pancasuda.SUMUR_SINABA, bdate.pawukon.pancasuda);
+    // Another weWaran
+    t.is(BD.Ingkel.TARU, bdate.ingkel);
+    t.is(BD.Jejepan.TARU, bdate.jejepan);
+    t.is(BD.WatekMadya.WATU, bdate.watekMadya);
+    t.is(BD.WatekAlit.LINTAH, bdate.watekAlit);
+    t.is(BD.Lintang.TANGIS, bdate.lintang);
+    t.is(BD.Pararasan.ARAS_KEMBANG, bdate.pararasan);
+    t.is(BD.PancaSuda.SUMUR_SINABA, bdate.pancaSuda);
 
-    t.is(BD.EkaJalaRsi.TININGGALING_SUKA, bdate.pawukon.ekaJalaRsi);
+    t.is(BD.EkaJalaRsi.TININGGALING_SUKA, bdate.ekaJalaRsi);
 
     // Penanggal
     t.deepEqual([15], bdate.sasihDay);
@@ -382,33 +382,33 @@ test("1999-03-17-node", t => {
 
 test("1999-03-18-node", t => {
     const date = new Date(1999,2,18);
-    const bdate = new BD.BalineseDate(date.getFullYear(), date.getMonth(), date.getDate());
+    const bdate = new BD.BalineseDate(date);
 
     // Wuku
-    t.is(BD.Wuku.DUKUT, bdate.pawukon.wuku);
+    t.is(BD.Wuku.DUKUT, bdate.wuku);
 
-    // Wewaran
-    t.is(BD.Ekawara.LUANG, bdate.pawukon.ekawara);
-    t.is(BD.Dwiwara.PEPET, bdate.pawukon.dwiwara);
-    t.is(BD.Triwara.KAJENG, bdate.pawukon.triwara);
-    t.is(BD.Caturwara.JAYA, bdate.pawukon.caturwara);
-    t.is(BD.Pancawara.PAING, bdate.pawukon.pancawara);
-    t.is(BD.Sadwara.URUKUNG, bdate.pawukon.sadwara);
-    t.is(BD.Saptawara.WRESPATI, bdate.pawukon.saptawara);
-    t.is(BD.Astawara.KALA, bdate.pawukon.astawara);
-    t.is(BD.Sangawara.DADI, bdate.pawukon.sangawara);
-    t.is(BD.Dasawara.RAJA, bdate.pawukon.dasawara);
+    // WeWaran
+    t.is(BD.EkaWara.LUANG, bdate.ekaWara);
+    t.is(BD.DwiWara.PEPET, bdate.dwiWara);
+    t.is(BD.TriWara.KAJENG, bdate.triWara);
+    t.is(BD.CaturWara.JAYA, bdate.caturWara);
+    t.is(BD.PancaWara.PAING, bdate.pancaWara);
+    t.is(BD.SadWara.URUKUNG, bdate.sadWara);
+    t.is(BD.SaptaWara.WRASPATI, bdate.saptaWara);
+    t.is(BD.AstaWara.KALA, bdate.astaWara);
+    t.is(BD.SangaWara.DADI, bdate.sangaWara);
+    t.is(BD.DasaWara.RAJA, bdate.dasaWara);
 
-    // Another wewaran
-    t.is(BD.Ingkel.TARU, bdate.pawukon.ingkel);
-    t.is(BD.Jejapan.SATO, bdate.pawukon.jejapan);
-    t.is(BD.PawatekanMadya.WATU, bdate.pawukon.watekMadya);
-    t.is(BD.PawatekanAlit.ULER, bdate.pawukon.watekAlit);
-    t.is(BD.Lintang.SALAH_UKUR, bdate.pawukon.lintang);
-    t.is(BD.Pararasan.LAKU_BUMI, bdate.pawukon.pararasan);
-    t.is(BD.Pancasuda.LEBU_KATIUB_ANGIN, bdate.pawukon.pancasuda);
+    // Another weWaran
+    t.is(BD.Ingkel.TARU, bdate.ingkel);
+    t.is(BD.Jejepan.SATO, bdate.jejepan);
+    t.is(BD.WatekMadya.WATU, bdate.watekMadya);
+    t.is(BD.WatekAlit.ULER, bdate.watekAlit);
+    t.is(BD.Lintang.SALAH_UKUR, bdate.lintang);
+    t.is(BD.Pararasan.LAKU_BUMI, bdate.pararasan);
+    t.is(BD.PancaSuda.LEBU_KATIUB_ANGIN, bdate.pancaSuda);
 
-    t.is(BD.EkaJalaRsi.PATINING_AMRTA, bdate.pawukon.ekaJalaRsi);
+    t.is(BD.EkaJalaRsi.PATINING_AMERTA, bdate.ekaJalaRsi);
 
     // Penanggal
     t.deepEqual([1], bdate.sasihDay);
@@ -422,33 +422,33 @@ test("1999-03-18-node", t => {
 
 test("2000-01-01-node", t => {
     const date = new Date(2000,0,1);
-    const bdate = new BD.BalineseDate(date.getFullYear(), date.getMonth(), date.getDate());
+    const bdate = new BD.BalineseDate(date);
 
     // Wuku
-    t.is(BD.Wuku.SUNGSANG, bdate.pawukon.wuku);
+    t.is(BD.Wuku.SUNGSANG, bdate.wuku);
 
-    // Wewaran
-    t.is(BD.Ekawara.VOID, bdate.pawukon.ekawara);
-    t.is(BD.Dwiwara.MENGA, bdate.pawukon.dwiwara);
-    t.is(BD.Triwara.PASAH, bdate.pawukon.triwara);
-    t.is(BD.Caturwara.LABA, bdate.pawukon.caturwara);
-    t.is(BD.Pancawara.UMANIS, bdate.pawukon.pancawara);
-    t.is(BD.Sadwara.PANIRON, bdate.pawukon.sadwara);
-    t.is(BD.Saptawara.SANISCARA, bdate.pawukon.saptawara);
-    t.is(BD.Astawara.BRAHMA, bdate.pawukon.astawara);
-    t.is(BD.Sangawara.NOHAN, bdate.pawukon.sangawara);
-    t.is(BD.Dasawara.SRI, bdate.pawukon.dasawara);
+    // WeWaran
+    t.is(BD.EkaWara.VOID, bdate.ekaWara);
+    t.is(BD.DwiWara.MENGA, bdate.dwiWara);
+    t.is(BD.TriWara.PASAH, bdate.triWara);
+    t.is(BD.CaturWara.LABA, bdate.caturWara);
+    t.is(BD.PancaWara.UMANIS, bdate.pancaWara);
+    t.is(BD.SadWara.PANIRON, bdate.sadWara);
+    t.is(BD.SaptaWara.SANISCARA, bdate.saptaWara);
+    t.is(BD.AstaWara.BRAHMA, bdate.astaWara);
+    t.is(BD.SangaWara.NOHAN, bdate.sangaWara);
+    t.is(BD.DasaWara.SRI, bdate.dasaWara);
 
-    // Another wewaran
-    t.is(BD.Ingkel.MANUK, bdate.pawukon.ingkel);
-    t.is(BD.Jejapan.PATRA, bdate.pawukon.jejapan);
-    t.is(BD.PawatekanMadya.SUKU, bdate.pawukon.watekMadya);
-    t.is(BD.PawatekanAlit.GAJAH, bdate.pawukon.watekAlit);
-    t.is(BD.Lintang.BEGOONG, bdate.pawukon.lintang);
-    t.is(BD.Pararasan.LAKU_BULAN, bdate.pawukon.pararasan);
-    t.is(BD.Pancasuda.BUMI_KAPETAK, bdate.pawukon.pancasuda);
+    // Another weWaran
+    t.is(BD.Ingkel.MANUK, bdate.ingkel);
+    t.is(BD.Jejepan.PATRA, bdate.jejepan);
+    t.is(BD.WatekMadya.SUKU, bdate.watekMadya);
+    t.is(BD.WatekAlit.GAJAH, bdate.watekAlit);
+    t.is(BD.Lintang.BEGOONG, bdate.lintang);
+    t.is(BD.Pararasan.LAKU_BULAN, bdate.pararasan);
+    t.is(BD.PancaSuda.BUMI_KAPETAK, bdate.pancaSuda);
 
-    t.is(BD.EkaJalaRsi.BAGNA_MAPASAH, bdate.pawukon.ekaJalaRsi);
+    t.is(BD.EkaJalaRsi.BAGNA_MAPASAH, bdate.ekaJalaRsi);
 
     // Penanggal
     t.deepEqual([9], bdate.sasihDay);
@@ -462,33 +462,33 @@ test("2000-01-01-node", t => {
 
 test("2000-01-17-node", t => {
     const date = new Date(2000,0,17);
-    const bdate = new BD.BalineseDate(date.getFullYear(), date.getMonth(), date.getDate());
+    const bdate = new BD.BalineseDate(date);
 
     // Wuku
-    t.is(BD.Wuku.LANGKIR, bdate.pawukon.wuku);
+    t.is(BD.Wuku.LANGKIR, bdate.wuku);
 
-    // Wewaran
-    t.is(BD.Ekawara.LUANG, bdate.pawukon.ekawara);
-    t.is(BD.Dwiwara.PEPET, bdate.pawukon.dwiwara);
-    t.is(BD.Triwara.BETENG, bdate.pawukon.triwara);
-    t.is(BD.Caturwara.MENALA, bdate.pawukon.caturwara);
-    t.is(BD.Pancawara.PAING, bdate.pawukon.pancawara);
-    t.is(BD.Sadwara.ARYANG, bdate.pawukon.sadwara);
-    t.is(BD.Saptawara.SOMA, bdate.pawukon.saptawara);
-    t.is(BD.Astawara.YAMA, bdate.pawukon.astawara);
-    t.is(BD.Sangawara.JANGUR, bdate.pawukon.sangawara);
-    t.is(BD.Dasawara.DUKA, bdate.pawukon.dasawara);
+    // WeWaran
+    t.is(BD.EkaWara.LUANG, bdate.ekaWara);
+    t.is(BD.DwiWara.PEPET, bdate.dwiWara);
+    t.is(BD.TriWara.BETENG, bdate.triWara);
+    t.is(BD.CaturWara.MENALA, bdate.caturWara);
+    t.is(BD.PancaWara.PAING, bdate.pancaWara);
+    t.is(BD.SadWara.ARYANG, bdate.sadWara);
+    t.is(BD.SaptaWara.SOMA, bdate.saptaWara);
+    t.is(BD.AstaWara.YAMA, bdate.astaWara);
+    t.is(BD.SangaWara.JANGUR, bdate.sangaWara);
+    t.is(BD.DasaWara.DUKA, bdate.dasaWara);
 
-    // Another wewaran
-    t.is(BD.Ingkel.WONG, bdate.pawukon.ingkel);
-    t.is(BD.Jejapan.TARU, bdate.pawukon.jejapan);
-    t.is(BD.PawatekanMadya.BUTA, bdate.pawukon.watekMadya);
-    t.is(BD.PawatekanAlit.ULER, bdate.pawukon.watekAlit);
-    t.is(BD.Lintang.KUKUS, bdate.pawukon.lintang);
-    t.is(BD.Pararasan.LAKU_BINTANG, bdate.pawukon.pararasan);
-    t.is(BD.Pancasuda.BUMI_KAPETAK, bdate.pawukon.pancasuda);
+    // Another weWaran
+    t.is(BD.Ingkel.WONG, bdate.ingkel);
+    t.is(BD.Jejepan.TARU, bdate.jejepan);
+    t.is(BD.WatekMadya.BUTA, bdate.watekMadya);
+    t.is(BD.WatekAlit.ULER, bdate.watekAlit);
+    t.is(BD.Lintang.KUKUS, bdate.lintang);
+    t.is(BD.Pararasan.LAKU_BINTANG, bdate.pararasan);
+    t.is(BD.PancaSuda.BUMI_KAPETAK, bdate.pancaSuda);
 
-    t.is(BD.EkaJalaRsi.BUAT_SEBET, bdate.pawukon.ekaJalaRsi);
+    t.is(BD.EkaJalaRsi.BUAT_SEBET, bdate.ekaJalaRsi);
 
     // Penanggal
     t.deepEqual([11], bdate.sasihDay);
@@ -502,33 +502,33 @@ test("2000-01-17-node", t => {
 
 test("2001-08-18-node", t => {
     const date = new Date(2001,7,18);
-    const bdate = new BD.BalineseDate(date.getFullYear(), date.getMonth(), date.getDate());
+    const bdate = new BD.BalineseDate(date);
 
     // Wuku
-    t.is(BD.Wuku.TOLU, bdate.pawukon.wuku);
+    t.is(BD.Wuku.TOLU, bdate.wuku);
 
-    // Wewaran
-    t.is(BD.Ekawara.VOID, bdate.pawukon.ekawara);
-    t.is(BD.Dwiwara.MENGA, bdate.pawukon.dwiwara);
-    t.is(BD.Triwara.BETENG, bdate.pawukon.triwara);
-    t.is(BD.Caturwara.JAYA, bdate.pawukon.caturwara);
-    t.is(BD.Pancawara.UMANIS, bdate.pawukon.pancawara);
-    t.is(BD.Sadwara.WAS, bdate.pawukon.sadwara);
-    t.is(BD.Saptawara.SANISCARA, bdate.pawukon.saptawara);
-    t.is(BD.Astawara.GURU, bdate.pawukon.astawara);
-    t.is(BD.Sangawara.OGAN, bdate.pawukon.sangawara);
-    t.is(BD.Dasawara.SRI, bdate.pawukon.dasawara);
+    // WeWaran
+    t.is(BD.EkaWara.VOID, bdate.ekaWara);
+    t.is(BD.DwiWara.MENGA, bdate.dwiWara);
+    t.is(BD.TriWara.BETENG, bdate.triWara);
+    t.is(BD.CaturWara.JAYA, bdate.caturWara);
+    t.is(BD.PancaWara.UMANIS, bdate.pancaWara);
+    t.is(BD.SadWara.WAS, bdate.sadWara);
+    t.is(BD.SaptaWara.SANISCARA, bdate.saptaWara);
+    t.is(BD.AstaWara.GURU, bdate.astaWara);
+    t.is(BD.SangaWara.OGAN, bdate.sangaWara);
+    t.is(BD.DasaWara.SRI, bdate.dasaWara);
 
-    // Another wewaran
-    t.is(BD.Ingkel.TARU, bdate.pawukon.ingkel);
-    t.is(BD.Jejapan.WONG, bdate.pawukon.jejapan);
-    t.is(BD.PawatekanMadya.SUKU, bdate.pawukon.watekMadya);
-    t.is(BD.PawatekanAlit.GAJAH, bdate.pawukon.watekAlit);
-    t.is(BD.Lintang.BEGOONG, bdate.pawukon.lintang);
-    t.is(BD.Pararasan.LAKU_BULAN, bdate.pawukon.pararasan);
-    t.is(BD.Pancasuda.BUMI_KAPETAK, bdate.pawukon.pancasuda);
+    // Another weWaran
+    t.is(BD.Ingkel.TARU, bdate.ingkel);
+    t.is(BD.Jejepan.WONG, bdate.jejepan);
+    t.is(BD.WatekMadya.SUKU, bdate.watekMadya);
+    t.is(BD.WatekAlit.GAJAH, bdate.watekAlit);
+    t.is(BD.Lintang.BEGOONG, bdate.lintang);
+    t.is(BD.Pararasan.LAKU_BULAN, bdate.pararasan);
+    t.is(BD.PancaSuda.BUMI_KAPETAK, bdate.pancaSuda);
 
-    t.is(BD.EkaJalaRsi.SUKA_PINANGGIH, bdate.pawukon.ekaJalaRsi);
+    t.is(BD.EkaJalaRsi.SUKA_PINANGGIH, bdate.ekaJalaRsi);
 
     // Penanggal
     t.deepEqual([15], bdate.sasihDay);
@@ -543,33 +543,33 @@ test("2001-08-18-node", t => {
 
 test("2001-09-17-node", t => {
     const date = new Date(2001,8,17);
-    const bdate = new BD.BalineseDate(date.getFullYear(), date.getMonth(), date.getDate());
+    const bdate = new BD.BalineseDate(date);
 
     // Wuku
-    t.is(BD.Wuku.SUNGSANG, bdate.pawukon.wuku);
+    t.is(BD.Wuku.SUNGSANG, bdate.wuku);
 
-    // Wewaran
-    t.is(BD.Ekawara.LUANG, bdate.pawukon.ekawara);
-    t.is(BD.Dwiwara.PEPET, bdate.pawukon.dwiwara);
-    t.is(BD.Triwara.BETENG, bdate.pawukon.triwara);
-    t.is(BD.Caturwara.SRI, bdate.pawukon.caturwara);
-    t.is(BD.Pancawara.UMANIS, bdate.pawukon.pancawara);
-    t.is(BD.Sadwara.WAS, bdate.pawukon.sadwara);
-    t.is(BD.Saptawara.SOMA, bdate.pawukon.saptawara);
-    t.is(BD.Astawara.SRI, bdate.pawukon.astawara);
-    t.is(BD.Sangawara.TULUS, bdate.pawukon.sangawara);
-    t.is(BD.Dasawara.RAKSASA, bdate.pawukon.dasawara);
+    // WeWaran
+    t.is(BD.EkaWara.LUANG, bdate.ekaWara);
+    t.is(BD.DwiWara.PEPET, bdate.dwiWara);
+    t.is(BD.TriWara.BETENG, bdate.triWara);
+    t.is(BD.CaturWara.SRI, bdate.caturWara);
+    t.is(BD.PancaWara.UMANIS, bdate.pancaWara);
+    t.is(BD.SadWara.WAS, bdate.sadWara);
+    t.is(BD.SaptaWara.SOMA, bdate.saptaWara);
+    t.is(BD.AstaWara.SRI, bdate.astaWara);
+    t.is(BD.SangaWara.TULUS, bdate.sangaWara);
+    t.is(BD.DasaWara.RAKSASA, bdate.dasaWara);
 
-    // Another wewaran
-    t.is(BD.Ingkel.MANUK, bdate.pawukon.ingkel);
-    t.is(BD.Jejapan.WONG, bdate.pawukon.jejapan);
-    t.is(BD.PawatekanMadya.SUKU, bdate.pawukon.watekMadya);
-    t.is(BD.PawatekanAlit.ULER, bdate.pawukon.watekAlit);
-    t.is(BD.Lintang.KELAPA, bdate.pawukon.lintang);
-    t.is(BD.Pararasan.LAKU_ANGIN, bdate.pawukon.pararasan);
-    t.is(BD.Pancasuda.TUNGGAK_SEMI, bdate.pawukon.pancasuda);
+    // Another weWaran
+    t.is(BD.Ingkel.MANUK, bdate.ingkel);
+    t.is(BD.Jejepan.WONG, bdate.jejepan);
+    t.is(BD.WatekMadya.SUKU, bdate.watekMadya);
+    t.is(BD.WatekAlit.ULER, bdate.watekAlit);
+    t.is(BD.Lintang.KELAPA, bdate.lintang);
+    t.is(BD.Pararasan.LAKU_ANGIN, bdate.pararasan);
+    t.is(BD.PancaSuda.TUNGGAK_SEMI, bdate.pancaSuda);
 
-    t.is(BD.EkaJalaRsi.TININGGALING_SUKA, bdate.pawukon.ekaJalaRsi);
+    t.is(BD.EkaJalaRsi.TININGGALING_SUKA, bdate.ekaJalaRsi);
 
     // Penanggal
     t.deepEqual([15], bdate.sasihDay);
@@ -583,33 +583,33 @@ test("2001-09-17-node", t => {
 
 test("2001-09-24-node", t => {
     const date = new Date(2001,8,24);
-    const bdate = new BD.BalineseDate(date.getFullYear(), date.getMonth(), date.getDate());
+    const bdate = new BD.BalineseDate(date);
 
     // Wuku
-    t.is(BD.Wuku.DUNGULAN, bdate.pawukon.wuku);
+    t.is(BD.Wuku.DUNGULAN, bdate.wuku);
 
-    // Wewaran
-    t.is(BD.Ekawara.LUANG, bdate.pawukon.ekawara);
-    t.is(BD.Dwiwara.PEPET, bdate.pawukon.dwiwara);
-    t.is(BD.Triwara.KAJENG, bdate.pawukon.triwara);
-    t.is(BD.Caturwara.JAYA, bdate.pawukon.caturwara);
-    t.is(BD.Pancawara.PON, bdate.pawukon.pancawara);
-    t.is(BD.Sadwara.MAULU, bdate.pawukon.sadwara);
-    t.is(BD.Saptawara.SOMA, bdate.pawukon.saptawara);
-    t.is(BD.Astawara.KALA, bdate.pawukon.astawara);
-    t.is(BD.Sangawara.ERANGAN, bdate.pawukon.sangawara);
-    t.is(BD.Dasawara.PATI, bdate.pawukon.dasawara);
+    // WeWaran
+    t.is(BD.EkaWara.LUANG, bdate.ekaWara);
+    t.is(BD.DwiWara.PEPET, bdate.dwiWara);
+    t.is(BD.TriWara.KAJENG, bdate.triWara);
+    t.is(BD.CaturWara.JAYA, bdate.caturWara);
+    t.is(BD.PancaWara.PON, bdate.pancaWara);
+    t.is(BD.SadWara.MAULU, bdate.sadWara);
+    t.is(BD.SaptaWara.SOMA, bdate.saptaWara);
+    t.is(BD.AstaWara.KALA, bdate.astaWara);
+    t.is(BD.SangaWara.ERANGAN, bdate.sangaWara);
+    t.is(BD.DasaWara.PATI, bdate.dasaWara);
 
-    // Another wewaran
-    t.is(BD.Ingkel.TARU, bdate.pawukon.ingkel);
-    t.is(BD.Jejapan.PAKSI, bdate.pawukon.jejapan);
-    t.is(BD.PawatekanMadya.GAJAH, bdate.pawukon.watekMadya);
-    t.is(BD.PawatekanAlit.LEMBU, bdate.pawukon.watekAlit);
-    t.is(BD.Lintang.KIRIMAN, bdate.pawukon.lintang);
-    t.is(BD.Pararasan.ARAS_TUDING, bdate.pawukon.pararasan);
-    t.is(BD.Pancasuda.SUMUR_SINABA, bdate.pawukon.pancasuda);
+    // Another weWaran
+    t.is(BD.Ingkel.TARU, bdate.ingkel);
+    t.is(BD.Jejepan.PAKSI, bdate.jejepan);
+    t.is(BD.WatekMadya.GAJAH, bdate.watekMadya);
+    t.is(BD.WatekAlit.LEMBU, bdate.watekAlit);
+    t.is(BD.Lintang.KIRIMAN, bdate.lintang);
+    t.is(BD.Pararasan.ARAS_TUDING, bdate.pararasan);
+    t.is(BD.PancaSuda.SUMUR_SINABA, bdate.pancaSuda);
 
-    t.is(BD.EkaJalaRsi.SUKA_PINANGGIH, bdate.pawukon.ekaJalaRsi);
+    t.is(BD.EkaJalaRsi.SUKA_PINANGGIH, bdate.ekaJalaRsi);
 
     // Penanggal
     t.deepEqual([7], bdate.sasihDay);
@@ -623,38 +623,38 @@ test("2001-09-24-node", t => {
 
 test("2003-01-03-node", t => {
     const date = new Date(2003,0,3);
-    const bdate = new BD.BalineseDate(date.getFullYear(), date.getMonth(), date.getDate());
+    const bdate = new BD.BalineseDate(date);
 
     // Wuku
-    t.is(BD.Wuku.KRULUT, bdate.pawukon.wuku);
+    t.is(BD.Wuku.KRULUT, bdate.wuku);
 
-    // Wewaran
-    t.is(BD.Ekawara.VOID, bdate.pawukon.ekawara);
-    t.is(BD.Dwiwara.MENGA, bdate.pawukon.dwiwara);
-    t.is(BD.Triwara.PASAH, bdate.pawukon.triwara);
-    t.is(BD.Caturwara.MENALA, bdate.pawukon.caturwara);
-    t.is(BD.Pancawara.WAGE, bdate.pawukon.pancawara);
-    t.is(BD.Sadwara.PANIRON, bdate.pawukon.sadwara);
-    t.is(BD.Saptawara.SUKRA, bdate.pawukon.saptawara);
-    t.is(BD.Astawara.YAMA, bdate.pawukon.astawara);
-    t.is(BD.Sangawara.URUNGAN, bdate.pawukon.sangawara);
-    t.is(BD.Dasawara.PANDITA, bdate.pawukon.dasawara);
+    // WeWaran
+    t.is(BD.EkaWara.VOID, bdate.ekaWara);
+    t.is(BD.DwiWara.MENGA, bdate.dwiWara);
+    t.is(BD.TriWara.PASAH, bdate.triWara);
+    t.is(BD.CaturWara.MENALA, bdate.caturWara);
+    t.is(BD.PancaWara.WAGE, bdate.pancaWara);
+    t.is(BD.SadWara.PANIRON, bdate.sadWara);
+    t.is(BD.SaptaWara.SUKRA, bdate.saptaWara);
+    t.is(BD.AstaWara.YAMA, bdate.astaWara);
+    t.is(BD.SangaWara.URUNGAN, bdate.sangaWara);
+    t.is(BD.DasaWara.PANDITA, bdate.dasaWara);
 
-    // Another wewaran
-    t.is(BD.Ingkel.TARU, bdate.pawukon.ingkel);
-    t.is(BD.Jejapan.PATRA, bdate.pawukon.jejapan);
-    t.is(BD.PawatekanMadya.WONG, bdate.pawukon.watekMadya);
-    t.is(BD.PawatekanAlit.GAJAH, bdate.pawukon.watekAlit);
-    t.is(BD.Lintang.MANGELUT, bdate.pawukon.lintang);
-    t.is(BD.Pararasan.LAKU_PANDITA_SAKTI, bdate.pawukon.pararasan);
-    t.is(BD.Pancasuda.SUMUR_SINABA, bdate.pawukon.pancasuda);
+    // Another weWaran
+    t.is(BD.Ingkel.TARU, bdate.ingkel);
+    t.is(BD.Jejepan.PATRA, bdate.jejepan);
+    t.is(BD.WatekMadya.WONG, bdate.watekMadya);
+    t.is(BD.WatekAlit.GAJAH, bdate.watekAlit);
+    t.is(BD.Lintang.MAGELUT, bdate.lintang);
+    t.is(BD.Pararasan.LAKU_PANDITA_SAKTI, bdate.pararasan);
+    t.is(BD.PancaSuda.SUMUR_SINABA, bdate.pancaSuda);
 
-    t.is(BD.EkaJalaRsi.PATINING_AMRTA, bdate.pawukon.ekaJalaRsi);
+    t.is(BD.EkaJalaRsi.PATINING_AMERTA, bdate.ekaJalaRsi);
 
     // Penanggal
     t.deepEqual([1], bdate.sasihDay);
     t.is(BD.SasihDayInfo.PENANGGAL, bdate.sasihDayInfo);
-    t.is(BD.PratithiSamutPada.SAMSKARA, bdate.pratithiSamutPada);
+    t.is(BD.PratithiSamutPada.SASKARA, bdate.pratithiSamutPada);
 
     // Sasih
     t.is(1924, bdate.saka);
@@ -663,33 +663,33 @@ test("2003-01-03-node", t => {
 
 test("2017-01-01-node", t => {
     const date = new Date(2017,0,1);
-    const bdate = new BD.BalineseDate(date.getFullYear(), date.getMonth(), date.getDate());
+    const bdate = new BD.BalineseDate(date);
 
     // Wuku
-    t.is(BD.Wuku.KLAWU, bdate.pawukon.wuku);
+    t.is(BD.Wuku.KLAWU, bdate.wuku);
 
-    // Wewaran
-    t.is(BD.Ekawara.VOID, bdate.pawukon.ekawara);
-    t.is(BD.Dwiwara.MENGA, bdate.pawukon.dwiwara);
-    t.is(BD.Triwara.PASAH, bdate.pawukon.triwara);
-    t.is(BD.Caturwara.MENALA, bdate.pawukon.caturwara);
-    t.is(BD.Pancawara.UMANIS, bdate.pawukon.pancawara);
-    t.is(BD.Sadwara.PANIRON, bdate.pawukon.sadwara);
-    t.is(BD.Saptawara.REDITE, bdate.pawukon.saptawara);
-    t.is(BD.Astawara.YAMA, bdate.pawukon.astawara);
-    t.is(BD.Sangawara.URUNGAN, bdate.pawukon.sangawara);
-    t.is(BD.Dasawara.PANDITA, bdate.pawukon.dasawara);
+    // WeWaran
+    t.is(BD.EkaWara.VOID, bdate.ekaWara);
+    t.is(BD.DwiWara.MENGA, bdate.dwiWara);
+    t.is(BD.TriWara.PASAH, bdate.triWara);
+    t.is(BD.CaturWara.MENALA, bdate.caturWara);
+    t.is(BD.PancaWara.UMANIS, bdate.pancaWara);
+    t.is(BD.SadWara.PANIRON, bdate.sadWara);
+    t.is(BD.SaptaWara.REDITE, bdate.saptaWara);
+    t.is(BD.AstaWara.YAMA, bdate.astaWara);
+    t.is(BD.SangaWara.URUNGAN, bdate.sangaWara);
+    t.is(BD.DasaWara.PANDITA, bdate.dasaWara);
 
-    // Another wewaran
-    t.is(BD.Ingkel.MANUK, bdate.pawukon.ingkel);
-    t.is(BD.Jejapan.PATRA, bdate.pawukon.jejapan);
-    t.is(BD.PawatekanMadya.WONG, bdate.pawukon.watekMadya);
-    t.is(BD.PawatekanAlit.GAJAH, bdate.pawukon.watekAlit);
-    t.is(BD.Lintang.KALA_SUNGSANG, bdate.pawukon.lintang);
-    t.is(BD.Pararasan.LAKU_PANDITA_SAKTI, bdate.pawukon.pararasan);
-    t.is(BD.Pancasuda.SUMUR_SINABA, bdate.pawukon.pancasuda);
+    // Another weWaran
+    t.is(BD.Ingkel.MANUK, bdate.ingkel);
+    t.is(BD.Jejepan.PATRA, bdate.jejepan);
+    t.is(BD.WatekMadya.WONG, bdate.watekMadya);
+    t.is(BD.WatekAlit.GAJAH, bdate.watekAlit);
+    t.is(BD.Lintang.KALA_SUNGSANG, bdate.lintang);
+    t.is(BD.Pararasan.LAKU_PANDITA_SAKTI, bdate.pararasan);
+    t.is(BD.PancaSuda.SUMUR_SINABA, bdate.pancaSuda);
 
-    t.is(BD.EkaJalaRsi.PATINING_AMRTA, bdate.pawukon.ekaJalaRsi);
+    t.is(BD.EkaJalaRsi.PATINING_AMERTA, bdate.ekaJalaRsi);
 
     // Penanggal
     t.deepEqual([4], bdate.sasihDay);
@@ -703,33 +703,33 @@ test("2017-01-01-node", t => {
 
 test("2017-01-01-STR-node", t => {
     const date = new Date(2017,0,1);
-    const bdate = new BD.BalineseDate(date.getFullYear(), date.getMonth(), date.getDate());
+    const bdate = new BD.BalineseDate(date);
 
     // Wuku
-    t.is("Klawu", bdate.pawukon.wuku.name);
+    t.is("Klawu", bdate.wuku.name);
 
-    // Wewaran
-    t.is("Void", bdate.pawukon.ekawara.name);
-    t.is("Menga", bdate.pawukon.dwiwara.name);
-    t.is("Pasah", bdate.pawukon.triwara.name);
-    t.is("Menala", bdate.pawukon.caturwara.name);
-    t.is("Umanis", bdate.pawukon.pancawara.name);
-    t.is("Paniron", bdate.pawukon.sadwara.name);
-    t.is("Redite", bdate.pawukon.saptawara.name);
-    t.is("Yama", bdate.pawukon.astawara.name);
-    t.is("Urungan", bdate.pawukon.sangawara.name);
-    t.is("Pandita", bdate.pawukon.dasawara.name);
+    // WeWaran
+    t.is("", bdate.ekaWara.name);
+    t.is("Menga", bdate.dwiWara.name);
+    t.is("Pasah", bdate.triWara.name);
+    t.is("Menala", bdate.caturWara.name);
+    t.is("Umanis", bdate.pancaWara.name);
+    t.is("Paniron", bdate.sadWara.name);
+    t.is("Redite", bdate.saptaWara.name);
+    t.is("Yama", bdate.astaWara.name);
+    t.is("Urungan", bdate.sangaWara.name);
+    t.is("Pandita", bdate.dasaWara.name);
 
-    // Another wewaran
-    t.is("Manuk", bdate.pawukon.ingkel.name);
-    t.is("Patra", bdate.pawukon.jejapan.name);
-    t.is("Wong", bdate.pawukon.watekMadya.name);
-    t.is("Gajah", bdate.pawukon.watekAlit.name);
-    t.is("Kala Sungsang", bdate.pawukon.lintang.name);
-    t.is("Laku Pandita Sakti", bdate.pawukon.pararasan.name);
-    t.is("Sumur Sinaba", bdate.pawukon.pancasuda.name);
+    // Another weWaran
+    t.is("Manuk", bdate.ingkel.name);
+    t.is("Patra", bdate.jejepan.name);
+    t.is("Wong", bdate.watekMadya.name);
+    t.is("Gajah", bdate.watekAlit.name);
+    t.is("Kala Sungsang", bdate.lintang.name);
+    t.is("Laku Pandita Sakti", bdate.pararasan.name);
+    t.is("Sumur Sinaba", bdate.pancaSuda.name);
 
-    t.is("Patining Amrta", bdate.pawukon.ekaJalaRsi.name);
+    t.is("Patining Amerta", bdate.ekaJalaRsi.name);
 
     // Penanggal
     t.is("Penanggal", bdate.sasihDayInfo.name);
@@ -746,7 +746,7 @@ test("test_query_1_year_watugunung", t => {
 
     q.wuku = BD.Wuku.WATUGUNUNG;
 
-    const arr = BD.BalineseDateUtil.getBalineseDateByDateRange(q, start, finish);
+    const arr = BD.BalineseDateUtil.filterByDateRange(start, finish, q);
 
     t.is(arr.length, 14);
 });
@@ -757,9 +757,9 @@ test("test_query_1_year_watugunung_kliwon", t => {
     const q = new BD.Filter();
 
     q.wuku      = BD.Wuku.WATUGUNUNG;
-    q.pancawara = BD.Pancawara.KLIWON;
+    q.pancaWara = BD.PancaWara.KLIWON;
 
-    const arr = BD.BalineseDateUtil.getBalineseDateByDateRange(q, start, finish);
+    const arr = BD.BalineseDateUtil.filterByDateRange(start, finish, q);
 
     t.is(arr.length, 4);
 });
@@ -770,9 +770,9 @@ test("test_query_1_year_watugunung_saniscara", t => {
     const q = new BD.Filter();
 
     q.wuku      = BD.Wuku.WATUGUNUNG;
-    q.saptawara = BD.Saptawara.SANISCARA;
+    q.saptaWara = BD.SaptaWara.SANISCARA;
 
-    const arr = BD.BalineseDateUtil.getBalineseDateByDateRange(q, start, finish);
+    const arr = BD.BalineseDateUtil.filterByDateRange(start, finish, q);
 
     t.is(arr.length, 2);
 });
@@ -783,10 +783,10 @@ test("test_query_1_year_watugunung_saniscara_kliwon", t => {
     const q = new BD.Filter();
 
     q.wuku      = BD.Wuku.WATUGUNUNG;
-    q.saptawara = BD.Saptawara.SANISCARA;
-    q.pancawara = BD.Pancawara.KLIWON;
+    q.saptaWara = BD.SaptaWara.SANISCARA;
+    q.pancaWara = BD.PancaWara.KLIWON;
 
-    const arr = BD.BalineseDateUtil.getBalineseDateByDateRange(q, start, finish);
+    const arr = BD.BalineseDateUtil.filterByDateRange(start, finish, q);
 
     t.is(arr.length, 0);
 });
@@ -798,7 +798,7 @@ test("test_query_1_month_agustus_katiga", t => {
 
     q.sasih      = BD.Sasih.KATIGA;
 
-    const arr = BD.BalineseDateUtil.getBalineseDateByDateRange(q, start, finish);
+    const arr = BD.BalineseDateUtil.filterByDateRange(start, finish, q);
 
     t.is(arr.length, 9);
 });
@@ -810,7 +810,7 @@ test("test_query_1_month_agustus_1", t => {
 
     q.sasihDay = [1];
 
-    const arr = BD.BalineseDateUtil.getBalineseDateByDateRange(q, start, finish);
+    const arr = BD.BalineseDateUtil.filterByDateRange(start, finish, q);
 
     t.is(arr.length, 2);
 });
@@ -823,7 +823,7 @@ test("test_query_1_month_agustus_penanggal_9", t => {
     q.sasihDay = [9];
     q.sasihDayInfo = BD.SasihDayInfo.PENANGGAL;
 
-    const arr = BD.BalineseDateUtil.getBalineseDateByDateRange(q, start, finish);
+    const arr = BD.BalineseDateUtil.filterByDateRange(start, finish, q);
 
     t.is(arr.length, 2);
 });

@@ -1,60 +1,51 @@
-var webpack = require('webpack'),
-    path = require('path'),
-    yargs = require('yargs');
- 
-var libraryName = 'BalineseDate',
-    libraryFileName = 'balinese-date-js-lib',
-    plugins = [],
-    outputFile;
- 
-if (yargs.argv.p) {
-    plugins.push(
-        new webpack.optimize.UglifyJsPlugin({ 
-            minimize: true,
-            sourceMap: true
-        })
-    );
-    outputFile = libraryFileName + '.min.js';
-} else {
-    outputFile = libraryFileName + '.js';
-}
+const path = require('path');
 
-var config = {
-    entry: [
-        __dirname + '/src/BalineseDate.ts'
-    ],
-    devtool: 'source-map',
+const libraryName = "BalineseDate";
+const libraryFileName = "balinese-date-js-lib";
+
+const config = {
+    entry: path.join(__dirname, "src", libraryName + ".ts"),
     output: {
-        path: path.join(__dirname, '/umd'),
-        filename: outputFile,
+        path: path.join(__dirname, "umd"),
         library: libraryName,
-        libraryTarget: 'umd',
-        umdNamedDefine: true
+        libraryTarget: "umd2",
+        umdNamedDefine: true,
+        globalObject: "this"
     },
+    devtool: "source-map",
     module: {
-        loaders: [
+        rules: [
             {
-                enforce: 'pre',
-                test: /\.tsx?$/,
-                loader: 'tslint-loader',
-                exclude: /node_modules/,
-                options: {
-                    emitErrors: true,
-                    failOnHint: true
-                }
+                test: /\.ts$/, 
+                enforce: "pre",
+                use: [{ 
+                        loader: "tslint-loader",
+                        options: {
+                            emitErrors: true,
+                            failOnHint: true
+                        }
+                    }],
+                exclude: [/node_modules/]
             },
             {
-                test: /\.tsx?$/, 
-                loader: 'ts-loader', 
-                exclude: /node_modules/ 
+                test: /\.ts$/, 
+                use: [{ loader: "ts-loader" }],
+                exclude: [/node_modules/]
             }
         ]
     },
     resolve: {
-        modules: [path.resolve('./src'), path.resolve('./node_modules')],
-        extensions: ['.js', '.ts', '.jsx', '.tsx']
+        modules: [path.resolve("./src"), path.resolve("./node_modules")],
+        extensions: [".js", ".ts"]
     },
-    plugins: plugins
+}
+
+module.exports = (env, argv) => {
+    if (argv.mode === "development") {
+        config.output.filename = libraryFileName + ".js";
+    } else if (argv.mode === "production") {
+        config.output.filename = libraryFileName + ".min.js";
+    }
+
+    return config;
 };
- 
-module.exports = config;

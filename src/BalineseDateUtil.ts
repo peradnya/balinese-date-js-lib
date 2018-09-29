@@ -13,117 +13,203 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-
-import addDays from "date-fns/add_days";
-import differenceInCalendarDays from "date-fns/difference_in_calendar_days";
+import dateAdd = require("date-fns/add_days");
+import dateDiff = require("date-fns/difference_in_calendar_days");
 
 import { BalineseDate } from "./BalineseDate";
-import { BalineseDatePawukon } from "./BalineseDatePawukon";
-
-import * as BalineseDateConst from "./const";
+import { Filter } from "./Filter";
+import { SasihDayInfo } from "./SasihDayInfo";
 
 /**
- * Utility class to support BalineseDate library
- * @author Ida Bagus Putu Peradnya Dinata
+ * Utility class to support BalineseDate.
  */
 export class BalineseDateUtil {
 
     /**
-     * Get BalineseDates that match with given filters and dates.
-     * @param filter the filters for balinese date search (null similar to no filter).
-     * @param start the start date of search (not null).
-     * @param finish the end date of search (not null).
-     * @return array of BalineseDate that matched with given filters and dates.
-     * @see Filter
+     * Returns the list of BalineseDate that match with selected filter, Start Date
+     * (inclusive), and End Date (inclusive).
+     * <p>
+     * <b>Note:</b> This static method is <u>not thread-safe</u>.
+     *
+     * @param start  the Start Date of the search. Undefined is not allowed.
+     * @param end    the End Date of the search. Undefined is not allowed.
+     * @param filter the Filter to be match. Undefined for unfiltered result.
+     *
+     * @return the list of BalineseDate that match with selected filter, Start Date,
+     *         and End Date
      */
-    public static getBalineseDateByDateRange(
-        filter: BalineseDateConst.Filter,
-        start: Date,
-        finish: Date): BalineseDate[] {
+    public static filterByDateRange(start: Date, end: Date, filter?: Filter) {
+        const result: BalineseDate[] = [];
 
-        if (start === undefined || finish === undefined) { throw Error("Date must defined"); }
-
-        const res: BalineseDate[] = [];
-
-        let now: Date;
-        for (now = addDays(start, 0); differenceInCalendarDays(finish, now) >= 0; now = addDays(now, 1)) {
-            const date: BalineseDate = new BalineseDate(now.getFullYear(), now.getMonth(), now.getDate());
-            const pawukon: Readonly<BalineseDatePawukon> = date.pawukon;
-
-            if (filter !== undefined && filter !== null) {
-                if (BalineseDateUtil.check(filter.ekawara, pawukon.ekawara))                    { continue; }
-                if (BalineseDateUtil.check(filter.dwiwara, pawukon.dwiwara))                    { continue; }
-                if (BalineseDateUtil.check(filter.triwara, pawukon.triwara))                    { continue; }
-                if (BalineseDateUtil.check(filter.caturwara, pawukon.caturwara))                { continue; }
-                if (BalineseDateUtil.check(filter.pancawara, pawukon.pancawara))                { continue; }
-                if (BalineseDateUtil.check(filter.sadwara, pawukon.sadwara))                    { continue; }
-                if (BalineseDateUtil.check(filter.saptawara, pawukon.saptawara))                { continue; }
-                if (BalineseDateUtil.check(filter.astawara, pawukon.astawara))                  { continue; }
-                if (BalineseDateUtil.check(filter.sangawara, pawukon.sangawara))                { continue; }
-                if (BalineseDateUtil.check(filter.dasawara, pawukon.dasawara))                  { continue; }
-
-                if (BalineseDateUtil.check(filter.ingkel, pawukon.ingkel))                      { continue; }
-                if (BalineseDateUtil.check(filter.jejapan, pawukon.jejapan))                    { continue; }
-                if (BalineseDateUtil.check(filter.watekAlit, pawukon.watekAlit))                { continue; }
-                if (BalineseDateUtil.check(filter.watekMadya, pawukon.watekMadya))              { continue; }
-                if (BalineseDateUtil.check(filter.lintang, pawukon.lintang))                    { continue; }
-                if (BalineseDateUtil.check(filter.pancasuda, pawukon.pancasuda))                { continue; }
-                if (BalineseDateUtil.check(filter.pararasan, pawukon.pararasan))                { continue; }
-                if (BalineseDateUtil.check(filter.rakam, pawukon.rakam))                        { continue; }
-                if (BalineseDateUtil.check(filter.ekaJalaRsi, pawukon.ekaJalaRsi))              { continue; }
-
-                if (BalineseDateUtil.check(filter.wuku, pawukon.wuku))                          { continue; }
-
-                if (BalineseDateUtil.check(filter.sasih, date.sasih))                           { continue; }
-                if (BalineseDateUtil.checkSasihDayInfo(filter.sasihDayInfo, date.sasihDayInfo)) { continue; }
-                if (BalineseDateUtil.checkIntArr(filter.sasihDay, date.sasihDay))               { continue; }
-                if (BalineseDateUtil.check(filter.saka, date.saka))                             { continue; }
-                if (BalineseDateUtil.check(filter.pratithiSamutPada, date.pratithiSamutPada))   { continue; }
+        let now = dateAdd(start, 0);
+        for (; dateDiff(end, now) >= 0; now = dateAdd(now, 1)) {
+            const x = new BalineseDate(now);
+            if (this.filterByItem(x, filter)) {
+                result.push(x);
             }
-
-            res.push(date);
         }
 
-        return res;
+        return result;
     }
 
-    private static check<I>(filter: I, date: I): boolean {
-        return (filter !== undefined ? filter !== date : false);
-    }
+    /**
+     * Returns the list of BalineseDate that match with selected filter.
+     * <p>
+     * <b>Note:</b> This static method is <u>not thread-safe</u>.
+     *
+     * @param list   the list of BalineseDate to be search. Undefined is not allowed.
+     * @param filter the Filter to be match. Undefined for unfiltered result.
+     *
+     * @return the list of BalineseDate that match with selected filter
+     */
+    public static filterByList(list: BalineseDate[], filter?: Filter) {
+        const result: BalineseDate[] = [];
 
-    private static checkIntArr(
-        filter?: ReadonlyArray<number>,
-        date?: ReadonlyArray<number>): boolean {
-
-        if (filter !== undefined && date !== undefined) {
-            if (filter.length === 1) {
-                for (const y of date) {
-                    if (filter[0] === y) { return false; }
-                }
-            } else if (filter.length === 2 && date.length === 2) {
-                return !(filter[0] === date[0] && filter[1] === date[1]);
+        for (const item of list) {
+            if (this.filterByItem(item, filter)) {
+                result.push(item);
             }
-            return true;
-        } else {
-            return false;
         }
+
+        return result;
     }
 
-    private static checkSasihDayInfo(
-        filter?: Readonly<BalineseDateConst.SasihDayInfo>,
-        date?: Readonly<BalineseDateConst.SasihDayInfo>): boolean {
-
-        if (filter !== undefined && date !== undefined) {
-            if (filter === BalineseDateConst.SasihDayInfo.PURNAMA ||
-                filter === BalineseDateConst.SasihDayInfo.TILEM) {
-
-                return filter !== date;
-            } else {
-                return filter.group !== date.group;
+    /**
+     * Returns the BalineseDate item that match with selected filter.
+     * <p>
+     * <b>Note:</b> This static method is <u>not thread-safe</u>.
+     *
+     * @param item   the BalineseDate to be search. Undefined is not allowed.
+     * @param filter the Filter to be match. Undefined for unfiltered result.
+     *
+     * @return the boolean if item match with selected filter.
+     */
+    public static filterByItem(item: BalineseDate, filter?: Filter) {
+        if (filter !== undefined) {
+            if (!_F_CHECK(filter.wuku, item.wuku)) {
+                return false;
             }
-        } else {
-            return false;
+            if (!_F_CHECK(filter.ekaWara, item.ekaWara)) {
+                return false;
+            }
+            if (!_F_CHECK(filter.dwiWara, item.dwiWara)) {
+                return false;
+            }
+            if (!_F_CHECK(filter.triWara, item.triWara)) {
+                return false;
+            }
+            if (!_F_CHECK(filter.caturWara, item.caturWara)) {
+                return false;
+            }
+            if (!_F_CHECK(filter.pancaWara, item.pancaWara)) {
+                return false;
+            }
+            if (!_F_CHECK(filter.sadWara, item.sadWara)) {
+                return false;
+            }
+            if (!_F_CHECK(filter.saptaWara, item.saptaWara)) {
+                return false;
+            }
+            if (!_F_CHECK(filter.astaWara, item.astaWara)) {
+                return false;
+            }
+            if (!_F_CHECK(filter.sangaWara, item.sangaWara)) {
+                return false;
+            }
+            if (!_F_CHECK(filter.dasaWara, item.dasaWara)) {
+                return false;
+            }
+            if (!_F_CHECK(filter.ingkel, item.ingkel)) {
+                return false;
+            }
+            if (!_F_CHECK(filter.jejepan, item.jejepan)) {
+                return false;
+            }
+            if (!_F_CHECK(filter.watekAlit, item.watekAlit)) {
+                return false;
+            }
+            if (!_F_CHECK(filter.watekMadya, item.watekMadya)) {
+                return false;
+            }
+            if (!_F_CHECK(filter.lintang, item.lintang)) {
+                return false;
+            }
+            if (!_F_CHECK(filter.pancaSuda, item.pancaSuda)) {
+                return false;
+            }
+            if (!_F_CHECK(filter.pararasan, item.pararasan)) {
+                return false;
+            }
+            if (!_F_CHECK(filter.rakam, item.rakam)) {
+                return false;
+            }
+            if (!_F_CHECK(filter.ekaJalaRsi, item.ekaJalaRsi)) {
+                return false;
+            }
+            if (!_F_CHECK(filter.saka, item.saka)) {
+                return false;
+            }
+            if (!_F_CHECK(filter.sasih, item.sasih)) {
+                return false;
+            }
+            if (!_F_CHECK(filter.pratithiSamutPada, item.pratithiSamutPada)) {
+                return false;
+            }
+            if (!_F_CHECK_SASIH_D(filter.sasihDay, item.sasihDay)) {
+                return false;
+            }
+            if (!_F_CHECK_SASIH_D_I(filter.sasihDayInfo, item.sasihDayInfo)) {
+                return false;
+            }
         }
+        return true;
     }
-
 }
+
+/** @hidden */
+const _F_ARRAY_CHECK = (a: number[], b: ReadonlyArray<number>) => {
+    if (a.length === b.length) {
+        for (let i = 0; i < a.length; i++) {
+            if (a[i] !== b[i]) { return false; }
+        }
+        return true;
+    }
+    return false;
+};
+
+/** @hidden */
+const _F_CHECK = <I> (expectation: I, reality: I) => {
+    return (expectation !== undefined) ? (expectation === reality) : true;
+};
+
+/** @hidden */
+const _F_CHECK_SASIH_D = (expectation: number[] | undefined, reality: ReadonlyArray<number>) => {
+    if (expectation !== undefined) {
+        switch (expectation.length) {
+        case 1:
+            if (reality.length === 1) {
+                return (expectation[0] === reality[0]);
+            } else if (reality.length === 2) {
+                return (expectation[0] === reality[0]) || (expectation[0] === reality[1]);
+            }
+            return false;
+        case 2:
+            return (reality.length === 2) ? _F_ARRAY_CHECK(expectation, reality) : false;
+        default:
+            return false;
+        }
+    }
+    return true;
+};
+
+/** @hidden */
+const _F_CHECK_SASIH_D_I = (expectation: SasihDayInfo | undefined, reality: SasihDayInfo) => {
+    if (expectation !== undefined) {
+        if (expectation === SasihDayInfo.PURNAMA || expectation === SasihDayInfo.TILEM) {
+            return expectation === reality;
+        } else {
+            return expectation === reality.reference;
+        }
+    }
+    return true;
+};
