@@ -21,15 +21,25 @@
  * babadbali.com</a>.
  */
 export class SangaWara {
+    /** Return the list of SangaWara */
     static get values() { return _C_VAL; }
+    /** Id: 0, Urip: 5 */
     static get DANGU() { return _C_VAL[0]; }
+    /** Id: 1, Urip: 8 */
     static get JANGUR() { return _C_VAL[1]; }
+    /** Id: 2, Urip: 9 */
     static get GIGIS() { return _C_VAL[2]; }
+    /** Id: 3, Urip: 3 */
     static get NOHAN() { return _C_VAL[3]; }
+    /** Id: 4, Urip: 7 */
     static get OGAN() { return _C_VAL[4]; }
+    /** Id: 5, Urip: 1 */
     static get ERANGAN() { return _C_VAL[5]; }
+    /** Id: 6, Urip: 4 */
     static get URUNGAN() { return _C_VAL[6]; }
+    /** Id: 7, Urip: 6 */
     static get TULUS() { return _C_VAL[7]; }
+    /** Id: 8, Urip: 8 */
     static get DADI() { return _C_VAL[8]; }
 
     constructor(public readonly id: number, public readonly urip: number, public readonly name: string) {

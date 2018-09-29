@@ -1,7 +1,13 @@
-const path = require('path');
+const path = require("path");
+const webpack = require("webpack");
 
 const libraryName = "BalineseDate";
 const libraryFileName = "balinese-date-js-lib";
+const license = "BalineseDate is licensed under the " + 
+                "[Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)." +
+                "\n"+
+                "BalineseDate (UMD) is bundled with **date-fns** that licensed under the " +
+                "[MIT license](http://kossnocorp.mit-license.org).";
 
 const config = {
     entry: path.join(__dirname, "src", libraryName + ".ts"),
@@ -38,6 +44,9 @@ const config = {
         modules: [path.resolve("./src"), path.resolve("./node_modules")],
         extensions: [".js", ".ts"]
     },
+    plugins: [
+        new webpack.BannerPlugin(license),
+    ]
 }
 
 module.exports = (env, argv) => {

@@ -20,11 +20,17 @@
  * 'http://www.babadbali.com/pewarigaan/watek.htm'>WatekMadya at babadbali.com</a>.
  */
 export class WatekMadya {
+    /** Return the list of WatekMadya */
     static get values() { return _C_VAL; }
+    /** Id: 0 */
     static get WONG() { return _C_VAL[0]; }
+    /** Id: 1 */
     static get GAJAH() { return _C_VAL[1]; }
+    /** Id: 2 */
     static get WATU() { return _C_VAL[2]; }
+    /** Id: 3 */
     static get BUTA() { return _C_VAL[3]; }
+    /** Id: 4 */
     static get SUKU() { return _C_VAL[4]; }
 
     constructor(public readonly id: number, public readonly name: string) {

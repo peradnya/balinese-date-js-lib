@@ -20,12 +20,19 @@
  * 'http://www.babadbali.com/pewarigaan/ingkel.htm'>Ingkel at babadbali.com</a>.
  */
 export class Ingkel {
+    /** Return the list of Ingkel */
     static get values() { return _C_VAL; }
+    /** Id: 0 */
     static get WONG() { return _C_VAL[0]; }
+    /** Id: 1 */
     static get SATO() { return _C_VAL[1]; }
+    /** Id: 2 */
     static get MINA() { return _C_VAL[2]; }
+    /** Id: 3 */
     static get MANUK() { return _C_VAL[3]; }
+    /** Id: 4 */
     static get TARU() { return _C_VAL[4]; }
+    /** Id: 5 */
     static get BUKU() { return _C_VAL[5]; }
 
     constructor(public readonly id: number, public readonly name: string) {

@@ -1,6 +1,6 @@
 {
   "name": "balinese-date-js-lib",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "Library to Develop Balinese Saka Calendar (Kalender Bali)",
   "main": "node/BalineseDate.js",
   "types": "node/BalineseDate.d.ts",
@@ -45,7 +45,7 @@
     "typedoc": "^0.12.0",
     "typescript": "^3.1.1",
     "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.1"
+    "webpack-cli": "^3.1.2"
   },
   "dependencies": {
     "date-fns": "^1.29.0"

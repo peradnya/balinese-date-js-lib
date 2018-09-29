@@ -21,11 +21,17 @@
  * babadbali.com</a>.
  */
 export class PancaWara {
+    /** Return the list of PancaWara */
     static get values() { return _C_VAL; }
+    /** Id: 0, Urip: 9, Kupih: 3 */
     static get PAING() { return _C_VAL[0]; }
+    /** Id: 1, Urip: 7, Kupih: 4 */
     static get PON() { return _C_VAL[1]; }
+    /** Id: 2, Urip: 4, Kupih: 5 */
     static get WAGE() { return _C_VAL[2]; }
+    /** Id: 3, Urip: 8, Kupih: 1 */
     static get KLIWON() { return _C_VAL[3]; }
+    /** Id: 4, Urip: 5, Kupih: 2 */
     static get UMANIS() { return _C_VAL[4]; }
 
     constructor(public readonly id: number,

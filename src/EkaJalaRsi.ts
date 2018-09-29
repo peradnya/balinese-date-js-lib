@@ -20,34 +20,63 @@
  * Surabaya : Paramita.</u>
  */
 export class EkaJalaRsi {
+    /** Return the list of EkaJalaRsi */
     static get values() { return _C_VAL; }
+    /** Id: 0 */
     static get BAGNA_MAPASAH() { return _C_VAL[0]; }
+    /** Id: 1 */
     static get BAHU_PUTRA() { return _C_VAL[1]; }
+    /** Id: 2 */
     static get BUAT_ASTAWA() { return _C_VAL[2]; }
+    /** Id: 3 */
     static get BUAT_KINGKING() { return _C_VAL[3]; }
+    /** Id: 4 */
     static get BUAT_LARA() { return _C_VAL[4]; }
+    /** Id: 5 */
     static get BUAT_MERANG() { return _C_VAL[5]; }
+    /** Id: 6 */
     static get BUAT_SEBET() { return _C_VAL[6]; }
+    /** Id: 7 */
     static get BUAT_SUKA() { return _C_VAL[7]; }
+    /** Id: 8 */
     static get DAHAT_KINGKING() { return _C_VAL[8]; }
+    /** Id: 9 */
     static get KAMERANAN() { return _C_VAL[9]; }
+    /** Id: 10 */
     static get KAMERTAAN() { return _C_VAL[10]; }
+    /** Id: 11 */
     static get KASOBAGIAN() { return _C_VAL[11]; }
+    /** Id: 12 */
     static get KINASIHAN_AMERTA() { return _C_VAL[12]; }
+    /** Id: 13 */
     static get KINASIHAN_JANA() { return _C_VAL[13]; }
+    /** Id: 14 */
     static get LANGGENG_KAYOHANAAN() { return _C_VAL[14]; }
+    /** Id: 15 */
     static get LUWIH_BAGIA() { return _C_VAL[15]; }
+    /** Id: 16 */
     static get MANGGIH_BAGIA() { return _C_VAL[16]; }
+    /** Id: 17 */
     static get MANGGIH_SUKA() { return _C_VAL[17]; }
+    /** Id: 18 */
     static get PATINING_AMERTA() { return _C_VAL[18]; }
+    /** Id: 19 */
     static get RAHAYU() { return _C_VAL[19]; }
+    /** Id: 20 */
     static get SIDHA_KASOBAGIAN() { return _C_VAL[20]; }
+    /** Id: 21 */
     static get SUBAGIA() { return _C_VAL[21]; }
+    /** Id: 22 */
     static get SUKA_KAPANGGIH() { return _C_VAL[22]; }
+    /** Id: 23 */
     static get SUKA_PINANGGIH() { return _C_VAL[23]; }
+    /** Id: 24 */
     static get SUKA_RAHAYU() { return _C_VAL[24]; }
+    /** Id: 25 */
     static get TININGGALING_SUKA() { return _C_VAL[25]; }
+    /** Id: 26 */
     static get WERDHI_PUTRA() { return _C_VAL[26]; }
+    /** Id: 27 */
     static get WERDHI_SARWA_MULE() { return _C_VAL[27]; }
 
     constructor(public readonly id: number, public readonly name: string) {

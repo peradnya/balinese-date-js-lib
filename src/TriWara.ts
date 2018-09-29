@@ -21,9 +21,13 @@
  * babadbali.com</a>.
  */
 export class TriWara {
+    /** Return the list of TriWara */
     static get values() { return _C_VAL; }
+    /** Id: 0, Urip: 9 */
     static get PASAH() { return _C_VAL[0]; }
+    /** Id: 1, Urip: 4 */
     static get BETENG() { return _C_VAL[1]; }
+    /** Id: 2, Urip: 7 */
     static get KAJENG() { return _C_VAL[2]; }
 
     constructor(public readonly id: number, public readonly urip: number, public readonly name: string) {

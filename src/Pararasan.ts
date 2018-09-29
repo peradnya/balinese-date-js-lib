@@ -20,16 +20,27 @@
  * 'http://www.babadbali.com/pewarigaan/paarasan.htm'>Pararasan at babadbali.com</a>.
  */
 export class Pararasan {
+    /** Return the list of Pararasan */
     static get values() { return _C_VAL; }
+    /** Id: 0 */
     static get LAKU_PANDITA_SAKTI() { return _C_VAL[0]; }
+    /** Id: 1 */
     static get ARAS_TUDING() { return _C_VAL[1]; }
+    /** Id: 2 */
     static get ARAS_KEMBANG() { return _C_VAL[2]; }
+    /** Id: 3 */
     static get LAKU_BINTANG() { return _C_VAL[3]; }
+    /** Id: 4 */
     static get LAKU_BULAN() { return _C_VAL[4]; }
+    /** Id: 5 */
     static get LAKU_SURYA() { return _C_VAL[5]; }
+    /** Id: 6 */
     static get LAKU_AIR() { return _C_VAL[6]; }
+    /** Id: 7 */
     static get LAKU_BUMI() { return _C_VAL[7]; }
+    /** Id: 8 */
     static get LAKU_API() { return _C_VAL[8]; }
+    /** Id: 9 */
     static get LAKU_ANGIN() { return _C_VAL[9]; }
 
     constructor(public readonly id: number, public readonly name: string) {

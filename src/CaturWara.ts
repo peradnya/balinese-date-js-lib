@@ -21,10 +21,15 @@
  * babadbali.com</a>.
  */
 export class CaturWara {
+    /** Return the list of CaturWara */
     static get values() { return _C_VAL; }
+    /** Id: 0, Urip: 6 */
     static get SRI() { return _C_VAL[0]; }
+    /** Id: 1, Urip: 5 */
     static get LABA() { return _C_VAL[1]; }
+    /** Id: 2, Urip: 1 */
     static get JAYA() { return _C_VAL[2]; }
+    /** Id: 3, Urip: 8 */
     static get MENALA() { return _C_VAL[3]; }
 
     constructor(public readonly id: number, public readonly urip: number, public readonly name: string) {

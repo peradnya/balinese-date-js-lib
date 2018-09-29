@@ -21,12 +21,19 @@
  * babadbali.com</a>.
  */
 export class SadWara {
+    /** Return the list of SadWara */
     static get values() { return _C_VAL; }
+    /** Id: 0, Urip: 7 */
     static get TUNGLEH() { return _C_VAL[0]; }
+    /** Id: 1, Urip: 6 */
     static get ARYANG() { return _C_VAL[1]; }
+    /** Id: 2, Urip: 5 */
     static get URUKUNG() { return _C_VAL[2]; }
+    /** Id: 3, Urip: 8 */
     static get PANIRON() { return _C_VAL[3]; }
+    /** Id: 4, Urip: 9 */
     static get WAS() { return _C_VAL[4]; }
+    /** Id: 5, Urip: 3 */
     static get MAULU() { return _C_VAL[5]; }
 
     constructor(public readonly id: number, public readonly urip: number, public readonly name: string) {

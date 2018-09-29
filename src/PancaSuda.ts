@@ -20,13 +20,21 @@
  * 'http://www.babadbali.com/pewarigaan/pancasuda.htm'>PancaSuda at babadbali.com</a>.
  */
 export class PancaSuda {
+    /** Return the list of PancaSuda */
     static get values() { return _C_VAL; }
+    /** Id: 0 */
     static get LEBU_KATIUB_ANGIN() { return _C_VAL[0]; }
+    /** Id: 1 */
     static get WISESA_SEGARA() { return _C_VAL[1]; }
+    /** Id: 2 */
     static get TUNGGAK_SEMI() { return _C_VAL[2]; }
+    /** Id: 3 */
     static get SATRIA_WIBAWA() { return _C_VAL[3]; }
+    /** Id: 4 */
     static get SUMUR_SINABA() { return _C_VAL[4]; }
+    /** Id: 5 */
     static get SATRIA_WIRANG() { return _C_VAL[5]; }
+    /** Id: 6 */
     static get BUMI_KAPETAK() { return _C_VAL[6]; }
 
     constructor(public readonly id: number, public readonly name: string) {

@@ -21,13 +21,21 @@
  * babadbali.com</a>.
  */
 export class SaptaWara {
+    /** Return the list of SaptaWara */
     static get values() { return _C_VAL; }
+    /** Id: 0, Urip: 5, KertaAji: 6, Kupih: 3 */
     static get REDITE() { return _C_VAL[0]; }
+    /** Id: 1, Urip: 4, KertaAji: 4, Kupih: 4 */
     static get SOMA() { return _C_VAL[1]; }
+    /** Id: 2, Urip: 3, KertaAji: 3, Kupih: 5 */
     static get ANGGARA() { return _C_VAL[2]; }
+    /** Id: 3, Urip: 7, KertaAji: 6, Kupih: 6 */
     static get BUDA() { return _C_VAL[3]; }
+    /** Id: 4, Urip: 8, KertaAji: 5, Kupih: 7 */
     static get WRASPATI() { return _C_VAL[4]; }
+    /** Id: 5, Urip: 6, KertaAji: 7, Kupih: 1 */
     static get SUKRA() { return _C_VAL[5]; }
+    /** Id: 6, Urip: 9, KertaAji: 8, Kupih: 2 */
     static get SANISCARA() { return _C_VAL[6]; }
 
     constructor(public readonly id: number,

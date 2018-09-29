@@ -54,7 +54,7 @@ export {
 /**
  * BalineseDate provide the implementation of Balinese Saka Calendar.
  * <p>
- * BalineseDate is designed to be <u>immutable</u> and <u>thread-safe</u>.
+ * BalineseDate is designed to be <u>immutable</u>.
  * BalineseDate have several balinese calendar features like:
  * <ul>
  * <li><a target='_blank' href=
@@ -443,7 +443,7 @@ const _F_CALC_SASIH_DAY_INFO = (resSasihDay: number[], sasih: Sasih, saka: numbe
 };
 
 /** @hidden */
-const _F_CALC_PRATITHI_S_P = (sasihDay: ReadonlyArray<number>,
+const _F_CALC_PRATITHI_S_P = (sasihDay: number[],
                               sasihDayInfo: SasihDayInfo,
                               sasih: Sasih,
                               date: Date) => {

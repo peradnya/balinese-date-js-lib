@@ -20,10 +20,15 @@
  * 'http://www.babadbali.com/pewarigaan/watek.htm'>WatekAlit at babadbali.com</a>.
  */
 export class WatekAlit {
+    /** Return the list of WatekAlit */
     static get values() { return _C_VAL; }
+    /** Id: 0 */
     static get LINTAH() { return _C_VAL[0]; }
+    /** Id: 1 */
     static get ULER() { return _C_VAL[1]; }
+    /** Id: 2 */
     static get GAJAH() { return _C_VAL[2]; }
+    /** Id: 3 */
     static get LEMBU() { return _C_VAL[3]; }
 
     constructor(public readonly id: number, public readonly name: string) {

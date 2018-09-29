@@ -20,16 +20,25 @@
  * Surabaya : Paramita.</u>
  */
 export class SasihDayInfo {
+    /** Return the list of SasihDayInfo */
     static get values() { return _C_VAL; }
+    /** Penanggal: 1-14, Reference: PENANGGAL */
     static get PENANGGAL() { return _C_VAL[0]; }
+    /** Pangelong: 1-14, Reference: PANGELONG */
     static get PANGELONG() { return _C_VAL[1]; }
+    /** Penanggal: 15, Reference: PENANGGAL */
     static get PURNAMA() { return _C_VAL[2]; }
+    /** Pangelong: 15, Reference: PANGELONG */
     static get TILEM() { return _C_VAL[3]; }
 
     constructor(public readonly id: number, public readonly refId: number, public readonly name: string) {
         Object.freeze(this);
     }
 
+    /**
+     * Returns the reference of SasihDayInfo. this method is useful to get reference
+     * of PURNAMA and TILEM.
+     */
     get reference() { return _C_VAL[this.refId]; }
 
 }

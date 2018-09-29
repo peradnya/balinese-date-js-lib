@@ -21,8 +21,11 @@
  * babadbali.com</a>.
  */
 export class DwiWara {
+    /** Return the list of DwiWara */
     static get values() { return _C_VAL; }
+    /** Id: 0, Urip: 5 */
     static get MENGA() { return _C_VAL[0]; }
+    /** Id: 1, Urip: 4 */
     static get PEPET() { return _C_VAL[1]; }
 
     constructor(public readonly id: number, public readonly urip: number, public readonly name: string) {
