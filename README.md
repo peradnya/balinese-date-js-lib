@@ -49,7 +49,7 @@ BalineseDate also have several utilities that can be use by developer like:
 
 ## Import BalineseDate into Your Project
 
-BalineseDate Javascript Library use [**unpkg**](https://unpkg.com/balinese-date-js-lib/) as repository to publish UMD Library and also use [**npmjs.com**](https://www.npmjs.com/package/balinese-date-js-lib) as repository to publish NodeJS Library.
+BalineseDate Javascript Library use [**unpkg**](https://unpkg.com/balinese-date-js-lib/) as repository to publish UMD Library, and also use [**npmjs.com**](https://www.npmjs.com/package/balinese-date-js-lib) as repository to publish NodeJS Library.
 
 To import BalineseDate to your project, please choose one of these following method:
 
@@ -146,10 +146,10 @@ You could find the test results at:
 
 BalineseDate support Typescript by implementing declaration file ```*.d.ts``` inside the **NodeJS** library.
 
-Below code is an example of how to use of BalineseDate (**NodeJS** version) library in Typescript:
+Below code is an example of how to use of BalineseDate (**NodeJS** version) library in Typescript ```*.ts``` file:
 
 ```js
-import { BalineseDate } from "BalineseDate";
+import { BalineseDate } from "balinese-date-js-lib";
 
 const now = new BalineseDate();
 
@@ -163,7 +163,7 @@ console.log(now.wuku.name); // show the wuku name
 Below code is an example of how to use of BalineseDate (**UMD** or **NodeJS** version) library using CommonJS (NodeJS) approach:
 
 ```js
-const BD = require('BalineseDate');
+const BD = require('balinese-date-js-lib');
 
 const now = new BD.BalineseDate();
 
@@ -174,27 +174,34 @@ console.log(now.wuku.name); // show the wuku name
 
 ### RequireJS (AMD) Approach
 
-Below code is an example of how to use of BalineseDate (**UMD** version) library using RequireJS (AMD) approach:
-
-```js
-require(['BalineseDate'], function (BalineseDate) {
-  const BD  = BalineseDate;
-  const now = new BD.BalineseDate();
-
-  console.log(now.saka); // show the saka
-  console.log(now.sasih.name); // show the sasih name
-  console.log(now.wuku.name); // show the wuku name
-});
-```
-
-### HTML-page Approach
-
-To use BalineseDate library in your HTML-page, you should use the __UMD version__ of BalineseDate library.
-
-Below code is an example of how to use __UMD version__ of BalineseDate directly in the HTML-page:
+Below code is an example of how to use of BalineseDate (**UMD** version) library via [**RequireJS**](https://requirejs.org) (AMD):
 
 ```html
-<script src="../../umd/balinese-date-js-lib.min.js"></script>
+<script src="require.js"></script>
+<script src="balinese-date-js-lib.min.js"></script>
+<script>
+    requirejs(["BalineseDate"], function(BD) {
+      var now = new BD.BalineseDate();
+
+      document.getElementById("saka").innerHTML = now.saka;
+      document.getElementById("sasih").innerHTML = now.sasih.name;
+      document.getElementById("wuku").innerHTML = now.wuku.name;
+    });
+</script>
+```
+
+The example(s) of how to use  __UMD version__ of BalineseDate library via **require.js** in the HTML-page are available at:
+
+```sh
+[project root]/example/webpage/today-requirejs.html
+```
+
+### HTML-page "Direct" Approach
+
+Below code is an example of how to use of BalineseDate (**UMD** version) library **directly** in the HTML-page:
+
+```html
+<script src="balinese-date-js-lib.min.js"></script>
 <script>
     var BD = window.BalineseDate;
     var now = new BD.BalineseDate();
@@ -205,10 +212,10 @@ Below code is an example of how to use __UMD version__ of BalineseDate directly 
 </script>
 ```
 
-The example(s) of how to use  __UMD version__ of BalineseDate library in the HTML-page are available at:
+The example(s) of how to use  __UMD version__ of BalineseDate library **directly** in the HTML-page are available at:
 
 ```sh
-[project root]/example/webpage/*.html
+[project root]/example/webpage/today.html
 ```
 
 ## References

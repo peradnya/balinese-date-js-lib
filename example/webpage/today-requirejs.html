@@ -109,39 +109,42 @@
             </tr>
         </table>
     </body>
+    <script src="https://requirejs.org/docs/release/2.3.6/minified/require.js"></script>
     <script src="https://unpkg.com/balinese-date-js-lib/umd/balinese-date-js-lib.min.js"></script>
     <script>
-        var now     = new Date();
-        var BD      = new window.BalineseDate.BalineseDate(now);
+        requirejs(["BalineseDate"], function(BB) {
+            var now     = new Date();
+            var BD      = new BB.BalineseDate(now);
 
-        document.getElementById("today").innerHTML = now.toDateString();
-        document.getElementById("saka").innerHTML = BD.saka;
-        document.getElementById("sasih").innerHTML = BD.sasih.name;
-        document.getElementById("sasihDayInfo").innerHTML = BD.sasihDayInfo.name;
-        document.getElementById("sasihDay").innerHTML = BD.sasihDay.length > 1 ? (BD.sasihDay[0] + "/" + BD.sasihDay[1]) : BD.sasihDay[0];
-        document.getElementById("psp").innerHTML = BD.pratithiSamutPada.name;
+            document.getElementById("today").innerHTML = now.toDateString();
+            document.getElementById("saka").innerHTML = BD.saka;
+            document.getElementById("sasih").innerHTML = BD.sasih.name;
+            document.getElementById("sasihDayInfo").innerHTML = BD.sasihDayInfo.name;
+            document.getElementById("sasihDay").innerHTML = BD.sasihDay.length > 1 ? (BD.sasihDay[0] + "/" + BD.sasihDay[1]) : BD.sasihDay[0];
+            document.getElementById("psp").innerHTML = BD.pratithiSamutPada.name;
 
-        document.getElementById("wuku").innerHTML = BD.wuku.name;
+            document.getElementById("wuku").innerHTML = BD.wuku.name;
 
-        document.getElementById("w1").innerHTML = BD.ekaWara.id === 0 ? "-" : BD.ekaWara.name;
-        document.getElementById("w2").innerHTML = BD.dwiWara.name;
-        document.getElementById("w3").innerHTML = BD.triWara.name;
-        document.getElementById("w4").innerHTML = BD.caturWara.name;
-        document.getElementById("w5").innerHTML = BD.pancaWara.name;
-        document.getElementById("w6").innerHTML = BD.sadWara.name;
-        document.getElementById("w7").innerHTML = BD.saptaWara.name;
-        document.getElementById("w8").innerHTML = BD.astaWara.name;
-        document.getElementById("w9").innerHTML = BD.sangaWara.name;
-        document.getElementById("w10").innerHTML = BD.dasaWara.name;
+            document.getElementById("w1").innerHTML = BD.ekaWara.id === 0 ? "-" : BD.ekaWara.name;
+            document.getElementById("w2").innerHTML = BD.dwiWara.name;
+            document.getElementById("w3").innerHTML = BD.triWara.name;
+            document.getElementById("w4").innerHTML = BD.caturWara.name;
+            document.getElementById("w5").innerHTML = BD.pancaWara.name;
+            document.getElementById("w6").innerHTML = BD.sadWara.name;
+            document.getElementById("w7").innerHTML = BD.saptaWara.name;
+            document.getElementById("w8").innerHTML = BD.astaWara.name;
+            document.getElementById("w9").innerHTML = BD.sangaWara.name;
+            document.getElementById("w10").innerHTML = BD.dasaWara.name;
 
-        document.getElementById("lintang").innerHTML = BD.lintang.name;
-        document.getElementById("ingkel").innerHTML = BD.ingkel.name;
-        document.getElementById("ekajalarsi").innerHTML = BD.ekaJalaRsi.name;
-        document.getElementById("jejepan").innerHTML = BD.jejepan.name;
-        document.getElementById("pancasuda").innerHTML = BD.pancaSuda.name;
-        document.getElementById("pararasan").innerHTML = BD.pararasan.name;
-        document.getElementById("rakam").innerHTML = BD.rakam.name;
-        document.getElementById("watekmadya").innerHTML = BD.watekMadya.name;
-        document.getElementById("watekalit").innerHTML = BD.watekAlit.name;
+            document.getElementById("lintang").innerHTML = BD.lintang.name;
+            document.getElementById("ingkel").innerHTML = BD.ingkel.name;
+            document.getElementById("ekajalarsi").innerHTML = BD.ekaJalaRsi.name;
+            document.getElementById("jejepan").innerHTML = BD.jejepan.name;
+            document.getElementById("pancasuda").innerHTML = BD.pancaSuda.name;
+            document.getElementById("pararasan").innerHTML = BD.pararasan.name;
+            document.getElementById("rakam").innerHTML = BD.rakam.name;
+            document.getElementById("watekmadya").innerHTML = BD.watekMadya.name;
+            document.getElementById("watekalit").innerHTML = BD.watekAlit.name;
+        });
     </script>
 </html>
