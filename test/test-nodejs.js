@@ -827,3 +827,59 @@ test("test_query_1_month_agustus_penanggal_9", t => {
 
     t.is(arr.length, 2);
 });
+
+test("test_nyepi_2019", t => {
+    const date = new Date(2019,2,7);
+    const bdate = new BD.BalineseDate(date);
+
+    const arr = BD.BalineseDateUtil.getRahinan(bdate);
+
+    t.is(arr[0], BD.Rahinan.NYEPI);
+});
+
+test("test_ngembak_geni_2019", t => {
+    const date = new Date(2019,2,8);
+    const bdate = new BD.BalineseDate(date);
+
+    const arr = BD.BalineseDateUtil.getRahinan(bdate);
+
+    t.is(arr[0], BD.Rahinan.NGEMBAK_GENI);
+});
+
+test("test_tawur_agung_2019", t => {
+    const date = new Date(2019,2,6);
+    const bdate = new BD.BalineseDate(date);
+
+    const arr = BD.BalineseDateUtil.getRahinan(bdate);
+
+    t.is(arr[0], BD.Rahinan.KAJENG_KLIWON);
+    t.is(arr[1], BD.Rahinan.TAWUR_AGUNG_KASANGA);
+});
+
+test("test_nyepi_1995", t => {
+    const date = new Date(1995,3,1);
+    const bdate = new BD.BalineseDate(date);
+
+    const arr = BD.BalineseDateUtil.getRahinan(bdate);
+
+    t.is(arr[0], BD.Rahinan.TUMPEK_LANDEP);
+    t.is(arr[1], BD.Rahinan.NYEPI);
+});
+
+test("test_ngembak_geni_1995", t => {
+    const date = new Date(1995,3,2);
+    const bdate = new BD.BalineseDate(date);
+
+    const arr = BD.BalineseDateUtil.getRahinan(bdate);
+
+    t.is(arr[0], BD.Rahinan.NGEMBAK_GENI);
+});
+
+test("test_tawur_agung_1995", t => {
+    const date = new Date(1995,2,31);
+    const bdate = new BD.BalineseDate(date);
+
+    const arr = BD.BalineseDateUtil.getRahinan(bdate);
+
+    t.is(arr[0], BD.Rahinan.TAWUR_AGUNG_KASANGA);
+});

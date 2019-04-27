@@ -18,7 +18,13 @@ import dateDiff = require("date-fns/difference_in_calendar_days");
 
 import { BalineseDate } from "./BalineseDate";
 import { Filter } from "./Filter";
+import { PancaWara } from "./PancaWara";
+import { Rahinan } from "./Rahinan";
+import { SaptaWara } from "./SaptaWara";
+import { Sasih } from "./Sasih";
 import { SasihDayInfo } from "./SasihDayInfo";
+import { TriWara } from "./TriWara";
+import { Wuku } from "./Wuku";
 
 /**
  * Utility class to support BalineseDate.
@@ -164,6 +170,17 @@ export class BalineseDateUtil {
         }
         return true;
     }
+
+    /**
+     * Returns the list of rahinan for given date.
+     *
+     * @param date the BalineseDate that want to check.
+     *
+     * @return the list of rahinan for given date.
+     */
+    public static getRahinan(date: BalineseDate) {
+        return _F_CALC_RAHINAN(date);
+    }
 }
 
 /** @hidden */
@@ -212,4 +229,115 @@ const _F_CHECK_SASIH_D_I = (expectation: SasihDayInfo | undefined, reality: Sasi
         }
     }
     return true;
+};
+
+/** @hidden */
+const _F_CALC_RAHINAN = (date: BalineseDate) => {
+
+    const arr = new Array<Rahinan>();
+
+    if (date !== undefined) {
+        if (date.wuku === Wuku.SINTA) {
+            if (date.saptaWara === SaptaWara.REDITE) {
+                arr.push(Rahinan.BANYU_PINARUH);
+            } else if (date.saptaWara === SaptaWara.SOMA) {
+                arr.push(Rahinan.SOMA_RIBEK);
+            } else if (date.saptaWara === SaptaWara.ANGGARA) {
+                arr.push(Rahinan.SABUH_EMAS);
+            } else if (date.saptaWara === SaptaWara.BUDA) {
+                arr.push(Rahinan.PAGER_WESI);
+            }
+        } else if (date.wuku === Wuku.LANDEP) {
+            if (date.saptaWara === SaptaWara.SANISCARA) {
+                arr.push(Rahinan.TUMPEK_LANDEP);
+            }
+        } else if (date.wuku === Wuku.WARIGA) {
+            if (date.saptaWara === SaptaWara.SANISCARA) {
+                arr.push(Rahinan.TUMPEK_UDUH);
+            }
+        } else if (date.wuku === Wuku.SUNGSANG) {
+            if (date.saptaWara === SaptaWara.WRASPATI) {
+                arr.push(Rahinan.SUGIHAN_JAWA);
+            } else if (date.saptaWara === SaptaWara.SUKRA) {
+                arr.push(Rahinan.SUGIHAN_BALI);
+            }
+        } else if (date.wuku === Wuku.DUNGULAN) {
+            if (date.saptaWara === SaptaWara.REDITE) {
+                arr.push(Rahinan.PENYEKEBAN_GALUNGAN);
+            } else if (date.saptaWara === SaptaWara.SOMA) {
+                arr.push(Rahinan.PENYAJAN_GALUNGAN);
+            } else if (date.saptaWara === SaptaWara.ANGGARA) {
+                arr.push(Rahinan.PENAMPAHAN_GALUNGAN);
+            } else if (date.saptaWara === SaptaWara.BUDA) {
+                arr.push(Rahinan.GALUNGAN);
+            } else if (date.saptaWara === SaptaWara.WRASPATI) {
+                arr.push(Rahinan.MANIS_GALUNGAN);
+            } else if (date.saptaWara === SaptaWara.SANISCARA) {
+                arr.push(Rahinan.PEMARIDAN_GURU);
+            }
+        } else if (date.wuku === Wuku.KUNINGAN) {
+            if (date.saptaWara === SaptaWara.REDITE) {
+                arr.push(Rahinan.ULIHAN);
+            } else if (date.saptaWara === SaptaWara.SOMA) {
+                arr.push(Rahinan.PEMACEKAN_AGUNG);
+            } else if (date.saptaWara === SaptaWara.SUKRA) {
+                arr.push(Rahinan.PENAMPAHAN_KUNINGAN);
+            } else if (date.saptaWara === SaptaWara.SANISCARA) {
+                arr.push(Rahinan.KUNINGAN);
+            }
+        } else if (date.wuku === Wuku.PAHANG) {
+            if (date.saptaWara === SaptaWara.BUDA) {
+                arr.push(Rahinan.PEGAT_UWAKAN);
+            }
+        } else if (date.wuku === Wuku.UYE) {
+            if (date.saptaWara === SaptaWara.SANISCARA) {
+                arr.push(Rahinan.TUMPEK_KANDANG);
+            }
+        } else if (date.wuku === Wuku.WAYANG) {
+            if (date.saptaWara === SaptaWara.SANISCARA) {
+                arr.push(Rahinan.TUMPEK_WAYANG);
+            }
+        } else if (date.wuku === Wuku.WATUGUNUNG) {
+            if (date.saptaWara === SaptaWara.SANISCARA) {
+                arr.push(Rahinan.SARASWATI);
+            }
+        }
+
+        if (date.triWara === TriWara.KAJENG && date.pancaWara === PancaWara.KLIWON) {
+            arr.push(Rahinan.KAJENG_KLIWON);
+        }
+
+        if (date.saptaWara === SaptaWara.ANGGARA && date.pancaWara === PancaWara.KLIWON) {
+            arr.push(Rahinan.ANGGARA_KASIH);
+        }
+
+        if (date.saptaWara === SaptaWara.BUDA && date.pancaWara === PancaWara.WAGE) {
+            arr.push(Rahinan.BUDA_CEMENG);
+        }
+
+        const temp  = date.date;
+        const n1Day = new BalineseDate(dateAdd(temp, 1));
+        const b1Day = new BalineseDate(dateAdd(temp, -1));
+        const b2Day = new BalineseDate(dateAdd(temp, -2));
+
+        if (n1Day.sasih === Sasih.KAPITU && n1Day.sasihDayInfo === SasihDayInfo.TILEM) {
+            arr.push(Rahinan.SIWA_RATRI);
+        }
+
+        if (date.saka < n1Day.saka) {
+            arr.push(Rahinan.TAWUR_AGUNG_KASANGA);
+        }
+
+        if (b1Day.saka < date.saka) {
+            arr.push(Rahinan.NYEPI);
+        }
+
+        if (b2Day.saka < date.saka && b1Day.saka === date.saka) {
+            arr.push(Rahinan.NGEMBAK_GENI);
+        }
+    }
+
+    Object.freeze(arr);
+
+    return arr;
 };

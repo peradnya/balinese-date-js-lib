@@ -33,6 +33,7 @@ import { PancaSuda } from "./PancaSuda";
 import { PancaWara } from "./PancaWara";
 import { Pararasan } from "./Pararasan";
 import { PratithiSamutPada } from "./PratithiSamutPada";
+import { Rahinan } from "./Rahinan";
 import { Rakam } from "./Rakam";
 import { SadWara } from "./SadWara";
 import { SangaWara } from "./SangaWara";
@@ -48,7 +49,7 @@ export {
     AstaWara, BalineseDateUtil, CaturWara, DasaWara, DwiWara, EkaJalaRsi,
     EkaWara, Filter, Ingkel, Jejepan, Lintang, PancaSuda, PancaWara,
     Pararasan, PratithiSamutPada, Rakam, SadWara, SangaWara, SaptaWara,
-    Sasih, SasihDayInfo, TriWara, WatekAlit, WatekMadya, Wuku,
+    Sasih, SasihDayInfo, TriWara, WatekAlit, WatekMadya, Wuku, Rahinan,
 };
 
 /**
@@ -251,7 +252,6 @@ const _F_CALC_SASIH_INFO = (pivot: Pivot, date: Date) => {
     let currentSaka = pivot.saka - (currentSasih === Sasih.KADASA.id ? 1 : 0);
     let nampihCount = pivot.isNampihSasih ? 1 : 0;
 
-    let nyepiFix = false;
     let inSK = false;
     if (dateCompare(ptime, _C_SK_START) >= 0 && dateCompare(ptime, _C_SK_END) < 0) {
         inSK = true;
@@ -268,13 +268,6 @@ const _F_CALC_SASIH_INFO = (pivot: Pivot, date: Date) => {
 
             if (currentSasih === Sasih.KADASA.id && nampihCount === 0) {
                 currentSaka = currentSaka + 1;
-                if (currentSaka === 1917) {
-                    currentSaka = currentSaka - 1;
-                    nyepiFix = true;
-                }
-            } else if (currentSasih === Sasih.DESTHA.id && nampihCount === 0 && nyepiFix) {
-                currentSaka = currentSaka + 1;
-                nyepiFix = false;
             }
 
             if (currentSasih === Sasih.KAWOLU.id && currentSaka === 1914) {
@@ -290,17 +283,8 @@ const _F_CALC_SASIH_INFO = (pivot: Pivot, date: Date) => {
 
             totalSasih = totalSasih + 1;
 
-            if (currentSasih === Sasih.KADASA.id && nampihCount === 0) {
-                if (currentSaka === 1917) {
-                    currentSaka = currentSaka - 1;
-                    nyepiFix = true;
-                }
-            } else if (currentSasih === Sasih.KASANGA.id && nampihCount === 0) {
-                if (!nyepiFix) {
-                    currentSaka = currentSaka - 1;
-                } else {
-                    nyepiFix = false;
-                }
+            if (currentSasih === Sasih.KASANGA.id && nampihCount === 0) {
+                currentSaka = currentSaka - 1;
             }
 
             if (currentSasih === Sasih.KAPITU.id && currentSaka === 1914) {

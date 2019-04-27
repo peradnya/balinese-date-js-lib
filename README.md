@@ -41,11 +41,13 @@ BalineseDate is designed to be __immutable__. BalineseDate have several features
   * Pengalantaka Eka Sungsang Pon (before 2000) & Paing (2000 and after)
   * Malamasa (< 1993), Sasih Kesinambungan (1993 - 2002), Nampih Sasih (>= 2003)
 * [Saka Year](http://www.babadbali.com/pewarigaan/kalender-saka.htm)
+* Rahinan __(v0.4.2)__
 
 BalineseDate also have several utilities that can be use by developer like:
 
 * Filter BalineseDate(s) from selected Date __(v0.2.0)__
 * Filter BalineseDate(s) from selected BalineseDate List __(v0.4.0)__
+* List of Rahinan given the BalineseDate __(v0.4.2)__
 
 ## Import BalineseDate into Your Project
 
@@ -55,7 +57,7 @@ To import BalineseDate to your project, please choose one of these following met
 
 ### Direct Download
 
-* [balinese-date-js-lib.js (development)](https://unpkg.com/balinese-date-js-lib/umd/balinese-date-js-lib.js)
+* [balinese-date-js-lib.js (debug)](https://unpkg.com/balinese-date-js-lib/umd/balinese-date-js-lib.js)
 * [balinese-date-js-lib.js.map](https://unpkg.com/balinese-date-js-lib/umd/balinese-date-js-lib.js.map)
 * [balinese-date-js-lib.min.js (production)](https://unpkg.com/balinese-date-js-lib/umd/balinese-date-js-lib.min.js)
 * [balinese-date-js-lib.min.js.map](https://unpkg.com/balinese-date-js-lib/umd/balinese-date-js-lib.min.js.map)
@@ -142,7 +144,7 @@ You could find the test results at:
 
 ## Using in Code
 
-### Typescript Support
+### ES6/Typescript Approach
 
 BalineseDate support Typescript by implementing declaration file ```*.d.ts``` inside the **NodeJS** library.
 
