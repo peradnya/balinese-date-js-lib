@@ -233,10 +233,19 @@ const _F_CHECK_SASIH_D_I = (expectation: SasihDayInfo | undefined, reality: Sasi
 
 /** @hidden */
 const _F_CALC_RAHINAN = (date: BalineseDate) => {
-
     const arr = new Array<Rahinan>();
 
     if (date !== undefined) {
+        if (date.triWara === TriWara.KAJENG && date.pancaWara === PancaWara.KLIWON) {
+            arr.push(Rahinan.KAJENG_KLIWON);
+        }
+
+        if (date.saptaWara === SaptaWara.ANGGARA && date.pancaWara === PancaWara.KLIWON) {
+            arr.push(Rahinan.ANGGARA_KASIH);
+        } else if (date.saptaWara === SaptaWara.BUDA && date.pancaWara === PancaWara.WAGE) {
+            arr.push(Rahinan.BUDA_CEMENG);
+        }
+
         if (date.wuku === Wuku.SINTA) {
             if (date.saptaWara === SaptaWara.REDITE) {
                 arr.push(Rahinan.BANYU_PINARUH);
@@ -303,18 +312,6 @@ const _F_CALC_RAHINAN = (date: BalineseDate) => {
             }
         }
 
-        if (date.triWara === TriWara.KAJENG && date.pancaWara === PancaWara.KLIWON) {
-            arr.push(Rahinan.KAJENG_KLIWON);
-        }
-
-        if (date.saptaWara === SaptaWara.ANGGARA && date.pancaWara === PancaWara.KLIWON) {
-            arr.push(Rahinan.ANGGARA_KASIH);
-        }
-
-        if (date.saptaWara === SaptaWara.BUDA && date.pancaWara === PancaWara.WAGE) {
-            arr.push(Rahinan.BUDA_CEMENG);
-        }
-
         const temp  = date.date;
         const n1Day = new BalineseDate(dateAdd(temp, 1));
         const b1Day = new BalineseDate(dateAdd(temp, -1));
@@ -322,18 +319,18 @@ const _F_CALC_RAHINAN = (date: BalineseDate) => {
 
         if (n1Day.sasih === Sasih.KAPITU && n1Day.sasihDayInfo === SasihDayInfo.TILEM) {
             arr.push(Rahinan.SIWA_RATRI);
-        }
-
-        if (date.saka < n1Day.saka) {
+        } else if (date.saka < n1Day.saka) {
             arr.push(Rahinan.TAWUR_AGUNG_KASANGA);
-        }
-
-        if (b1Day.saka < date.saka) {
+        } else if (b1Day.saka < date.saka) {
             arr.push(Rahinan.NYEPI);
+        } else if (b2Day.saka < date.saka && b1Day.saka === date.saka) {
+            arr.push(Rahinan.NGEMBAK_GENI);
         }
 
-        if (b2Day.saka < date.saka && b1Day.saka === date.saka) {
-            arr.push(Rahinan.NGEMBAK_GENI);
+        if (date.sasihDayInfo === SasihDayInfo.PURNAMA) {
+            arr.push(Rahinan.PURNAMA);
+        } else if (date.sasihDayInfo === SasihDayInfo.TILEM) {
+            arr.push(Rahinan.TILEM);
         }
     }
 
